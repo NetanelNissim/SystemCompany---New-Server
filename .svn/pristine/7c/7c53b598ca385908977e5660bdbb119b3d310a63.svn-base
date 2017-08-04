@@ -1,0 +1,72 @@
+﻿using System;
+using System.ServiceModel;
+using System.Windows.Forms;
+
+namespace SystemCustomers
+{
+    public partial class AddPriority : Form
+    {
+        public AddPriority()
+        {
+            InitializeComponent();
+            btnAddPriority.Enabled = false;
+        }
+
+        private bool IsValid()
+        {
+            return (txtbTypePriority.Text.Trim() != string.Empty);
+        }
+
+        private bool canAdd = false;
+
+        private void EnableAdd()
+        {
+            btnAddPriority.Enabled = IsValid() && canAdd;
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAddPriority_Click(object sender, EventArgs e)
+        {
+            using(var priorityService = new ServiceManager.ServiceSystemCompaniesClient())
+            {
+                try
+                {
+                    var priority = new ServiceManager.Priority();
+                    priority.Method = "Insert";
+                    priority.TypePriority = txtbTypePriority.Text;
+                    priorityService.ManagePriority(priority);
+                    MessageUtils.LogUtils.WriteToLog(" Add Priority: " + txtbTypePriority.Text);
+                    MessageUtils.LogUtils.SystemEventLogsInformation(" Add Priority: " + txtbTypePriority.Text);
+                    new MessageUtils.MessageBoxText(string.Format(" עדיפות נוסף בהצלחה: {0}", txtbTypePriority.Text)).OkMessaageBox();
+                  
+                }
+                catch (FaultException ex)
+                {
+                    MessageUtils.LogUtils.WriteToLog(string.Format(" Error Add Priority: {0} Exception: {1} ", txtbTypePriority.Text, ex.Message));
+                    MessageUtils.LogUtils.SystemEventLogsError(string.Format(" Error Add Priority: {0} Exception: {1} ", txtbTypePriority.Text, ex.Message));
+                }
+                this.Close();
+            }
+           
+        }
+
+        private void txtbTypePriority_TextChanged(object sender, EventArgs e)
+        {
+            if (!MyRegEx.Validate(txtbTypePriority.Text, MyRegEx.OnlyCharsSpacesAndApostropheDigitsHebrew))
+            {
+                errorpPriority.SetError(txtbTypePriority, "רק אותיות גרש ורווחים מותרים");
+                canAdd = false;
+            }
+            else
+            {
+                errorpPriority.SetError(txtbTypePriority, string.Empty);
+                canAdd = true;
+            }
+            EnableAdd();
+        }
+    }
+}

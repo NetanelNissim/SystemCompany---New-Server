@@ -1,0 +1,43 @@
+﻿using System.Windows.Forms;
+using System;
+using System.Collections.Generic;
+using Services;
+using Layers;
+using System.Data;
+
+namespace SystemCustomers.ManageServices
+{
+    public class FormViewingServices
+    {
+        public static string Id { get; set; }
+
+        public DataTable InitServicedatagrid()
+        {
+            var objService = new ManageServicesLayers();
+            return objService.InitializeServices();
+        }
+
+        public DialogResult EditService(DataGridViewRow dr)
+        {
+            using (var service = new ManageServiceType(dr.Cells["servicesName"].Value.ToString()))
+            {
+                Id = dr.Cells["idService_Services"].Value.ToString();
+                service.btnAdd.Visible = false;
+                MessageUtils.LogUtils.WriteToLog(string.Format(" Edit Row Viewing All Services: {0}", dr.Cells["servicesName"].Value));
+                MessageUtils.LogUtils.SystemEventLogsInformation(string.Format(" Edit Row Viewing All Services: {0}", dr.Cells["servicesName"].Value));
+                return service.ShowDialog();
+            }
+        }
+
+        public void DeleteService(DataGridViewRow dr)
+        {
+            Id = dr.Cells["idService_Services"].Value.ToString();
+            var objService = new ManageServicesLayers();
+            objService.IdService = Convert.ToInt32(Id);
+            objService.DeleteService();
+            MessageUtils.LogUtils.WriteToLog(" Delete Row Viewing All Services: " +
+                                           dr.Cells["servicesName"].Value);
+            MessageUtils.LogUtils.SystemEventLogsInformation(string.Format(" Delete Row Viewing All Services: {0}", dr.Cells["servicesName"].Value));
+        }
+    }
+}

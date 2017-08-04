@@ -1,0 +1,15 @@
+05/02/2013 19:59:00: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+05/02/2013 19:59:03: q logged in
+05/02/2013 20:06:36: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+05/02/2013 20:06:39: q logged in
+05/02/2013 20:10:18: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+05/02/2013 20:10:21: q logged in
+05/02/2013 20:10:39:  Delete User 
+05/02/2013 20:19:59: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+05/02/2013 20:20:02: q logged in
+05/02/2013 20:20:10: Change User to: a
+05/02/2013 20:28:37: Data Base Connection Error
+05/02/2013 20:29:26: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+05/02/2013 20:29:29: q logged in
+05/02/2013 20:29:31:  Backup Success: 05/02/2013 20:29:31
+05/02/2013 20:29:41:  Exit From System Customer 05/02/2013 20:29:41

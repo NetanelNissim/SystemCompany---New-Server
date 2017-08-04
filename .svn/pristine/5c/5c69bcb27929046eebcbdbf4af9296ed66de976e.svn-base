@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+using System.Linq;
+using System.ServiceModel;
+using System.ServiceProcess;
+using System.Text;
+
+namespace WindowsServiceSystemCompany
+{
+    public partial class ServiceSystemCompany : ServiceBase
+    {
+        private ServiceHost _wcfManageSystemCompany;
+
+        public ServiceSystemCompany()
+        {
+            InitializeComponent();
+        }
+
+        public void OnDebug()
+        {
+            OnStart(null);
+        }
+
+        protected override void OnStart(string[] args)
+        {
+            _wcfManageSystemCompany = new ServiceHost(typeof(WcfServiceLibrarySystemCompanies.ServiceSystemCompanies));
+            _wcfManageSystemCompany.Open();
+        }
+
+        protected override void OnStop()
+        {
+            _wcfManageSystemCompany.Close();
+        }
+    }
+}

@@ -1,0 +1,43 @@
+13/01/2013 22:16:20: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+13/01/2013 22:16:25: q logged in
+13/01/2013 22:16:56:   Update the Customer: מפתח נתי
+13/01/2013 22:16:57:  Edit Row Viewing All Customers: מפתח נתי
+13/01/2013 22:17:35:  Edit Row Viewing All Services: חוזה שרות חברת קומנט
+13/01/2013 22:18:13:  Update Service: אנטי וירוס
+13/01/2013 22:18:27: Open Form Add Row Service To Customer
+13/01/2013 22:18:44:  Manage Customer To Services: שי And אנטי וירוס
+13/01/2013 22:18:54:  Edit Row Viewing All Services: אנטי וירוס
+13/01/2013 22:19:01:  Update Service: אנטי וירוס מחודש
+13/01/2013 22:19:26:  Update Manage Service To Customers
+13/01/2013 22:20:03:  Update Manage Service To Customers
+13/01/2013 22:20:09:  Update Manage Service To Customers
+13/01/2013 22:20:37:  Update Manage Service To Customers
+13/01/2013 22:20:48:  Update Manage Service To Customers
+13/01/2013 22:20:53: Open Form Add Row Service To Customer
+13/01/2013 22:21:28:  Manage Customer To Services: קומנט And חקלאות מדייקת
+13/01/2013 22:22:30:  Delete Row Service Calls: קומנט
+13/01/2013 22:22:53:  Update Service Calls
+13/01/2013 22:22:54:  Edit Row Viewing All Customers: קומנט
+13/01/2013 22:23:16:  Update Service Calls
+13/01/2013 22:23:17:  Edit Row Viewing All Customers: קומנט
+13/01/2013 22:23:45:  Exit Manage Project 
+13/01/2013 22:24:11:  Update Project: בדיקת מסד נתונים
+13/01/2013 22:24:14:  Edit Row Viewing All Project: בדיקת מסד נתונים  באמת עכשיו
+13/01/2013 22:24:36:  Update Project: בדיקה3
+13/01/2013 22:24:37:  Edit Row Viewing All Project: בדיקה 33 3333
+13/01/2013 22:25:17:  Update Manage Company To Project
+13/01/2013 22:25:42:  Update Manage Company To Project
+13/01/2013 22:26:05:  Update Manage Company To Project
+13/01/2013 22:26:48:  Update Manage Company To Project
+13/01/2013 22:27:03:  Update Manage Company To Project
+13/01/2013 22:27:23:  Update Manage Company To Project
+13/01/2013 22:27:48:  Update Manage Company To Project
+13/01/2013 22:33:10: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+13/01/2013 22:33:12: q logged in
+13/01/2013 22:33:21:  Delete User 
+13/01/2013 22:34:35:  Exit Viewing Priority 
+13/01/2013 22:34:47:  Add Priority: בדיקה
+13/01/2013 22:34:52:  Delete Priority 
+13/01/2013 22:35:00:  Add Priority: בדיקה
+13/01/2013 22:35:05:  Exit Viewing Priority 
+13/01/2013 22:35:10: Change User to: 

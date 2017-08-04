@@ -1,0 +1,77 @@
+16/01/2013 20:49:14: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+16/01/2013 20:49:17: q logged in
+16/01/2013 20:49:34:  Export File Successful The file name: List_Project_Company.xlsx
+16/01/2013 20:52:38: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+16/01/2013 20:52:41: q logged in
+16/01/2013 20:52:45:  Export File Successful 
+16/01/2013 20:52:53:  Export File Successful 
+16/01/2013 20:55:53: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+16/01/2013 20:55:56: q logged in
+16/01/2013 20:56:23:  Backup Success: 16/01/2013 20:56:23
+16/01/2013 20:58:44: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+16/01/2013 20:58:46: q logged in
+16/01/2013 21:00:09: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+16/01/2013 21:00:14: q logged in
+16/01/2013 21:01:18: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+16/01/2013 21:01:20: q logged in
+16/01/2013 21:01:35:  Backup Success: 16/01/2013 21:01:35
+16/01/2013 21:02:28: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+16/01/2013 21:02:30: q logged in
+16/01/2013 21:03:14:  Restore Success: 16/01/2013 21:03:14
+16/01/2013 21:04:29: Change User to: q
+16/01/2013 21:04:50: Change User to: qq
+16/01/2013 21:05:04:  Exit From Manage Customer 
+16/01/2013 21:05:20:   Update the Customer: ביל
+16/01/2013 21:05:21:  Edit Row Viewing All Customers: ביל
+16/01/2013 21:07:35: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+16/01/2013 21:07:37: q logged in
+16/01/2013 21:08:27:  Backup Success: 16/01/2013 21:08:27
+16/01/2013 21:09:56: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+16/01/2013 21:09:58: q logged in
+16/01/2013 21:10:14:   Update the Customer: מורן
+16/01/2013 21:10:15:  Edit Row Viewing All Customers: מורן
+16/01/2013 21:10:52:  Customer exist: בילבילון
+16/01/2013 21:10:58:  Customer exist: בילבילון
+16/01/2013 21:11:46: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+16/01/2013 21:11:48: q logged in
+16/01/2013 21:12:23:  Add Customer: בילבילון
+16/01/2013 21:12:25:  Add Row Viewing All Customers 
+16/01/2013 21:13:24: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+16/01/2013 21:13:27: q logged in
+16/01/2013 21:14:23: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+16/01/2013 21:14:25: q logged in
+16/01/2013 21:16:16: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+16/01/2013 21:16:19: q logged in
+16/01/2013 21:17:03:  Delete Row Viewing All Customers: בילבילון
+16/01/2013 22:26:00: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+16/01/2013 22:26:02: q logged in
+16/01/2013 22:26:09:  Delete Row Viewing All Customers: ביל
+16/01/2013 22:26:54:  Delete Row Service Calls: קומנט
+16/01/2013 22:27:01:  Exit Manage Project 
+16/01/2013 22:27:45:  Restore Success: 16/01/2013 22:27:45
+16/01/2013 22:30:23: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+16/01/2013 22:30:26: q logged in
+16/01/2013 22:30:36:  Delete Row Viewing All Customers: ביל
+16/01/2013 22:30:41:  Delete Row Viewing All Services: פיתוח
+16/01/2013 22:30:56:  Delete Row Service Calls: קומנט
+16/01/2013 22:31:03:  Delete Row Viewing All Project: בדיקה לאחר קריסה
+16/01/2013 22:32:03: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+16/01/2013 22:32:06: q logged in
+16/01/2013 22:32:18:  Restore Success: 16/01/2013 22:32:18
+16/01/2013 22:47:43: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+16/01/2013 22:47:45: q logged in
+16/01/2013 22:49:27:  Add Customer: בדיקה חדש
+16/01/2013 22:49:28:  Add Row Viewing All Customers 
+16/01/2013 22:50:39:  Add Calls Services
+16/01/2013 22:50:40:  Add Row Service Calls 
+16/01/2013 22:52:26:  Add Calls Services
+16/01/2013 22:52:27:  Add Row Service Calls 
+16/01/2013 22:52:59:  Delete Row Service Calls: זיו
+16/01/2013 22:53:03:  Delete Row Service Calls: קומנט
+16/01/2013 22:53:08:  Delete Row Service Calls: קומנט
+16/01/2013 22:58:01:  Update Service Calls
+16/01/2013 22:58:04:  Edit Row Viewing All Customers: ביל
+16/01/2013 23:04:07:  Export File Successful The file name: List_Project_Company.xlsx
+16/01/2013 23:05:48:  Backup Success: 16/01/2013 23:05:48
+16/01/2013 23:06:06:  Backup Success: 16/01/2013 23:06:06
+16/01/2013 23:07:27:  Restore Success: 16/01/2013 23:07:27

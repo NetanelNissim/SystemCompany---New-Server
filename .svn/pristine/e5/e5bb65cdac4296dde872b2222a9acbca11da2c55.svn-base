@@ -1,0 +1,55 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Services;
+
+namespace WcfServiceLibrarySystemCompanies
+{
+    public class ServiceUsers // : IServiceUsers
+    {
+        public void Insert(Users user)
+        {
+            UsersServices.Instance.InsertUser(user.UserName, user.PrivateName, user.Permission, user.Password);
+        }
+
+        public void UpdateUser(Users user)
+        {
+            UsersServices.Instance.UpdateUser(user.UserName, user.PrivateName, user.Permission, user.Password);
+        }
+
+        public void DeleteUser(Users user)
+        {
+            UsersServices.Instance.DeleteUser(user.UserId);
+        }
+
+        public bool CheckUser(Users user)
+        {
+            return UsersServices.Instance.CheckUserName(user.UserName);
+        }
+
+        public List<Tuple<string, int>> GetAllToFillDropDown()
+        {
+            return UsersServices.Instance.GetAllToDropDown();
+        }
+
+        public string GetPermission(Users user)
+        {
+            return UsersServices.Instance.GetPermission(user.UserName, user.Password);
+        }
+
+        public bool CheckConnection()
+        {
+            try
+            {
+                UsersServices.Instance.CheckConnection();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+                //throw new Exception(ex.Message);
+            }
+        }
+    }
+}

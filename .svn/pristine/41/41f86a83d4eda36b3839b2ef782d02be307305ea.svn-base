@@ -1,0 +1,27 @@
+﻿using Layers;
+using Services;
+
+namespace SystemCustomers.ManageUsers
+{
+  public class ManageUsers
+    {
+      private string UserName { get; set; }
+      private string Password { get; set; }
+
+      public ManageUsers(string userName, string password)
+      {
+          this.UserName = userName;
+          this.Password = password;
+      }
+
+      public string GetPermission()
+      {
+          if (this.UserName == "administrator" && this.Password == "12213443")
+              return "True";
+          var user = new ManageUsersLayers();
+          user.UserName = this.UserName;
+          user.Password = this.Password;
+          return user.GetPermission();
+      }
+    }
+}

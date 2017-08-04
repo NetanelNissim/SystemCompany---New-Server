@@ -1,0 +1,62 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Entities;
+using DataAccessLayer;
+
+namespace Services
+{
+    public class ProjectCompaniesServices
+    {
+        private static ProjectCompaniesServices instance;
+        public static ProjectCompaniesServices Instance
+        {
+            get { return instance ?? (instance = new ProjectCompaniesServices()); }
+        }
+
+        public void InsertProjectToCompany(int idCompany, int idProject, string priceType, string discriptions,
+            DateTime? DateStartProject, DateTime? DateFinishProject, string paid, string destination)
+        {
+            ProjectToCompanyPersister.Instance.InsertProjectToCompany(idCompany, idProject, priceType, discriptions,
+                DateStartProject, DateFinishProject, paid, destination);
+        }
+
+        public void UpdateProjectToCompany(int idCompany, int idProject,
+            string priceType, string discriptions, DateTime? DateStartProject, DateTime? DateFinishProject,
+            string paid, string destination)
+        {
+            ProjectToCompanyPersister.Instance.UpdateProjectToCompany(idCompany, idProject,
+             priceType, discriptions, DateStartProject, DateFinishProject,
+             paid, destination);
+        }
+
+        public IEnumerable<Entities.ProjectCompanies> GetAllProjectToCompany()
+        {
+            return ProjectToCompanyPersister.Instance.GetAllProjectToCompany();
+        }
+
+        public IEnumerable<Entities.ProjectCompanies> GetDestination()
+        {
+            return ProjectToCompanyPersister.Instance.GetDestination();
+        }
+
+        public IEnumerable<Entities.ProjectCompanies> GetIds()
+        {
+            return ProjectToCompanyPersister.Instance.GetIds();
+        }
+
+        public IEnumerable<Entities.ProjectCompanies> GetOldDestination(int idProject, int idCompany)
+        {
+            return ProjectToCompanyPersister.Instance.GetOldDestination(idProject,idCompany);
+        }
+
+        public void DeleteProjectToCompany(int idProject, int idCompany)
+        {
+            ProjectToCompanyPersister.Instance.DeleteProjectToCompany(idCompany, idProject);
+        }
+
+
+
+    }
+}

@@ -1,0 +1,47 @@
+17/01/2013 19:27:03: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+17/01/2013 19:27:05: q logged in
+17/01/2013 19:36:49: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+17/01/2013 19:36:51: q logged in
+17/01/2013 19:37:03:  Backup Success: 17/01/2013 19:37:03
+17/01/2013 19:51:19: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+17/01/2013 19:51:21: q logged in
+17/01/2013 19:51:25:  Backup Success: 17/01/2013 19:51:25
+17/01/2013 19:52:09: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+17/01/2013 19:52:12: q logged in
+17/01/2013 19:52:14:  Backup Success: 17/01/2013 19:52:14
+17/01/2013 20:05:32: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+17/01/2013 20:05:40: q logged in
+17/01/2013 20:05:48:  Backup Success: 17/01/2013 20:05:48
+17/01/2013 20:06:23:  Backup Success: 17/01/2013 20:06:23
+17/01/2013 20:14:49: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+17/01/2013 20:14:52: q logged in
+17/01/2013 20:14:55:  Backup Success: 17/01/2013 20:14:55
+17/01/2013 20:15:00:  Restore Success: 17/01/2013 20:15:00
+17/01/2013 20:15:07:  Restore Success: 17/01/2013 20:15:07
+17/01/2013 20:15:12:  Restore Success: 17/01/2013 20:15:12
+17/01/2013 20:56:29: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+17/01/2013 20:56:31: q logged in
+17/01/2013 20:57:02: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+17/01/2013 20:57:04: q logged in
+17/01/2013 21:05:38: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+17/01/2013 21:05:40: q logged in
+17/01/2013 21:06:56: Data Source=VSERVERSQL-P;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+17/01/2013 21:06:59: q logged in
+17/01/2013 21:07:52: Error Backup:A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)17/01/2013 21:07:52
+17/01/2013 21:09:53: Data Source=VSERVERSQL-P;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+17/01/2013 21:10:00: q logged in
+17/01/2013 21:10:36: Error Backup:A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)17/01/2013 21:10:36
+17/01/2013 21:38:34: Data Source=VSERVERSQL-P;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+17/01/2013 21:38:36: q logged in
+17/01/2013 21:39:20: Error Backup:Test17/01/2013 21:39:20
+17/01/2013 21:40:23: Data Source=VSERVERSQL-P;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+17/01/2013 21:40:25: q logged in
+17/01/2013 21:40:50: Error Backup:Test17/01/2013 21:40:50
+17/01/2013 21:42:01: Data Source=VSERVERSQL-P;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+17/01/2013 21:42:03: q logged in
+17/01/2013 21:42:29: Error Backup:A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)17/01/2013 21:42:29
+17/01/2013 21:43:02: Data Source=VSERVERSQL-P;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+17/01/2013 21:43:04: q logged in
+17/01/2013 21:43:24: Error Backup:A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)17/01/2013 21:43:24
+17/01/2013 21:44:04: Error Backup:A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)17/01/2013 21:44:04
+17/01/2013 21:44:34: Error Backup:A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)17/01/2013 21:44:34

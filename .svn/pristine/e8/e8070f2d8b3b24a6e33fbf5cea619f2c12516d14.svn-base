@@ -1,0 +1,68 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Layers
+{
+    public class CompanyLayers
+    {
+
+        public void Delete(int id)
+        {
+            new Services.CompanyServices().DeleteCompany(id);
+        }
+
+        public void Add(string companyName, string contactName, string mobilePhone,
+            string email, string Phone, string FAX, string companynumber, string address, string city,
+            string ZIP, string PostalNum, string paymentTerms)
+        {
+            new Services.CompanyServices().InsertCompany(companyName, contactName, mobilePhone, email,
+                Phone, FAX, companynumber, address, city, ZIP, PostalNum, paymentTerms);
+        }
+
+        public void Update(string companyName, string contactName, string mobilePhone,
+          string email, string Phone, string FAX, string companynumber, string address, string city,
+          string ZIP, string PostalNum, string paymentTerms, int idCompany)
+        {
+            new Services.CompanyServices().UpdateCompany(companyName, contactName, mobilePhone, email, Phone, FAX, companynumber, address, city, ZIP, PostalNum, paymentTerms, idCompany);
+        }
+
+        public DataTable GetCompanies()
+        {
+         
+          //  list = new Services.CompanyServices().GetAllCustomers();
+            var list = new List<string>();
+          // ToDataTable(new Services.CompanyServices().GetAllCustomers());
+            
+            return DataTableCreator.Instance.ConvertListToDataTable(list);
+
+        }
+
+        public DataTable ToDataTable<T>(IList<T> data)// T is any generic type
+        {
+            PropertyDescriptorCollection props = TypeDescriptor.GetProperties(typeof(T));
+
+            DataTable table = new DataTable();
+            for (int i = 0; i < props.Count; i++)
+            {
+                PropertyDescriptor prop = props[i];
+                table.Columns.Add(prop.Name, prop.PropertyType);
+            }
+            object[] values = new object[props.Count];
+            foreach (T item in data)
+            {
+                for (int i = 0; i < values.Length; i++)
+                {
+                    values[i] = props[i].GetValue(item);
+                }
+                table.Rows.Add(values);
+            }
+            return table;
+        }
+
+    }
+}

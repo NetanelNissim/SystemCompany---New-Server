@@ -1,0 +1,51 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Entities;
+using DataAccessLayer;
+using System.Data;
+
+namespace Services
+{
+    public class ServiceServices
+    {
+        private static ServiceServices instance;
+        public static ServiceServices Instance
+        {
+            get { return instance ?? (instance = new ServiceServices()); }
+        }
+
+        public void InsertService(string serviceName)
+        {
+            ServicesPersister.Instance.InsertService(serviceName);
+        }
+
+        public void UpdateService(string serviceName, int idService)
+        {
+            ServicesPersister.Instance.UpdateService(serviceName, idService);
+        }
+
+        public DataTable GetAllService()
+        {
+            return DataTableCreator.Instance.ConvertListToDataTable(ServicesPersister.Instance.GetAllServices().ToList<Entities.Services>());
+        }
+
+        public void DeleteService(int idService)
+        {
+            ServicesPersister.Instance.DeleteService(idService);
+        }
+
+        public List<dynamic> GetAllServiceToDropDown()
+        {
+           var service =  ServicesPersister.Instance.GetAllServices();
+           var list = new List<dynamic>();
+           foreach (var item in service)
+           {
+               list.Add(new {IdService= item.IdService ,servicesName = item.servicesName });
+           }
+           return list;
+        }
+
+    }
+}

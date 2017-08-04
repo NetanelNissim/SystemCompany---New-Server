@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SystemCompanyModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="SystemCompanyEntities" annotation:LazyLoadingEnabled="false">
+    <EntitySet Name="Companys" EntityType="SystemCompanyModel.Company" />
+    <EntitySet Name="DateProjectCompanies" EntityType="SystemCompanyModel.DateProjectCompany" />
+    <EntitySet Name="UserLogins" EntityType="SystemCompanyModel.UserLogin" />
+    <EntitySet Name="Priorities" EntityType="SystemCompanyModel.Priority" />
+    <EntitySet Name="projects" EntityType="SystemCompanyModel.project" />
+    <EntitySet Name="ProjectCompanies" EntityType="SystemCompanyModel.ProjectCompany" />
+    <EntitySet Name="ServiceCalls" EntityType="SystemCompanyModel.ServiceCall" />
+    <EntitySet Name="Services" EntityType="SystemCompanyModel.Service" />
+    <EntitySet Name="ServicesCompanies" EntityType="SystemCompanyModel.ServicesCompany" />
+    <AssociationSet Name="FK_ServiceCalls_IdCompany" Association="SystemCompanyModel.FK_ServiceCalls_IdCompany">
+      <End Role="Companys" EntitySet="Companys" />
+      <End Role="ServiceCalls" EntitySet="ServiceCalls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServicesCompany_Company" Association="SystemCompanyModel.FK_ServicesCompany_Company">
+      <End Role="Companys" EntitySet="Companys" />
+      <End Role="ServicesCompany" EntitySet="ServicesCompanies" />
+    </AssociationSet>
+    <AssociationSet Name="FKDateProjectCompany" Association="SystemCompanyModel.FKDateProjectCompany">
+      <End Role="Companys" EntitySet="Companys" />
+      <End Role="DateProjectCompany" EntitySet="DateProjectCompanies" />
+    </AssociationSet>
+    <AssociationSet Name="FKProjectCompany" Association="SystemCompanyModel.FKProjectCompany">
+      <End Role="Companys" EntitySet="Companys" />
+      <End Role="ProjectCompany" EntitySet="ProjectCompanies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DateProjectCompany_IdProject" Association="SystemCompanyModel.FK_DateProjectCompany_IdProject">
+      <End Role="project" EntitySet="projects" />
+      <End Role="DateProjectCompany" EntitySet="DateProjectCompanies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceCalls_idPriority" Association="SystemCompanyModel.FK_ServiceCalls_idPriority">
+      <End Role="Priorities" EntitySet="Priorities" />
+      <End Role="ServiceCalls" EntitySet="ServiceCalls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_project_Company_idProject" Association="SystemCompanyModel.FK_project_Company_idProject">
+      <End Role="project" EntitySet="projects" />
+      <End Role="ProjectCompany" EntitySet="ProjectCompanies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServicesCompany" Association="SystemCompanyModel.FK_ServicesCompany">
+      <End Role="Services" EntitySet="Services" />
+      <End Role="ServicesCompany" EntitySet="ServicesCompanies" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="idCompany" />
+    </Key>
+    <Property Name="companyName" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+    <Property Name="contactName" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+    <Property Name="mobilePhone" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="email" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="FAX" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+    <Property Name="companynumber" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+    <Property Name="address" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+    <Property Name="city" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+    <Property Name="ZIP" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+    <Property Name="PostalNum" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+    <Property Name="idCompany" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="paymentTerms" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="ServiceCalls" Relationship="SystemCompanyModel.FK_ServiceCalls_IdCompany" FromRole="Companys" ToRole="ServiceCalls" />
+    <NavigationProperty Name="ServicesCompanies" Relationship="SystemCompanyModel.FK_ServicesCompany_Company" FromRole="Companys" ToRole="ServicesCompany" />
+    <NavigationProperty Name="DateProjectCompanies" Relationship="SystemCompanyModel.FKDateProjectCompany" FromRole="Companys" ToRole="DateProjectCompany" />
+    <NavigationProperty Name="ProjectCompanies" Relationship="SystemCompanyModel.FKProjectCompany" FromRole="Companys" ToRole="ProjectCompany" />
+  </EntityType>
+  <EntityType Name="DateProjectCompany">
+    <Key>
+      <PropertyRef Name="idCompany" />
+      <PropertyRef Name="idProject" />
+    </Key>
+    <Property Name="DateStartProject" Type="DateTime" />
+    <Property Name="DateFinishProject" Type="DateTime" />
+    <Property Name="idCompany" Type="Int32" Nullable="false" />
+    <Property Name="idProject" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Company" Relationship="SystemCompanyModel.FKDateProjectCompany" FromRole="DateProjectCompany" ToRole="Companys" />
+    <NavigationProperty Name="project" Relationship="SystemCompanyModel.FK_DateProjectCompany_IdProject" FromRole="DateProjectCompany" ToRole="project" />
+  </EntityType>
+  <EntityType Name="UserLogin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="UserName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Password" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="VPermission" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Priority">
+    <Key>
+      <PropertyRef Name="idPriority" />
+    </Key>
+    <Property Name="idPriority" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypePriority" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="ServiceCalls" Relationship="SystemCompanyModel.FK_ServiceCalls_idPriority" FromRole="Priorities" ToRole="ServiceCalls" />
+  </EntityType>
+  <EntityType Name="project">
+    <Key>
+      <PropertyRef Name="idProject" />
+    </Key>
+    <Property Name="idProject" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="projectName" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+    <Property Name="projectDescription" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="DateProjectCompanies" Relationship="SystemCompanyModel.FK_DateProjectCompany_IdProject" FromRole="project" ToRole="DateProjectCompany" />
+    <NavigationProperty Name="ProjectCompanies" Relationship="SystemCompanyModel.FK_project_Company_idProject" FromRole="project" ToRole="ProjectCompany" />
+  </EntityType>
+  <EntityType Name="ProjectCompany">
+    <Key>
+      <PropertyRef Name="idCustomerProject" />
+    </Key>
+    <Property Name="idCustomerProject" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idProject" Type="Int32" Nullable="false" />
+    <Property Name="idCompany" Type="Int32" Nullable="false" />
+    <Property Name="priceType" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="discriptions" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="paid" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="destination" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Company" Relationship="SystemCompanyModel.FKProjectCompany" FromRole="ProjectCompany" ToRole="Companys" />
+    <NavigationProperty Name="project" Relationship="SystemCompanyModel.FK_project_Company_idProject" FromRole="ProjectCompany" ToRole="project" />
+  </EntityType>
+  <EntityType Name="ServiceCall">
+    <Key>
+      <PropertyRef Name="idCallsServices" />
+    </Key>
+    <Property Name="idCallsServices" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idCompany" Type="Int32" Nullable="false" />
+    <Property Name="dateOpenCalls" Type="DateTime" />
+    <Property Name="discriptions" Type="String" MaxLength="350" Unicode="true" FixedLength="false" />
+    <Property Name="idPriority" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Company" Relationship="SystemCompanyModel.FK_ServiceCalls_IdCompany" FromRole="ServiceCalls" ToRole="Companys" />
+    <NavigationProperty Name="Priority" Relationship="SystemCompanyModel.FK_ServiceCalls_idPriority" FromRole="ServiceCalls" ToRole="Priorities" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="idService" />
+    </Key>
+    <Property Name="idService" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="servicesName" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="ServicesCompanies" Relationship="SystemCompanyModel.FK_ServicesCompany" FromRole="Services" ToRole="ServicesCompany" />
+  </EntityType>
+  <EntityType Name="ServicesCompany">
+    <Key>
+      <PropertyRef Name="idCustService" />
+    </Key>
+    <Property Name="idCustService" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idCompany" Type="Int32" Nullable="false" />
+    <Property Name="idService" Type="Int32" Nullable="false" />
+    <Property Name="startdate" Type="DateTime" />
+    <Property Name="enddate" Type="DateTime" />
+    <Property Name="price" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="priceCost" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="paid" Type="Boolean" />
+    <NavigationProperty Name="Company" Relationship="SystemCompanyModel.FK_ServicesCompany_Company" FromRole="ServicesCompany" ToRole="Companys" />
+    <NavigationProperty Name="Service" Relationship="SystemCompanyModel.FK_ServicesCompany" FromRole="ServicesCompany" ToRole="Services" />
+  </EntityType>
+  <Association Name="FK_ServiceCalls_IdCompany">
+    <End Role="Companys" Type="SystemCompanyModel.Company" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ServiceCalls" Type="SystemCompanyModel.ServiceCall" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Companys">
+        <PropertyRef Name="idCompany" />
+      </Principal>
+      <Dependent Role="ServiceCalls">
+        <PropertyRef Name="idCompany" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServicesCompany_Company">
+    <End Role="Companys" Type="SystemCompanyModel.Company" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ServicesCompany" Type="SystemCompanyModel.ServicesCompany" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Companys">
+        <PropertyRef Name="idCompany" />
+      </Principal>
+      <Dependent Role="ServicesCompany">
+        <PropertyRef Name="idCompany" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKDateProjectCompany">
+    <End Role="Companys" Type="SystemCompanyModel.Company" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DateProjectCompany" Type="SystemCompanyModel.DateProjectCompany" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Companys">
+        <PropertyRef Name="idCompany" />
+      </Principal>
+      <Dependent Role="DateProjectCompany">
+        <PropertyRef Name="idCompany" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKProjectCompany">
+    <End Role="Companys" Type="SystemCompanyModel.Company" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProjectCompany" Type="SystemCompanyModel.ProjectCompany" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Companys">
+        <PropertyRef Name="idCompany" />
+      </Principal>
+      <Dependent Role="ProjectCompany">
+        <PropertyRef Name="idCompany" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DateProjectCompany_IdProject">
+    <End Role="project" Type="SystemCompanyModel.project" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DateProjectCompany" Type="SystemCompanyModel.DateProjectCompany" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="project">
+        <PropertyRef Name="idProject" />
+      </Principal>
+      <Dependent Role="DateProjectCompany">
+        <PropertyRef Name="idProject" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceCalls_idPriority">
+    <End Role="Priorities" Type="SystemCompanyModel.Priority" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ServiceCalls" Type="SystemCompanyModel.ServiceCall" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Priorities">
+        <PropertyRef Name="idPriority" />
+      </Principal>
+      <Dependent Role="ServiceCalls">
+        <PropertyRef Name="idPriority" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_project_Company_idProject">
+    <End Role="project" Type="SystemCompanyModel.project" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProjectCompany" Type="SystemCompanyModel.ProjectCompany" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="project">
+        <PropertyRef Name="idProject" />
+      </Principal>
+      <Dependent Role="ProjectCompany">
+        <PropertyRef Name="idProject" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServicesCompany">
+    <End Role="Services" Type="SystemCompanyModel.Service" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ServicesCompany" Type="SystemCompanyModel.ServicesCompany" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Services">
+        <PropertyRef Name="idService" />
+      </Principal>
+      <Dependent Role="ServicesCompany">
+        <PropertyRef Name="idService" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

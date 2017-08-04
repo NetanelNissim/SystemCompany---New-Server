@@ -1,0 +1,22 @@
+18/01/2013 10:16:13: Data Source=VSERVERSQL-P;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+18/01/2013 10:16:15: q logged in
+18/01/2013 10:31:15: Data Source=VSERVERSQL-P;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+18/01/2013 10:31:18: q logged in
+18/01/2013 10:31:36: Error Backup:Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached.18/01/2013 10:31:36
+18/01/2013 10:32:17: Data Source=VSERVERSQL-P;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+18/01/2013 10:32:19: q logged in
+18/01/2013 14:44:26: Data Base Connection Error
+18/01/2013 14:45:18: Data Base Connection Error
+18/01/2013 14:48:01: Data Base Connection Error
+18/01/2013 14:49:45: Data Source=VSERVERSQL-P;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+18/01/2013 14:49:47: q logged in
+18/01/2013 14:52:09: Data Source=VSERVERSQL-P;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+18/01/2013 14:52:11: q logged in
+18/01/2013 14:53:31: Data Source=VSERVERSQL-P;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+18/01/2013 14:53:33: q logged in
+18/01/2013 14:55:07: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+18/01/2013 14:55:09: q logged in
+18/01/2013 14:55:39: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+18/01/2013 14:55:53: Data Source=VSERVERSQL-P;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+18/01/2013 14:55:55: q logged in
+18/01/2013 14:56:24: Error Backup:A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)18/01/2013 14:56:24

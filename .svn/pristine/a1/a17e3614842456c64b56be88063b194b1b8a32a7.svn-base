@@ -1,0 +1,93 @@
+﻿using System;
+using System.Windows.Forms;
+
+
+namespace SystemCustomers
+{
+    public partial class Maintenance : Form
+    {
+        public Maintenance()
+        {
+            InitializeComponent();
+        }
+
+        private void btnBackup_Click(object sender, EventArgs e)
+        {
+            DB.DBBackup backup = new DB.DBBackup();
+            bool bTrue = backup.BackUpDatabase();
+            if (bTrue)
+            {
+                MessageUtils.LogUtils.WriteToLog(" Backup Success: " + DateTime.Now);
+                MessageUtils.LogUtils.SystemEventLogsInformation(" Backup Success: " + DateTime.Now);
+                MessageBox.Show("הגיבוי עבר בהצלחה");
+                this.Close();
+            }
+            else
+            {
+                MessageUtils.LogUtils.WriteToLog("Error Backup: " + DateTime.Now);
+                MessageUtils.LogUtils.SystemEventLogsInformation("Error Backup: " + DateTime.Now);
+            }
+        }
+
+      /*  private void btnRestore_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("?בטוח שאתה רוצה לשחזר", "שיחזור", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                DB.DBBackup restore = new DB.DBBackup();
+                bool rTrue = restore.RestoreDatabase();
+                if (rTrue)
+                {
+                    MessageLog.LogUtils.WriteToLog(" Restore Success: " + DateTime.Now);
+                    MessageLog.LogUtils.SystemEventLogs(" Restore Success: " + DateTime.Now);
+                    MessageBox.Show("השחזור עבר בהצלחה");
+                }
+                else
+                {
+                    MessageLog.LogUtils.WriteToLog(" Error Restore: " + DateTime.Now);
+                    MessageLog.LogUtils.SystemEventLogs(" Error Restore: " + DateTime.Now);
+                }
+            }
+           
+        }*/
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            const int WM_KEYDOWN = 0x100;
+            // Only Process Key Down events for the Escape Key
+            if (msg.Msg == WM_KEYDOWN)
+            {
+                if (keyData == Keys.Escape)
+                {
+                    this.Close();
+                    // DialogResult = DialogResult.Cancel;
+                    // Could call cancel click handler here
+                    // Return true to indicate that Escape key was handled
+                    return true;
+                }
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void btnRestore_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("?בטוח שאתה רוצה לשחזר", "שיחזור", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                DB.DBBackup restore = new DB.DBBackup();
+                bool rTrue = restore.RestoreDatabase();
+                if (rTrue)
+                {
+                    MessageUtils.LogUtils.WriteToLog(" Restore Success: " + DateTime.Now);
+                    MessageUtils.LogUtils.SystemEventLogsInformation(" Restore Success: " + DateTime.Now);
+                    MessageBox.Show("השחזור עבר בהצלחה");
+                    this.Close();
+                }
+                else
+                {
+                    MessageUtils.LogUtils.WriteToLog(" Error Restore: " + DateTime.Now);
+                    MessageUtils.LogUtils.SystemEventLogsError(" Error Restore: " + DateTime.Now);
+                }
+            }
+
+        }
+    }
+}

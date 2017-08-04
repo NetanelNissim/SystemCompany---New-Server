@@ -1,0 +1,50 @@
+19/08/2012 19:03:45: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/08/2012 19:03:49: q logged in
+19/08/2012 19:07:33: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/08/2012 19:07:37: q logged in
+19/08/2012 19:10:25: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/08/2012 19:10:30: q logged in
+19/08/2012 19:12:32: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/08/2012 19:12:40: q logged in
+19/08/2012 19:47:16: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/08/2012 19:47:21: q logged in
+19/08/2012 19:49:15: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/08/2012 19:49:18: q logged in
+19/08/2012 19:51:24: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/08/2012 19:51:27: q logged in
+19/08/2012 19:52:38: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/08/2012 19:52:40: q logged in
+19/08/2012 19:53:06: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/08/2012 19:53:09: q logged in
+19/08/2012 20:01:41: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/08/2012 20:01:44: q logged in
+19/08/2012 20:11:25: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/08/2012 20:11:28: q logged in
+19/08/2012 20:11:33:  Exit From Manage Customer 
+19/08/2012 20:11:37: Open Form Add Row Project To Company
+19/08/2012 20:15:27:  Exit From Manage Company To Project
+19/08/2012 20:26:38: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/08/2012 20:26:42: q logged in
+19/08/2012 20:26:47: Open Form Add Row Project To Company
+19/08/2012 20:28:50: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/08/2012 20:28:53: q logged in
+19/08/2012 20:29:00: Open Form Add Row Project To Company
+19/08/2012 20:30:47:  Manage Company To Project: ביל And בדיקה חדש
+19/08/2012 21:03:40: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/08/2012 21:03:45: q logged in
+19/08/2012 21:05:13: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/08/2012 21:05:17: q logged in
+19/08/2012 21:05:36: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/08/2012 21:05:39: q logged in
+19/08/2012 22:48:05: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/08/2012 22:48:08: q logged in
+19/08/2012 22:51:11: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/08/2012 22:51:15: q logged in
+19/08/2012 22:52:03: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/08/2012 22:52:07: q logged in
+19/08/2012 22:55:00: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/08/2012 22:55:04: q logged in
+19/08/2012 23:05:42: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/08/2012 23:05:46: q logged in
+19/08/2012 23:06:10: Open Form Add Row Project To Company
+19/08/2012 23:07:03:  Manage Company To Project: דויד And חקלאות מדייקת

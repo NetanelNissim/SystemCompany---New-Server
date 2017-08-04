@@ -1,0 +1,54 @@
+20/07/2012 13:55:37: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+20/07/2012 13:55:42: q logged in
+20/07/2012 13:56:33:  Add Calls Services
+20/07/2012 13:56:34:  Add Row Service Calls 
+20/07/2012 13:57:28:  Export File Successful 
+20/07/2012 15:07:46: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+20/07/2012 15:07:51: q logged in
+20/07/2012 15:08:15:  Export File Successful 
+20/07/2012 17:03:59: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+20/07/2012 17:04:06: a logged in
+20/07/2012 17:29:04: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+20/07/2012 17:29:04: A error occurred while trying to connect to the server.Object reference not set to an instance of an object.
+20/07/2012 17:29:04: Data Base Connection Error
+20/07/2012 17:29:08: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+20/07/2012 17:29:08: A error occurred while trying to connect to the server.Object reference not set to an instance of an object.
+20/07/2012 17:29:08: Data Base Connection Error
+20/07/2012 17:29:32: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+20/07/2012 17:29:32: A error occurred while trying to connect to the server.Object reference not set to an instance of an object.
+20/07/2012 17:29:32: Data Base Connection Error
+20/07/2012 17:36:10: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+20/07/2012 17:37:20: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+20/07/2012 17:37:39: A error occurred while trying to connect to the server.Object reference not set to an instance of an object.
+20/07/2012 17:38:07: Data Base Connection Error
+20/07/2012 17:41:59: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+20/07/2012 17:42:03: q logged in
+20/07/2012 17:45:48: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+20/07/2012 17:45:52: q logged in
+20/07/2012 17:47:20: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+20/07/2012 17:47:26: q logged in
+20/07/2012 17:48:33: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+20/07/2012 17:49:02: q logged in
+20/07/2012 17:49:35: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+20/07/2012 17:50:05: q logged in
+20/07/2012 17:50:34: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+20/07/2012 17:50:39: q logged in
+20/07/2012 17:51:28:  Add Customer: מה קורה
+20/07/2012 17:51:30:  Add Row Viewing All Customers 
+20/07/2012 17:54:15:  Add Customer: בדיקת ביצועים
+20/07/2012 17:54:16:  Add Row Viewing All Customers 
+20/07/2012 17:54:45:  Add Customer: ניסים נתנאל
+20/07/2012 17:54:46:  Add Row Viewing All Customers 
+20/07/2012 17:56:19: Change User to: sing
+20/07/2012 17:56:36: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+20/07/2012 17:56:44: sing logged in
+20/07/2012 18:01:22:  Add Calls Services
+20/07/2012 18:01:24:  Add Row Service Calls 
+20/07/2012 18:03:49:  Add Project: פוצית צריכה לקבל מאה במבחנים
+20/07/2012 18:03:51:  Add Row Viewing All Project 
+20/07/2012 18:03:56: Open Form Add Row Project To Company
+20/07/2012 18:05:15:  Manage Company To Project: מורן And פוצית צריכה לקבל מאה במבחנים
+20/07/2012 20:35:21: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+20/07/2012 20:35:28: q logged in
+20/07/2012 20:44:36: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+20/07/2012 20:44:41: q logged in

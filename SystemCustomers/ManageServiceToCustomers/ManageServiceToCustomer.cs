@@ -1,0 +1,342 @@
+﻿using System;
+using System.ServiceModel;
+using System.Windows.Forms;
+namespace SystemCustomers
+{
+    public partial class ManageServiceToCustomer : Form
+    {
+        public ManageServiceToCustomer()
+        {
+            InitializeComponent();
+            this.IsForSpecificCustomer = false;
+            dateEnddate.Value = DateTime.Now.AddMonths(1);
+            InitcombListCustomers();
+            InitcombListServices();
+        }
+
+        #region Properties
+        public ManageServiceToCustomer(string companyName,
+            string serviceName, string companyID,
+            string serviceID, DateTime startdate,
+            DateTime enddate, string price, string priceCost,bool paid)
+        {
+            InitializeComponent();
+            this.btnAdd.Visible = false;
+            this.btnupdate.Visible = true;
+            this.IsForSpecificCustomer = true;
+            this.CompanyName = companyName;
+            this.ServiceName = serviceName;
+            this.CompanyId = companyID;
+            this.ServiceId = serviceID;
+            this.Startdate = startdate;
+            this.Enddate = enddate;
+            this.Price = price;
+            this.PriceCost = priceCost;
+            this.Paid = paid;
+            InitcombListCustomers();
+            InitcombListServices();
+        }
+
+        private bool canAdd = false;
+
+        public bool IsForSpecificCustomer { get; set;}
+      
+        public string PriceCost
+        {
+            get { return txtbPriceCost.Text; }
+            set { txtbPriceCost.Text = value; }
+        }
+
+        private string _companyName = string.Empty;
+
+        public new string CompanyName
+        {
+            get { return _companyName = combListCust.SelectedItem.ToString(); }
+            set { _companyName = value; }
+        }
+
+        private string _serviceName = string.Empty;
+
+        public string ServiceName
+        {
+            get { return _serviceName = combListServices.SelectedItem.ToString(); }
+            set { _serviceName = value; }
+        }
+
+        public string CompanyId { get; set;}
+      
+
+        public string ServiceId { get; set;}
+
+        public DateTime Startdate
+        {
+            get { return dateStartdate.Value; }
+            set { dateStartdate.Value = value; }
+        }
+
+        public DateTime Enddate
+        {
+            get { return dateEnddate.Value; }
+            set { dateEnddate.Value = value; }
+        }
+
+        public string Price
+        {
+            get { return txtbPrice.Text; }
+            set { txtbPrice.Text = value; }
+        }
+
+        public bool Paid
+        {
+            get { return cbPaid.Checked; }
+            set { cbPaid.Checked = value; }
+        }
+
+        #endregion Properties
+
+        #region Method
+
+        private void EnableAdd()
+        {
+            btnAdd.Enabled = btnupdate.Enabled = IsValid() && canAdd;
+        }
+
+        private bool IsValid()
+        {
+            return (txtbPrice.Text.Trim() != string.Empty);
+        }
+
+        public void InitcombListCustomers()
+        {
+            if (IsForSpecificCustomer)
+            {
+                combListCust.Items.Clear();
+                IDToName comp = new IDToName(this._companyName, this.CompanyId);
+                combListCust.Items.Add(comp);
+            }
+            else
+            {
+                string idComp = string.Empty;
+                string Compname = string.Empty;
+                using (var servicCompany = new ServiceManager.ServiceSystemCompaniesClient())
+                {
+                    try
+                    {
+                        var comp = new ServiceManager.Companies();
+                        comp.Method = "GetAllCustomersToDropDown";
+                        comp = servicCompany.ManageCompanies(comp);
+
+                        foreach (var listComp in comp.list)
+                        {
+                            Compname = listComp.Item1;
+                            idComp = listComp.Item2.ToString();
+                            IDToName company = new IDToName(Compname, idComp);
+                            combListCust.Items.Add(company);
+                        }
+                    }
+                    catch (FaultException ex)
+                    {
+                        MessageUtils.LogUtils.WriteToLog(String.Format(" Error Get All Customers To DropDown: {0}", ex.Message));
+                        MessageUtils.LogUtils.SystemEventLogsError(String.Format(" Error Get All Customers To DropDown: {0}", ex.Message));
+                    }
+                }
+            }
+            if (combListCust.Items.Count > 0) combListCust.SelectedIndex = 0;
+        }
+
+        public void InitcombListServices()
+        {
+            if (IsForSpecificCustomer)
+            {
+                combListServices.Items.Clear();
+                IDToName service = new IDToName(this._serviceName, this.ServiceId);
+                combListServices.Items.Add(service);
+            }
+            else
+            {
+                using (var serviceService = new ServiceManager.ServiceSystemCompaniesClient())
+                {
+                    try
+                    {
+                        var service = new ServiceManager.Service();
+                        service.Method = "GetAllServiceToDropDown";
+                        service = serviceService.MangeServices(service);
+                        foreach (var listService in service.list)
+                        {
+                            string serviceName = listService.Item2;
+                            string idService = Convert.ToString(listService.Item1);
+                            IDToName serviceToDrop = new IDToName(serviceName, idService);
+                            combListServices.Items.Add(serviceToDrop);
+                        }
+                    }
+                    catch (FaultException ex)
+                    {
+                        MessageUtils.LogUtils.WriteToLog(String.Format(" Error Get All Service To DropDown: {0}", ex.Message));
+                        MessageUtils.LogUtils.SystemEventLogsError(String.Format(" Error Get All Service To DropDown: {0}", ex.Message));
+                    }
+                }
+            }
+            if (combListServices.Items.Count > 0) combListServices.SelectedIndex = 0;
+        }
+
+        #endregion Method
+
+        #region Event 
+        private void combListCust_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            IDToName company = (IDToName)this.combListCust.SelectedItem;
+            if (company == null) return;
+            string companyID = company.ID;
+            this.CompanyId = companyID;
+        }
+
+        private void combListServices_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            IDToName service = (IDToName)this.combListServices.SelectedItem;
+            if (service == null) return;
+            string serviceId = service.ID;
+            this.ServiceId = serviceId;
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            using (var objServiceToCompany = new ServiceManager.ServiceSystemCompaniesClient())
+            {
+                try
+                {
+                    var serviceCompany = new ServiceManager.ServiceToCompany();
+                    serviceCompany.idService = Convert.ToInt16(ServiceId);
+                    serviceCompany.idCompany = Convert.ToInt16(CompanyId);
+                    serviceCompany.Method = "CheckToAdd";
+                    serviceCompany = objServiceToCompany.ManageServiceToCompany(serviceCompany);
+                    if (serviceCompany.isBool)
+                    {
+                        if (PriceCost == string.Empty) PriceCost = "0";
+                        serviceCompany.Startdate = Startdate;
+                        serviceCompany.Enddate = Enddate;
+                        serviceCompany.Paid = Paid;
+                        serviceCompany.Price = Price;
+                        serviceCompany.priceCost = PriceCost;
+                        serviceCompany.idCompany = Convert.ToInt16(CompanyId);
+                        serviceCompany.idService = Convert.ToInt16(ServiceId);
+                        serviceCompany.Method = "Insert";
+                        objServiceToCompany.ManageServiceToCompany(serviceCompany);
+                        MessageUtils.LogUtils.WriteToLog(String.Format(" Manage Customer To Services: {0} And {1}", CompanyName, ServiceName));
+                        MessageUtils.LogUtils.SystemEventLogsInformation(String.Format(" Manage Customer To Services: {0} And {1}", CompanyName, ServiceName));
+                        new MessageUtils.MessageBoxText("נוסף בהצלחה").OkMessaageBox();
+                        this.DialogResult = DialogResult.OK;
+                    }
+                    else
+                    {
+                        MessageUtils.LogUtils.WriteToLog(String.Format(" Error Manage Customer To Services the company and service exist: {0} And {1}", CompanyName, ServiceName));
+                        MessageUtils.LogUtils.SystemEventLogsWarning(String.Format(" Error Manage Customer To Services the company and service exist: {0} And {1}", CompanyName, ServiceName));
+                        new MessageUtils.MessageBoxText("קיים במערכת אותו שרות ללקוח הנבחר").OkMessaageBox();
+                    }
+                }
+                catch (FaultException ex)
+                {
+                    MessageUtils.LogUtils.WriteToLog(String.Format(" Error Manage Customer {0} Services: {1} . Exception: {2}", CompanyName, ServiceName, ex.Message));
+                    MessageUtils.LogUtils.SystemEventLogsError(String.Format(" Error Manage Customer {0} Services: {1} . Exception: {2}", CompanyName, ServiceName, ex.Message));
+                }
+                this.Close();
+            }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            MessageUtils.LogUtils.WriteToLog(" Exit From Manage Service To Customers");
+            MessageUtils.LogUtils.SystemEventLogsInformation(" Exit From Manage Service To Customers");
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void btnupdate_Click(object sender, EventArgs e)
+        {
+            using (var objServiceToCompany = new ServiceManager.ServiceSystemCompaniesClient())
+            {
+                try
+                {
+                    var serviceCompany = new ServiceManager.ServiceToCompany();
+                    serviceCompany.Method = "CheckToAdd";
+                    serviceCompany.idCompany = Convert.ToInt16(CompanyId);
+                    serviceCompany.idService = Convert.ToInt16(ServiceId);
+                    serviceCompany = objServiceToCompany.ManageServiceToCompany(serviceCompany);
+                    if (!serviceCompany.isBool)
+                    {
+                        serviceCompany.Method = "Update";
+                        serviceCompany.Startdate = Startdate;
+                        serviceCompany.Enddate = Enddate;
+                        serviceCompany.Paid = Paid;
+                        serviceCompany.Price = Price;
+                        serviceCompany.priceCost = PriceCost;
+                        objServiceToCompany.ManageServiceToCompany(serviceCompany);
+                        MessageUtils.LogUtils.WriteToLog(" Update Manage Service To Customers");
+                        MessageUtils.LogUtils.SystemEventLogsInformation(" Update Manage Service To Customers");
+                        new MessageUtils.MessageBoxText("עודכן בהצלחה").OkMessaageBox();
+                        this.DialogResult = DialogResult.OK;
+                    }
+                    else
+                    {
+                        MessageUtils.LogUtils.WriteToLog(" Service to Customers does not exist update failed");
+                        MessageUtils.LogUtils.SystemEventLogsWarning(" Service to Customers does not exist update failed");
+                        new MessageUtils.MessageBoxText("Service to Customers does not exist update failed").WarningMessageBox();
+                        this.DialogResult = DialogResult.OK;
+                    }
+                }
+                catch (FaultException ex)
+                {
+                    MessageUtils.LogUtils.WriteToLog(string.Format(" Error Update Service to Customers. Exception: {0}", ex.Message));
+                    MessageUtils.LogUtils.SystemEventLogsError(string.Format(" Error Update Service to Customers. Exception: {0}", ex.Message));
+                    new MessageUtils.MessageBoxText("Error Update Service to Customers").ErrorMessageBox();
+                }
+                this.Close();
+            }
+        }
+
+        private void txtbPrice_TextChanged(object sender, EventArgs e)
+        {
+            if (!MyRegEx.Validate(txtbPrice.Text, MyRegEx.OnlyDigits))
+            {
+                epManageServiceToCustomer.SetError(txtbPrice, "רק ספרות");
+                canAdd = false;
+            }
+            else
+            {
+                epManageServiceToCustomer.SetError(txtbPrice, string.Empty);
+                canAdd = true;
+            }
+            EnableAdd();
+        }
+
+        private void txtbPrice_MouseHover(object sender, EventArgs e)
+        {
+            toolTipManageServiceToCustomer.SetToolTip(txtbPrice, "שדה חובה");
+        }
+
+        private void txtbPriceCost_TextChanged(object sender, EventArgs e)
+        {
+            if (!MyRegEx.Validate(txtbPriceCost.Text, MyRegEx.OnlyDigits) && txtbPriceCost.Text != string.Empty)
+            {
+                epManageServiceToCustomer.SetError(txtbPriceCost, "רק ספרות");
+            }
+            else
+            {
+                epManageServiceToCustomer.SetError(txtbPriceCost, string.Empty);
+            }
+        }
+
+        private void txtbPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtbPriceCost_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+        #endregion Event
+    }
+
+}

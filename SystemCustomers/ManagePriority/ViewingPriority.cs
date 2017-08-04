@@ -1,0 +1,111 @@
+﻿using System;
+using System.Windows.Forms;
+using SystemCustomers.MessageUtils;
+using System.IO;
+using System.Data;
+using System.ServiceModel;
+
+namespace SystemCustomers.ManagePriority
+{
+    public partial class ViewingPriority : Form
+    {
+        public ViewingPriority()
+        {
+            InitializeComponent();
+            InitializeListPriority();
+        }
+
+        public string IdPriorityFromGrid { get; set;}
+
+        private void ViewingPriority_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
+
+        private void InitializeListPriority()
+        {
+            using (var ds = new DataSet())
+            {
+                using (var priorityService = new ServiceManager.ServiceSystemCompaniesClient())
+                {
+                    try
+                    {
+                        var priority = new ServiceManager.Priority();
+                        //priority.Method = "GetAllPriorities";
+                        priority.Method = "GetAllPrioritiesDataSet";
+                        priority = priorityService.ManagePriority(priority);
+                        //StringReader reader = new StringReader(priority.PriorityData);
+                        //ds.ReadXml(reader);
+                        //dgridvListPriority.DataSource = ds.Tables["Priority"];
+                        dgridvListPriority.DataSource = priority.PriorityDataSet.Tables[0];
+                    }
+                    catch (FaultException ex)
+                    {
+                        LogUtils.WriteToLog(string.Format(" Faild Viewing Priority: {0} ", ex.Message));
+                        LogUtils.SystemEventLogsError(string.Format(" Faild Viewing Priority: {0} ", ex.Message));
+                    }
+                }
+            }
+        }
+
+        private void addRowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new AddPriority().ShowDialog();
+            InitializeListPriority();
+        }
+
+        private void deleteRowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgridvListPriority.SelectedRows.Count != 1) return;
+            string message = "?בטוח שאתה רוצה למחוק";
+            string titel = "מחיקת עדיפות";
+            if (new MessageBoxText(message,titel).YesorNoMessageBox() == DialogResult.No)return;
+            DataGridViewRow dr = dgridvListPriority.SelectedRows[0];
+            this.IdPriorityFromGrid = dr.Cells["idPriority"].Value.ToString();
+            using (var priorityService = new ServiceManager.ServiceSystemCompaniesClient())
+            {
+                try
+                {
+                    var priority = new ServiceManager.Priority();
+                    priority.Method = "CheckPriorityId";
+                    priority.IdPriority = Convert.ToInt32(this.IdPriorityFromGrid);
+                    priority = priorityService.ManagePriority(priority);
+                    if (!priority.isBool)
+                    {
+                        priority.Method = "Delete";
+                        priorityService.ManagePriority(priority);
+                        LogUtils.WriteToLog(" Delete Priority ");
+                        LogUtils.SystemEventLogsWarning(" Delete Priority");
+                    }
+                    else
+                    {
+                        LogUtils.WriteToLog(" Priority doesn't exist Delete faild ");
+                        LogUtils.SystemEventLogsWarning(" Priority doesn't exist Delete faild");
+                    }
+                }
+                catch (FaultException ex)
+                {
+                    LogUtils.WriteToLog(string.Format(" Faild Delete Priority: {0} ", ex.Message));
+                    LogUtils.SystemEventLogsError(string.Format(" Faild Delete Priority: {0} ", ex.Message));
+                }
+               
+            }
+            InitializeListPriority();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LogUtils.WriteToLog(" Exit Viewing Priority ");
+            LogUtils.SystemEventLogsInformation(" Exit Viewing Priority");
+            this.Close();
+        }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InitializeListPriority();
+        }
+    }
+}

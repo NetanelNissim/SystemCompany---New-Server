@@ -1,0 +1,95 @@
+﻿using System;
+using System.Windows.Forms;
+using SystemCustomers.MessageUtils;
+using Services;
+
+namespace SystemCustomers.ManageProject
+{
+    public partial class AddProject : Form
+    {
+        public AddProject()
+        {
+            InitializeComponent();
+        }
+
+        public AddProject(string projectName, string projectDescription)
+            : this()
+        {
+            this.ProjectName = projectName;
+            this.ProjectDescription = projectDescription;
+        }
+        #region Properties
+        public string ProjectName
+        {
+            get { return txtbProjectName.Text; }
+            set { txtbProjectName.Text = value; }
+        }
+
+        public string ProjectDescription
+        {
+            get { return txtProjectDiscriptions.Text; }
+            set { txtProjectDiscriptions.Text = value; }
+        }
+
+        private bool _canAdd = false;
+        #endregion Properties
+
+        #region Methud
+        private void EnableAdd()
+        {
+            btnAdd.Enabled = btnUpdate.Enabled = IsValid() && _canAdd;
+        }
+
+        private bool IsValid()
+        {
+            return (txtbProjectName.Text.Trim() != string.Empty);
+        }
+
+        #endregion Methud
+
+        #region Events
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            LogUtils.WriteToLog(" Exit Manage Project ");
+            LogUtils.SystemEventLogsInformation(" Exit Manage Project ");
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            ProjectsServices.Instance.InsertProject(txtbProjectName.Text,txtProjectDiscriptions.Text);
+            LogUtils.WriteToLog(" Add Project: " + txtbProjectName.Text);
+            LogUtils.SystemEventLogsInformation(" Add Project:" + txtbProjectName.Text);
+            new MessageBoxText(string.Format(" פרויקט נוסף בהצלחה: {0}", txtbProjectName.Text)).OkMessaageBox();
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            ProjectsServices.Instance.UpdateProject(txtbProjectName.Text,txtProjectDiscriptions.Text);
+            LogUtils.WriteToLog(" Update Project: " + txtbProjectName.Text);
+            LogUtils.SystemEventLogsInformation(" Update Project: " + txtbProjectName.Text);
+            new MessageBoxText(string.Format(" פרויקט עודכן בהצלחה: {0}", txtbProjectName.Text)).OkMessaageBox();
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void txtbProjectName_TextChanged(object sender, EventArgs e)
+        {
+            if (!MyRegEx.Validate(txtbProjectName.Text, MyRegEx.OnlyCharsSpacesAndApostropheDigitsHebrew))
+            {
+                errorProject.SetError(txtbProjectName, "רק אותיות גרש ורווחים מותרים");
+                _canAdd = false;
+            }
+            else
+            {
+                errorProject.SetError(txtbProjectName, string.Empty);
+                _canAdd = true;
+            }
+            EnableAdd();
+        }
+        #endregion Events
+    }
+}

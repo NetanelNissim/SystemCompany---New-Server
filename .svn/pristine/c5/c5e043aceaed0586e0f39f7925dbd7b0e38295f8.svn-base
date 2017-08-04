@@ -1,0 +1,111 @@
+19/01/2013 13:09:14: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+19/01/2013 13:09:18: q logged in
+19/01/2013 13:11:04:  Add Customer: גיבוי
+19/01/2013 13:11:05:  Add Row Viewing All Customers 
+19/01/2013 13:11:24:  Add Service: פיתוח
+19/01/2013 13:11:25:  Add Row Viewing All Services 
+19/01/2013 13:11:30: Open Form Add Row Service To Customer
+19/01/2013 13:11:42:  Exit From Manage Service To Customers
+19/01/2013 13:11:49:  Delete Row Viewing All Services: פיתוח
+19/01/2013 13:11:59:  Add Service: ריקון
+19/01/2013 13:12:00:  Add Row Viewing All Services 
+19/01/2013 13:12:05: Open Form Add Row Service To Customer
+19/01/2013 13:12:23:  Manage Customer To Services: גיבוי And ריקון
+19/01/2013 13:12:35: Open Form Add Row Service To Customer
+19/01/2013 13:12:49:  Manage Customer To Services: גיבוי And פיתוח
+19/01/2013 13:12:53: Open Form Add Row Service To Customer
+19/01/2013 13:13:03:  Error Manage Customer To Services the company and service exist: גיבוי And פיתוח
+19/01/2013 13:13:21:  Manage Customer To Services: גיבוי And בדיקת עדכון
+19/01/2013 13:13:27: Open Form Add Row Service To Customer
+19/01/2013 13:13:45:  Manage Customer To Services: גיבוי And Service_Name
+19/01/2013 13:14:19: Open Form Add Row Service To Customer
+19/01/2013 13:14:37:  Manage Customer To Services: גיבוי And שירות מחשוב
+19/01/2013 13:14:40: Open Form Add Row Service To Customer
+19/01/2013 13:14:59:  Manage Customer To Services: גיבוי And חקלאות מדייקת
+19/01/2013 13:15:05: Open Form Add Row Service To Customer
+19/01/2013 13:15:22:  Manage Customer To Services: גיבוי And בדיקת הוספת שירות
+19/01/2013 13:15:29: Open Form Add Row Service To Customer
+19/01/2013 13:15:53:  Manage Customer To Services: גיבוי And אנטי וירוס מחודש
+19/01/2013 13:16:46: Open Form Add Row Service To Customer
+19/01/2013 13:17:06:  Manage Customer To Services: גיבוי And גיבוי דרך האינטרנט
+19/01/2013 13:17:15: Open Form Add Row Service To Customer
+19/01/2013 13:17:24:  Error Manage Customer To Services the company and service exist: גיבוי And אנטי וירוס מחודש
+19/01/2013 13:17:25:  Exit From Manage Service To Customers
+19/01/2013 13:18:25:  Update Manage Company To Project
+19/01/2013 13:18:56:  Backup Success: 19/01/2013 13:18:56
+19/01/2013 13:26:35: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+19/01/2013 13:26:37: q logged in
+19/01/2013 13:26:40:  Backup Success: 19/01/2013 13:26:40
+19/01/2013 13:27:00:  Backup Success: 19/01/2013 13:27:00
+19/01/2013 13:27:38: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+19/01/2013 13:27:40: q logged in
+19/01/2013 13:27:42:  Backup Success: 19/01/2013 13:27:42
+19/01/2013 13:27:47:  Backup Success: 19/01/2013 13:27:47
+19/01/2013 13:28:04: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+19/01/2013 13:28:06: q logged in
+19/01/2013 13:28:08:  Backup Success: 19/01/2013 13:28:08
+19/01/2013 13:28:09:  Exit From System Customer 19/01/2013 13:28:09
+19/01/2013 13:30:59: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+19/01/2013 13:31:03: q logged in
+19/01/2013 13:31:12:  Delete Row Viewing All Customers: גיבוי
+19/01/2013 13:37:09: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+19/01/2013 13:37:11: q logged in
+19/01/2013 13:37:18:  Restore Success: 19/01/2013 13:37:18
+19/01/2013 13:38:34: Data Source=VSERVERSQL-P;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+19/01/2013 13:38:36: q logged in
+19/01/2013 13:54:25: Data Source=VSERVERSQL-P;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+19/01/2013 13:54:27: q logged in
+19/01/2013 13:58:31: Data Source=VSERVERSQL-P;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+19/01/2013 13:58:34: q logged in
+19/01/2013 14:04:30: Data Source=VSERVERSQL-P;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+19/01/2013 14:04:32: q logged in
+19/01/2013 14:04:52: Error Backup:Exception of type 'System.Exception' was thrown.19/01/2013 14:04:52
+19/01/2013 14:07:21: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+19/01/2013 14:07:24: q logged in
+19/01/2013 14:07:56: Data Source=VSERVERSQL-P;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+19/01/2013 14:07:59: q logged in
+19/01/2013 14:18:21: Data Source=VSERVERSQL-P;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+19/01/2013 14:18:24: q logged in
+19/01/2013 14:18:50: Error Backup:   at Services.ManageBackupAndRestoreService.BackUpDatabase() in d:\Project VS 2012\SystemCompany\Services\ManageBackupAndRestoreService.cs:line 95
+   at Services.ManageBackupAndRestoreService.SwichCaseBackupOrRestore() in d:\Project VS 2012\SystemCompany\Services\ManageBackupAndRestoreService.cs:line 56
+   at Services.ManageBackupAndRestoreService.<>c__DisplayClass2.<.ctor>b__1() in d:\Project VS 2012\SystemCompany\Services\ManageBackupAndRestoreService.cs:line 19
+   at Services.ManageBackupAndRestoreService.SafeExecute(Action SwichCaseBackupOrRestore, Exception& exception) in d:\Project VS 2012\SystemCompany\Services\ManageBackupAndRestoreService.cs:line 4319/01/2013 14:18:50
+19/01/2013 14:19:27: Error Backup:   at Services.ManageBackupAndRestoreService.RestoreDatabase() in d:\Project VS 2012\SystemCompany\Services\ManageBackupAndRestoreService.cs:line 136
+   at Services.ManageBackupAndRestoreService.SwichCaseBackupOrRestore() in d:\Project VS 2012\SystemCompany\Services\ManageBackupAndRestoreService.cs:line 59
+   at Services.ManageBackupAndRestoreService.<>c__DisplayClass2.<.ctor>b__1() in d:\Project VS 2012\SystemCompany\Services\ManageBackupAndRestoreService.cs:line 19
+   at Services.ManageBackupAndRestoreService.SafeExecute(Action SwichCaseBackupOrRestore, Exception& exception) in d:\Project VS 2012\SystemCompany\Services\ManageBackupAndRestoreService.cs:line 4319/01/2013 14:19:27
+19/01/2013 14:19:51: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+19/01/2013 14:19:53: q logged in
+19/01/2013 14:20:03:  Restore Success: 19/01/2013 14:20:03
+19/01/2013 14:22:24: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+19/01/2013 14:22:27: q logged in
+19/01/2013 14:22:53: Data Source=VSERVERSQL-P;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+19/01/2013 14:22:56: q logged in
+19/01/2013 14:23:18: Error Backup:   at Services.ManageBackupAndRestoreService.BackUpDatabase() in d:\Project VS 2012\SystemCompany\Services\ManageBackupAndRestoreService.cs:line 82
+   at Services.ManageBackupAndRestoreService.SwichCaseBackupOrRestore() in d:\Project VS 2012\SystemCompany\Services\ManageBackupAndRestoreService.cs:line 45
+   at Services.ManageBackupAndRestoreService.<>c__DisplayClass2.<.ctor>b__1() in d:\Project VS 2012\SystemCompany\Services\ManageBackupAndRestoreService.cs:line 18
+   at Services.ManageBackupAndRestoreService.SafeExecute(Action SwichCaseBackupOrRestore, Exception& exception) in d:\Project VS 2012\SystemCompany\Services\ManageBackupAndRestoreService.cs:line 3219/01/2013 14:23:18
+19/01/2013 14:27:29: Data Source=VSERVERSQL-P;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+19/01/2013 14:27:31: q logged in
+19/01/2013 14:28:24: Error Backup:A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)19/01/2013 14:28:24
+19/01/2013 14:28:55: Error Backup:A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)19/01/2013 14:28:55
+19/01/2013 14:29:17: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+19/01/2013 14:29:19: q logged in
+19/01/2013 14:29:26:  Restore Success: 19/01/2013 14:29:26
+19/01/2013 14:33:47: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+19/01/2013 14:33:49: q logged in
+19/01/2013 14:34:04:  Restore Success: 19/01/2013 14:34:04
+19/01/2013 14:34:31: Data Source=VSERVERSQL-P;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+19/01/2013 14:34:34: q logged in
+19/01/2013 14:35:10: Error Backup:A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)19/01/2013 14:35:10
+19/01/2013 14:35:53: Error Backup:A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)19/01/2013 14:35:53
+19/01/2013 14:37:53: Data Source=VSERVERSQL-P;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+19/01/2013 14:38:04: Data Source=VSERVERSQL-P;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+19/01/2013 14:38:06: q logged in
+19/01/2013 14:38:26:  Error Backup:  A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)19/01/2013 14:38:26
+19/01/2013 14:38:49:  Error Restore:  A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)19/01/2013 14:38:49
+19/01/2013 14:39:12: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+19/01/2013 14:39:14: q logged in
+19/01/2013 14:39:23:  Restore Success:  19/01/2013 14:39:23
+19/01/2013 14:39:38:  Backup Success: 19/01/2013 14:39:38
+19/01/2013 14:39:40:  Exit From System Customer 19/01/2013 14:39:40

@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <connectionStrings>
+ <!--    <add name="SystemCompanyEntities" connectionString="metadata=res://*/Model1.csdl|res://*/Model1.ssdl|res://*/Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=SystemCompany.mssql.somee.com;initial catalog=SystemCompany;persist security info=True;user id=natisql;password=12213443;multipleactiveresultsets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />-->
+    <!--    <add name="SystemCompanyEntities" connectionString="metadata=res://*/Model1.csdl|res://*/Model1.ssdl|res://*/Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=LAPTOP-PC;initial catalog=SystemCompany;persist security info=True;user id=sa;password=12213443;multipleactiveresultsets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />-->
+    <add name="SystemCompanyEntities" connectionString="metadata=res://*/Model1.csdl|res://*/Model1.ssdl|res://*/Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=VSERVERSQL-PC;initial catalog=SystemCompany;persist security info=True;user id=sa;password=12213443;multipleactiveresultsets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
+
+  </connectionStrings>
+  <system.web>
+    <compilation debug="true" />
+  </system.web>
+  <system.serviceModel>
+    <services>
+      <service behaviorConfiguration="ServiceSystemCompanies" name="WcfServiceLibrarySystemCompanies.ServiceSystemCompanies">
+        <endpoint name ="ServiceSystemCompanies" address="" binding="basicHttpBinding"
+           contract="WcfServiceLibrarySystemCompanies.IServiceSystemCompanies">
+         
+        </endpoint>
+        <endpoint address="mex" binding="mexHttpBinding" name="MetaDatawsHttpEndpoint"
+              contract="IMetadataExchange" />
+        <host>
+          <baseAddresses>
+            <add baseAddress="http://localhost:9292/WCF/ServiceManager/" />
+          </baseAddresses>
+        </host>
+      </service>
+    </services>
+
+    <behaviors>
+      <serviceBehaviors>
+        <behavior name="ServiceSystemCompanies">
+          <dataContractSerializer maxItemsInObjectGraph="2147483647" />
+          <serviceMetadata httpGetEnabled="false" />
+          <serviceDebug includeExceptionDetailInFaults="true" />
+        </behavior>
+
+        <behavior name="">
+          <serviceMetadata httpGetEnabled="true" />
+          <serviceDebug includeExceptionDetailInFaults="false" />
+        </behavior>
+      </serviceBehaviors>
+    </behaviors>
+    
+    <diagnostics>
+      <messageLogging logEntireMessage="true" logMalformedMessages="true"
+        logMessagesAtTransportLevel="true" />
+    </diagnostics>
+    
+    <bindings>
+      <basicHttpBinding>
+        <binding
+               hostNameComparisonMode="StrongWildcard"
+               receiveTimeout="00:10:00"
+               sendTimeout="00:10:00"
+               openTimeout="00:10:00"
+               closeTimeout="00:10:00"
+               maxReceivedMessageSize="2147483647"
+               maxBufferSize="2147483647"
+               maxBufferPoolSize="2147483647"
+               transferMode="Buffered"
+               messageEncoding="Text"
+               textEncoding="utf-8"
+               bypassProxyOnLocal="false"
+               useDefaultWebProxy="true" >
+               <readerQuotas maxDepth="2147483647"
+                             maxStringContentLength="2147483647"
+                             maxArrayLength="2147483647" 
+                             maxBytesPerRead="2147483647" 
+                             maxNameTableCharCount="2147483647" />
+          <security mode="None" />
+        </binding>
+      </basicHttpBinding>
+    </bindings>
+    
+  </system.serviceModel>
+  <system.diagnostics>
+    <sources>
+      <source name="System.ServiceModel.MessageLogging" switchValue="Warning,ActivityTracing">
+        <listeners>
+          <add type="System.Diagnostics.DefaultTraceListener" name="Default">
+            <filter type="" />
+          </add>
+          <add name="ServiceModelMessageLoggingListener">
+            <filter type="" />
+          </add>
+        </listeners>
+      </source>
+      <source propagateActivity="true" name="System.ServiceModel" switchValue="Warning,ActivityTracing">
+        <listeners>
+          <add type="System.Diagnostics.DefaultTraceListener" name="Default">
+            <filter type="" />
+          </add>
+          <add name="ServiceModelTraceListener">
+            <filter type="" />
+          </add>
+        </listeners>
+      </source>
+    </sources>
+    <sharedListeners>
+      <add initializeData="C:\Tracing\Krypton_Web_messages.svclog"
+           type="System.Diagnostics.XmlWriterTraceListener, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+           name="ServiceModelMessageLoggingListener"
+           traceOutputOptions="ProcessId, DateTime">
+        <filter type="" />
+      </add>
+      <add initializeData="C:\Tracing\Krypton_Web_tracelog.svclog"
+           type="System.Diagnostics.XmlWriterTraceListener, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+           name="ServiceModelTraceListener"
+           traceOutputOptions="ProcessId, DateTime">
+        <filter type="" />
+      </add>
+    </sharedListeners>
+    <trace autoflush="true" />
+  </system.diagnostics>
+  
+</configuration>

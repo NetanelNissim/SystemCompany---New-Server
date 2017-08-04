@@ -1,0 +1,104 @@
+﻿using System.Windows.Forms;
+using SystemCustomers.MessageUtils;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.IO;
+using System.ServiceModel;
+
+namespace SystemCustomers.ManageCustomers
+{
+    public class FromManageViewingAllCustomers
+    {
+        private static string id = string.Empty;
+
+        public static string Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        public DataTable GetAllCustomers()
+        {
+            using (var ds = new DataSet())
+            {
+                using (var myClient = new ServiceManager.ServiceSystemCompaniesClient())
+                {
+                    try
+                    {
+                        var comp = new ServiceManager.Companies();
+                        comp.Method = "GetCompanies";
+                        comp = myClient.ManageCompanies(comp);
+                        string stringValue = comp.stringData;
+                        StringReader reader = new StringReader(stringValue);
+                        ds.ReadXml(reader);
+                        return ds.Tables["Companies"];
+                    }
+                    catch (FaultException ex)
+                    {
+                        LogUtils.WriteToLog(string.Format(" Failed Get Companies. Exception: {0} ", ex.Message));
+                        LogUtils.SystemEventLogsError(string.Format(" Failed Get Companies. Exception: {0} ", ex.Message));
+                        return null;
+                    }
+                }
+            }
+        }
+
+        public DialogResult editRowToolStripMenuItem(DataGridViewRow dr)
+        {
+            using (ManageCustomer cust = new ManageCustomer(dr.Cells["companyName"].Value.ToString(), dr.Cells["email"].Value.ToString(),
+                dr.Cells["FAX"].Value.ToString(), dr.Cells["mobilePhone"].Value.ToString(),
+                dr.Cells["Phone"].Value.ToString(), dr.Cells["PostalNum"].Value.ToString(),
+                dr.Cells["ZIP"].Value.ToString(), dr.Cells["city"].Value.ToString(),
+                dr.Cells["companynumber"].Value.ToString(), dr.Cells["contactName"].Value.ToString(),
+                dr.Cells["address"].Value.ToString(), dr.Cells["paymentTerms"].Value.ToString()))
+            {
+                Id = dr.Cells["idCompany_Company"].Value.ToString();
+                cust.btnAdd.Visible = false;
+                cust.txtbCompanyNumber.Enabled = false;
+                var result = cust.ShowDialog();
+                if (result == DialogResult.Cancel) return result;
+                else
+                {
+                    LogUtils.WriteToLog(" Edit Row Viewing All Customers: " + dr.Cells["companyName"].Value.ToString());
+                    LogUtils.SystemEventLogsInformation(" Edit Row Viewing All Customers: " + dr.Cells["companyName"].Value.ToString());
+                    return result;
+                }
+            }
+        }
+
+        public void deleteRowToolStripMenuItem(DataGridViewRow dr)
+        {
+            Id = dr.Cells["idCompany_Company"].Value.ToString();
+            string companynumber = dr.Cells["companynumber"].Value.ToString();
+            using (var myClient = new ServiceManager.ServiceSystemCompaniesClient())
+            {
+                try
+                {
+                    var comp = new ServiceManager.Companies();
+                    comp.Method = "CheckCompanyNumber";
+                    comp.companynumber = companynumber;
+                    comp = myClient.ManageCompanies(comp);
+                    if (!comp.isBool)
+                    {
+                        comp.idCompany = Convert.ToInt32(Id);
+                        comp.Method = "Delete";
+                        myClient.ManageCompanies(comp);
+                        LogUtils.WriteToLog(" Delete Row Viewing All Customers: " + dr.Cells["companyName"].Value.ToString());
+                        LogUtils.SystemEventLogsInformation(" Delete Row Viewing All Customers: " + dr.Cells["companyName"].Value.ToString());
+                    }
+                    else
+                    {
+                        LogUtils.WriteToLog(" The customer does not exist failed to delete: " + dr.Cells["companyName"].Value.ToString());
+                        LogUtils.SystemEventLogsWarning(" The customer does not exist failed to delete: " + dr.Cells["companyName"].Value.ToString());
+                    }
+                }
+                catch (FaultException ex)
+                {
+                    LogUtils.WriteToLog(string.Format(" Failed delete Customer: {0} Exception: {1} ", dr.Cells["companyName"].Value.ToString(), ex.Message));
+                    LogUtils.SystemEventLogsError(string.Format(" Failed delete Customer: {0}  Exception: {1} ", dr.Cells["companyName"].Value.ToString(), ex.Message));
+                }
+            }
+        }
+    }
+}

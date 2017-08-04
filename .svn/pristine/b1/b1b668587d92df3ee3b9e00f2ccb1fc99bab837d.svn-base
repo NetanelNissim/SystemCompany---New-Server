@@ -1,0 +1,176 @@
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
+using SystemCustomers.MessageUtils;
+using System.Collections.Generic;
+using System.ServiceModel;
+
+namespace SystemCustomers
+{
+    public partial class AddUser : Form
+    {
+        public AddUser()
+        {
+            InitializeComponent();
+        }
+
+        #region Properties Class AddUser
+        /// <summary>
+        /// get/set the private name
+        /// </summary>
+        public string PrivateName
+        {
+            get { return this.txtBoxPrivateName.Text; }
+            set { this.txtBoxPrivateName.Text = value; }
+        }
+        /// <summary>
+        /// get/set the User Name
+        /// </summary>
+        public string UserName
+        {
+            get { return this.txtBoxUserName.Text; }
+            set { this.txtBoxUserName.Text = value; }
+        }
+        /// <summary>
+        /// get/set the Password
+        /// </summary>
+        public string Password
+        {
+            get { return this.txtBoxPassword.Text; }
+            set { this.txtBoxPassword.Text = value; }
+        }
+        /// <summary>
+        /// get/set the User Admin Permission number
+        /// </summary>
+        public string UserPermissionAdmin
+        {
+            get { return this.radioButtonAdmin.Checked.ToString(); }
+            set { this.radioButtonAdmin.Checked = true; }
+        }
+        /// <summary>
+        /// get/set the User Sec Permission number
+        /// </summary>
+        public string UserPermissionSec
+        {
+            get { return radioButtonSec.Checked.ToString(); }
+            set { this.radioButtonSec.Checked = true; }
+        }
+
+        private bool isHebraw = true;
+        #endregion Properties Class AddUser
+        /// <summary>
+        /// Enables the add user.
+        /// </summary>
+        private void EnableAddUser()
+        {
+            buttonAddUser.Enabled = txtBoxPrivateName.Text.Trim() != string.Empty
+                                && txtBoxUserName.Text.Trim() != string.Empty
+                                && txtBoxPassword.Text.Trim() != string.Empty
+                                && textBoxValidPassword.Text.Trim() != string.Empty
+                                && textBoxValidPassword.Text == txtBoxPassword.Text
+                                && isHebraw 
+                                && (this.radioButtonAdmin.Checked != false
+                                || this.radioButtonSec.Checked != false);
+        }
+
+
+        private void buttonAddUser_Click(object sender, EventArgs e)
+        {
+            if (radioButtonAdmin.Checked != false || radioButtonSec.Checked != false)
+            {
+                using (var userService = new ServiceManager.ServiceSystemCompaniesClient())
+                {
+                    try
+                    {
+                        var user = new ServiceManager.Users();
+                        user.Method = "CheckUser";
+                        user.UserName = UserName;
+                        user = userService.ManageUsers(user);
+                        if (!user.isBool)
+                        {
+                            const string title = "שם משתמש קיים";
+                            const string message = "קיימת כפילות של שם משתמש";
+                            new MessageBoxText(message, title).ErrorMessageBox();
+                            txtBoxUserName.BackColor = Color.Red;
+                        }
+                        else
+                        {
+                            user.Method = "Insert";
+                            user.UserName = UserName;
+                            user.PrivateName = PrivateName;
+                            user.Permission = UserPermissionAdmin;
+                            user.Password = Password;
+                            userService.ManageUsers(user);
+                            new MessageUtils.MessageBoxText(string.Format("  משתמש {0} נוסף בהצלחה ", PrivateName)).OkMessaageBox();
+                        }
+                    }
+                    catch (FaultException ex)
+                    {
+                        MessageUtils.LogUtils.WriteToLog(string.Format(" Error Insert User: {0}  Exception: {1}",PrivateName, ex.Message));
+                        MessageUtils.LogUtils.SystemEventLogsInformation(string.Format(" Error Insert User: {0}  Exception: {1}", PrivateName, ex.Message));
+                    }
+                    this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("נא לבחור סוג הרשאה", "סוג הרשאה לא נבחר", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtBoxPrivateName_TextChanged(object sender, EventArgs e)
+        {
+            if (!MyRegEx.Validate(txtBoxPrivateName.Text, MyRegEx.OnlyCharsSpacesAndApostropheDigitsHebrew))
+            {
+                errorProvider1.SetError(txtBoxPrivateName, "רק אותיות גרש ורווחים מותרים");
+            }
+            else
+            {
+                errorProvider1.SetError(txtBoxPrivateName, string.Empty);
+                EnableAddUser();
+            }
+        }
+
+        private void txtBoxUserName_TextChanged(object sender, EventArgs e)
+        {
+            if (!MyRegEx.Validate(txtBoxUserName.Text, MyRegEx.OnlyCharsSpacesAndApostropheNumbers))
+            {
+                errorProvider1.SetError(txtBoxUserName, "רק אותיות באנגלית");
+                isHebraw = false;
+            }
+            else
+            {
+                errorProvider1.SetError(txtBoxUserName, string.Empty);
+                isHebraw = true;
+                EnableAddUser();
+            }
+
+        }
+
+        private void txtBoxPassword_TextChanged(object sender, EventArgs e)
+        {
+            EnableAddUser();
+        }
+
+        private void textBoxValidPassword_TextChanged(object sender, EventArgs e)
+        {
+            EnableAddUser();
+        }
+
+        private void radioButtonAdmin_CheckedChanged(object sender, EventArgs e)
+        {
+            EnableAddUser();
+        }
+
+        private void radioButtonSec_CheckedChanged(object sender, EventArgs e)
+        {
+            EnableAddUser();
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+    }
+}

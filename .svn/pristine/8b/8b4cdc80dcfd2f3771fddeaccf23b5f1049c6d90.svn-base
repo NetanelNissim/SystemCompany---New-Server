@@ -1,0 +1,4 @@
+<Modules>
+  <Module PersistentId="B5EAB27F-F019-4802-8B3C-9BF2B938AD8C" ModuleId="SystemCustomers" />
+  <Module PersistentId="0684CFC7-1287-46B4-8841-DB27C9728477" ModuleId="EntityFrameworkDAL" />
+</Modules>

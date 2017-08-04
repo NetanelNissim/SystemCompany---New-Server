@@ -1,0 +1,21 @@
+19/09/2012 00:00:12: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/09/2012 00:01:54: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/09/2012 00:02:26: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/09/2012 00:04:34: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/09/2012 00:05:01: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/09/2012 00:06:01: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/09/2012 00:07:00: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/09/2012 00:08:23: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/09/2012 00:09:40: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/09/2012 00:12:13: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/09/2012 00:12:57: Data Base Connection Error
+19/09/2012 00:12:58: The underlying provider failed on Open.
+19/09/2012 00:17:48: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/09/2012 00:17:53: q logged in
+19/09/2012 00:18:03: w Try to logged in: 19/09/2012 00:18:03
+19/09/2012 00:18:05: Change User to: 
+19/09/2012 00:18:12: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+19/09/2012 00:18:17: q logged in
+19/09/2012 00:18:20:  Backup Success: 19/09/2012 00:18:20
+19/09/2012 00:18:23:  Backup Success: 19/09/2012 00:18:23
+19/09/2012 00:18:24:  Exit From System Customer 19/09/2012 00:18:24

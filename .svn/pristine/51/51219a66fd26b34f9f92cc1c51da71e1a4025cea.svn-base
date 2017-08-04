@@ -1,0 +1,49 @@
+﻿using System.Windows.Forms;
+using SystemCustomers.MessageUtils;
+using System;
+using System.Collections.Generic;
+using Services;
+using Layers;
+using System.Data;
+
+namespace SystemCustomers.ManageProject
+{
+    class ManageViewingAllProject
+    {
+        public static string Id { get; set;}
+
+        public DataTable InitializeProject()
+        {
+            var objProject = new ManageProjectsLayers();
+            return objProject.InitializeProject();
+        }
+
+        public DialogResult EditProject(DataGridViewRow dr)
+        {
+            using (var project = new AddProject(dr.Cells["projectName"].Value.ToString(), dr.Cells["projectDescription"].Value.ToString()))
+            {
+                Id = dr.Cells["idProject"].Value.ToString();
+                project.btnAdd.Visible = false;
+                var result = project.ShowDialog();
+                if (result == DialogResult.Cancel) return result;
+                else
+                {
+                    LogUtils.WriteToLog(" Edit Row Viewing All Project: " + dr.Cells["projectName"].Value.ToString());
+                    LogUtils.SystemEventLogsInformation(" Edit Row Viewing All Project: " + dr.Cells["projectName"].Value.ToString());
+                    return result;
+                }
+            }
+        }
+
+        public void DeleteProject(DataGridViewRow dr)
+        {
+            Id = dr.Cells["idProject"].Value.ToString();
+            var objProject = new ManageProjectsLayers();
+            objProject.IdProject = Convert.ToInt32(Id);
+            objProject.DeleteProject();
+            LogUtils.WriteToLog(" Delete Row Viewing All Project: " + dr.Cells["projectName"].Value.ToString());
+            LogUtils.SystemEventLogsInformation(" Delete Row Viewing All Project: " + dr.Cells["projectName"].Value.ToString());
+        }
+    }
+         
+}

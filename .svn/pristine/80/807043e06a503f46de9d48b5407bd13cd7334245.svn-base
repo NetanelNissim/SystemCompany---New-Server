@@ -1,0 +1,71 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using EntityFrameworkDAL;
+
+namespace Server
+{
+    public class ProjectDataServices
+    {
+        #region Singelton
+
+        private static ProjectDataServices _instance;
+
+        public static ProjectDataServices Instance
+        {
+            get { return _instance ?? (_instance = new ProjectDataServices()); }
+        }
+
+        private ProjectDataServices()
+        {
+            // this will happens only once
+            // Do your connection stuff in here
+        }
+
+        #endregion Singelton
+
+
+        #region Project
+
+        public IEnumerable<project> ViewingProject()
+        {
+            using (var ctx = new SystemCompanyEntities())
+            {
+                return ctx.projects.ToList();
+            }
+        }
+
+        public void DeleteProject(project project)
+        {
+            using (var ctx = new SystemCompanyEntities())
+            {
+                project projectToDelete = ctx.projects.First(e => e.idProject == project.idProject);
+                ctx.DeleteObject(projectToDelete);
+                ctx.SaveChanges();
+            }
+        }
+
+        public void InsertProject(project project)
+        {
+            using (var ctx = new SystemCompanyEntities())
+            {
+                ctx.AddToprojects(project);
+                ctx.SaveChanges();
+            }
+        }
+
+        public void UpdateProject(project newProject)
+        {
+            using (var ctx = new SystemCompanyEntities())
+            {
+                project project = ctx.projects.First(e => e.idProject == newProject.idProject);
+                project.projectName = newProject.projectName;
+                project.projectDescription = newProject.projectDescription;
+                ctx.SaveChanges();
+            }
+        }
+
+        #endregion Project
+    }
+}

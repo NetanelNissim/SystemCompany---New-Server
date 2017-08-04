@@ -1,0 +1,61 @@
+21/09/2012 14:04:58: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+21/09/2012 14:05:03: q logged in
+21/09/2012 14:36:40: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+21/09/2012 14:36:45: q logged in
+21/09/2012 14:38:58: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+21/09/2012 14:39:02: q logged in
+21/09/2012 15:44:22: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+21/09/2012 15:44:26: q logged in
+21/09/2012 15:44:35: Open Form Add Row Project To Company
+21/09/2012 15:45:35:  Manage Company To Project: חגית And בדיקת מסד נתונים  באמת עכשיו
+21/09/2012 15:51:18: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+21/09/2012 15:51:23: q logged in
+21/09/2012 16:07:23:  Update Manage Company To Project
+21/09/2012 16:08:44: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+21/09/2012 16:08:49: q logged in
+21/09/2012 16:08:59: Open Form Add Row Project To Company
+21/09/2012 16:09:51:  Error Company To Project the company and project exist: מפתח נתי And נגמר פרויקט גמר
+21/09/2012 16:10:12:  Manage Company To Project: מפתח נתי And שוטפת כלים
+21/09/2012 16:11:56:  Update Manage Company To Project
+21/09/2012 16:15:52: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+21/09/2012 16:15:58: q logged in
+21/09/2012 16:16:21: Open Form Add Row Project To Company
+21/09/2012 16:16:26:  Exit From Manage Company To Project
+21/09/2012 16:16:46: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+21/09/2012 16:16:51: q logged in
+21/09/2012 16:16:56: Open Form Add Row Project To Company
+21/09/2012 16:17:49:  Manage Company To Project: מפתח נתי And בדיקה 33 3333
+21/09/2012 16:20:21: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+21/09/2012 16:20:36: q logged in
+21/09/2012 16:22:09:  Update Manage Company To Project
+21/09/2012 16:26:00: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+21/09/2012 16:26:04: q logged in
+21/09/2012 16:26:20: Open Form Add Row Project To Company
+21/09/2012 16:59:36: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+21/09/2012 16:59:41: q logged in
+21/09/2012 17:26:29: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+21/09/2012 17:26:34: q logged in
+21/09/2012 17:34:54: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+21/09/2012 17:34:54: Data Base Connection Error
+21/09/2012 17:37:15: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+21/09/2012 17:37:15: Data Base Connection Error
+21/09/2012 17:38:03: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+21/09/2012 17:38:03: Data Base Connection Error
+21/09/2012 17:39:53: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+21/09/2012 17:39:53: Data Base Connection Error
+21/09/2012 17:41:42: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+21/09/2012 17:41:42: Data Base Connection Error
+21/09/2012 17:44:33: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+21/09/2012 17:45:31: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+21/09/2012 17:46:15: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+21/09/2012 17:46:19: q logged in
+21/09/2012 17:49:49: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+21/09/2012 17:49:55: q logged in
+21/09/2012 17:52:43: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+21/09/2012 17:52:47: q logged in
+21/09/2012 17:59:11: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+21/09/2012 17:59:16: q logged in
+21/09/2012 17:59:34: Open Form Add Row Project To Company
+21/09/2012 18:00:04:  Manage Company To Project: זיו And חתונה לא במקום
+21/09/2012 18:01:51: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+21/09/2012 18:01:55: q logged in

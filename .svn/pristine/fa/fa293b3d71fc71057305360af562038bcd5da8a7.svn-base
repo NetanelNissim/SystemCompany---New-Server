@@ -1,0 +1,63 @@
+﻿using System;
+using System.Windows.Forms;
+using SystemCustomers.MessageUtils;
+using Services;
+
+namespace SystemCustomers.ManagePriority
+{
+    public partial class ViewingPriority : Form
+    {
+        public ViewingPriority()
+        {
+            InitializeComponent();
+            InitializeListPriority();
+        }
+
+        public string IdPriorityFromGrid { get; set;}
+
+        private void ViewingPriority_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
+
+        private void InitializeListPriority()
+        {
+            dgridvListPriority.DataSource = PriorityServices.Instance.GetAllPriorities();
+        }
+
+        private void addRowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new AddPriority().ShowDialog();
+            InitializeListPriority();
+        }
+
+        private void deleteRowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgridvListPriority.SelectedRows.Count != 1) return;
+            string message = "?בטוח שאתה רוצה למחוק";
+            string titel = "מחיקת עדיפות";
+            if (new MessageBoxText(message,titel).YesorNoMessageBox() != DialogResult.OK)return;
+            DataGridViewRow dr = dgridvListPriority.SelectedRows[0];
+            this.IdPriorityFromGrid = dr.Cells["idPriority"].Value.ToString();
+            PriorityServices.Instance.DeletePriority(Convert.ToInt32(this.IdPriorityFromGrid));
+            LogUtils.WriteToLog(" Delete Priority ");
+            LogUtils.SystemEventLogsWarning(" Delete Priority");
+            InitializeListPriority();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LogUtils.WriteToLog(" Exit Viewing Priority ");
+            LogUtils.SystemEventLogsInformation(" Exit Viewing Priority");
+            this.Close();
+        }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InitializeListPriority();
+        }
+    }
+}

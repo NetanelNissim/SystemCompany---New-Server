@@ -1,0 +1,68 @@
+﻿using System;
+using System.Windows.Forms;
+using Layers;
+using Services;
+
+namespace SystemCustomers
+{
+
+    public partial class DeleteUser : Form
+    {
+        public DeleteUser()
+        {
+            InitializeComponent();
+            InitializeListUser();
+        }
+
+        private string userID = string.Empty;
+
+        public string UserID
+        {
+            get { return userID; }
+            set { userID = value; }
+        }
+
+        private void InitializeListUser()
+        {
+            string userName = string.Empty;
+            string idUser = string.Empty;
+            foreach (var listUsers in new ManageUsersLayers().InitializeListUsers())
+            {
+                idUser = Convert.ToString(listUsers.UserId);
+                userName = listUsers.UserName;
+                if (userName != "admin")
+                {
+                    IDToName users = new IDToName(userName, idUser);
+                    comboxListUsers.Items.Add(users);
+                }
+            }
+            if (comboxListUsers.Items.Count > 0) comboxListUsers.SelectedIndex = 0;
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+            string title = "מחיקת משתמש";
+            string message = "?בטוח שאתה רוצה למחוק";
+            if (new MessageUtils.MessageBoxText(message,title).YesorNoMessageBox() != DialogResult.OK) return;
+            var user = new ManageUsersLayers();
+            user.UserID = Convert.ToInt16(UserID);
+            user.DeleteUser();
+            MessageUtils.LogUtils.WriteToLog(" Delete User ");
+            MessageUtils.LogUtils.SystemEventLogsInformation(" Delete User");
+            this.Close();
+        }
+
+        private void comboxListUsers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            IDToName users = (IDToName)this.comboxListUsers.SelectedItem;
+            if (users == null) return;
+            string userID = users.ID;
+            this.UserID = userID;
+        }
+    }
+}

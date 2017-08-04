@@ -1,0 +1,80 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Entities
+{
+    public class ServicesToCompanies
+    {
+        
+        public ServicesToCompanies(DateTime? startdate, DateTime? enddate, bool? paid, string price,
+            string priceCost, int idCompany, int idService)
+        {
+            this.startdate = startdate;
+            this.enddate = enddate;
+            this.paid = paid;
+            this.price = price;
+            this.priceCost = priceCost;
+           // this.idCustService = idCustService;
+            this.idCompany = idCompany;
+            this.idService = idService;
+
+        }
+
+        public ServicesToCompanies(string servicesName, string companyName,
+          DateTime? startdate, DateTime? enddate, bool? paid, string price,
+            string priceCost, int idCustService, int idCompany, int idService)
+        {
+            this.servicesName = servicesName;
+            this.companyName = companyName;
+            this.startdate = startdate;
+            this.enddate = enddate;
+            this.paid = paid;
+            this.price = price;
+            this.priceCost = priceCost;
+            this.idCustService = idCustService;
+            this.idCompany = idCompany;
+            this.idService = idService;
+        }
+
+
+        public ServicesToCompanies(string servicesName)
+        {
+            this.servicesName = servicesName;
+        }
+
+        public ServicesToCompanies()
+        { 
+        
+        }
+
+        public ServicesToCompanies(int idService, int idCompany)
+        {
+            this.idService = idService;
+            this.idCompany = idCompany;
+        }
+
+        public int idCustService { get; set; }
+        public int idCompany { get; set; }
+        public int idService { get; set; }
+        public DateTime? startdate { get; set; }
+        public DateTime? enddate { get; set; }
+        public bool? paid { get; set; }
+        public string price { get; set; }
+        public string priceCost { get; set; }
+        public string servicesName { get; set; }
+        public string companyName { get; set; }
+         
+
+    /*    public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append(string.Format("Name = {0}; ", this.Name));
+            sb.Append(string.Format("Address = {0}; ", this.Address));
+           // sb.AppendLine(string.Format("Id = {0}.", this.Id));
+            return sb.ToString();
+
+        }*/
+    }
+}

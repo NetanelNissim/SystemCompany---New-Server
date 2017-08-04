@@ -1,0 +1,14 @@
+31/01/2013 19:31:13: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+31/01/2013 19:31:15: q logged in
+31/01/2013 19:31:32:  Exit From Manage Customer 
+31/01/2013 19:32:33:   Update the Customer: מפתח נתי
+31/01/2013 19:32:34:  Edit Row Viewing All Customers: מפתח נתי
+31/01/2013 19:34:56:  Export File Successful 
+31/01/2013 19:48:13:   Update the Customer: אלדד
+31/01/2013 19:48:17:  Edit Row Viewing All Customers: שילת
+31/01/2013 20:00:58: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+31/01/2013 20:01:01: q logged in
+31/01/2013 20:01:14:  Exit From Manage Customer 
+31/01/2013 20:01:51:  Customer exist: fdfdfd
+31/01/2013 20:01:56:  Add Customer: fdfdfd
+31/01/2013 20:02:18:  Add Row Viewing All Customers 

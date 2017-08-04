@@ -1,0 +1,37 @@
+14/07/2012 10:49:15: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+14/07/2012 10:49:20: q logged in
+14/07/2012 10:52:29: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+14/07/2012 10:52:33: q logged in
+14/07/2012 11:20:43: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+14/07/2012 11:20:47: q logged in
+14/07/2012 11:22:21: Open Form Add Row Project To Company
+14/07/2012 11:22:58:  Manage Company To Project: מורני שונה And זה פרויקט להביא מים
+14/07/2012 11:54:37: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+14/07/2012 11:54:42: q logged in
+14/07/2012 11:54:47: Open Form Add Row Project To Company
+14/07/2012 12:10:04: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+14/07/2012 12:10:08: q logged in
+14/07/2012 12:10:17: Open Form Add Row Project To Company
+14/07/2012 12:11:12:  Manage Company To Project: מורן And שוטפת כלים
+14/07/2012 12:12:19:  Exit From Manage Company To Project
+14/07/2012 12:12:45:  Update Manage Company To Project
+14/07/2012 12:18:55: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+14/07/2012 12:19:00: q logged in
+14/07/2012 12:19:08: Open Form Add Row Project To Company
+14/07/2012 12:19:44:  Error Company To Project the company and project exist: מורן And שוטפת כלים
+14/07/2012 12:20:00:  Manage Company To Project: מורן And נשארו לי רק 3 קורסים
+14/07/2012 12:20:12:  Delete Row Viewing All Project: נשארו לי רק 3 קורסים
+14/07/2012 12:21:04:  Add Calls Services
+14/07/2012 12:21:05:  Add Row Service Calls 
+14/07/2012 12:21:39:  Exit Manage Project 
+14/07/2012 12:45:39: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+14/07/2012 12:45:43: q logged in
+14/07/2012 13:31:56: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+14/07/2012 13:32:00: q logged in
+14/07/2012 13:35:24: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+14/07/2012 13:35:28: q logged in
+14/07/2012 13:52:53: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+14/07/2012 13:52:57: q logged in
+14/07/2012 13:56:53: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+14/07/2012 13:56:58: q logged in
+14/07/2012 13:57:22:  Update Manage Service To Customers

@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+
+namespace WcfServiceLibrarySystemCompanies
+{
+    public class ServicePriority 
+    {
+        public void InsertPriority(Priority priority)
+        {
+            Services.PriorityServices.Instance.InsertPriority(priority.TypePriority);
+        }
+
+        public string GetAllPriorities()
+        {
+            return Utils.ConvertDataTableToXML(Services.PriorityServices.Instance.GetAllPriorities(),"Priority");
+        }
+
+        public List<Tuple<int, string>> GetAllPrioritiesToDropDown()
+        {
+            return Services.PriorityServices.Instance.GetAllPrioritiesToDropDown();
+        }
+
+        public void DeletePriority(Priority priority)
+        {
+            Services.PriorityServices.Instance.DeletePriority(priority.IdPriority);
+        }
+
+    }
+}

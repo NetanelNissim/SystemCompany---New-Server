@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SystemCompanyModelStoreContainer" CdmEntityContainer="SystemCompanyEntities">
+    <EntitySetMapping Name="Companys">
+      <EntityTypeMapping TypeName="SystemCompanyModel.Company">
+        <MappingFragment StoreEntitySet="Companys">
+          <ScalarProperty Name="companyName" ColumnName="companyName" />
+          <ScalarProperty Name="contactName" ColumnName="contactName" />
+          <ScalarProperty Name="mobilePhone" ColumnName="mobilePhone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="FAX" ColumnName="FAX" />
+          <ScalarProperty Name="companynumber" ColumnName="companynumber" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+          <ScalarProperty Name="PostalNum" ColumnName="PostalNum" />
+          <ScalarProperty Name="idCompany" ColumnName="idCompany" />
+          <ScalarProperty Name="paymentTerms" ColumnName="paymentTerms" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Priorities">
+      <EntityTypeMapping TypeName="SystemCompanyModel.Priority">
+        <MappingFragment StoreEntitySet="Priorities">
+          <ScalarProperty Name="idPriority" ColumnName="idPriority" />
+          <ScalarProperty Name="TypePriority" ColumnName="TypePriority" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="projects">
+      <EntityTypeMapping TypeName="SystemCompanyModel.project">
+        <MappingFragment StoreEntitySet="project">
+          <ScalarProperty Name="idProject" ColumnName="idProject" />
+          <ScalarProperty Name="projectName" ColumnName="projectName" />
+          <ScalarProperty Name="projectDescription" ColumnName="projectDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectCompanies">
+      <EntityTypeMapping TypeName="SystemCompanyModel.ProjectCompany">
+        <MappingFragment StoreEntitySet="ProjectCompany">
+          <ScalarProperty Name="idCustomerProject" ColumnName="idCustomerProject" />
+          <ScalarProperty Name="idProject" ColumnName="idProject" />
+          <ScalarProperty Name="idCompany" ColumnName="idCompany" />
+          <ScalarProperty Name="priceType" ColumnName="priceType" />
+          <ScalarProperty Name="discriptions" ColumnName="discriptions" />
+          <ScalarProperty Name="paid" ColumnName="paid" />
+          <ScalarProperty Name="destination" ColumnName="destination" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceCalls">
+      <EntityTypeMapping TypeName="SystemCompanyModel.ServiceCall">
+        <MappingFragment StoreEntitySet="ServiceCalls">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="idCallsServices" ColumnName="idCallsServices" />
+          <ScalarProperty Name="idCompany" ColumnName="idCompany" />
+          <ScalarProperty Name="dateOpenCalls" ColumnName="dateOpenCalls" />
+          <ScalarProperty Name="discriptions" ColumnName="discriptions" />
+          <ScalarProperty Name="idPriority" ColumnName="idPriority" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Services">
+      <EntityTypeMapping TypeName="SystemCompanyModel.Service">
+        <MappingFragment StoreEntitySet="Services">
+          <ScalarProperty Name="idService" ColumnName="idService" />
+          <ScalarProperty Name="servicesName" ColumnName="servicesName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServicesCompanies">
+      <EntityTypeMapping TypeName="SystemCompanyModel.ServicesCompany">
+        <MappingFragment StoreEntitySet="ServicesCompany">
+          <ScalarProperty Name="idCustService" ColumnName="idCustService" />
+          <ScalarProperty Name="idCompany" ColumnName="idCompany" />
+          <ScalarProperty Name="idService" ColumnName="idService" />
+          <ScalarProperty Name="startdate" ColumnName="startdate" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="priceCost" ColumnName="priceCost" />
+          <ScalarProperty Name="paid" ColumnName="paid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DateProjectCompany">
+      <EntityTypeMapping TypeName="SystemCompanyModel.DateProjectCompany">
+        <MappingFragment StoreEntitySet="DateProjectCompany">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idProject" ColumnName="idProject" />
+          <ScalarProperty Name="idCompany" ColumnName="idCompany" />
+          <ScalarProperty Name="DateFinishProject" ColumnName="DateFinishProject" />
+          <ScalarProperty Name="DateStartProject" ColumnName="DateStartProject" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserLogin">
+      <EntityTypeMapping TypeName="SystemCompanyModel.UserLogin">
+        <MappingFragment StoreEntitySet="UserLogin">
+          <ScalarProperty Name="idUserLogin" ColumnName="idUserLogin" />
+          <ScalarProperty Name="VPermission" ColumnName="VPermission" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_Project_Company">
+      <EntityTypeMapping TypeName="SystemCompanyModel.View_Project_Company">
+        <MappingFragment StoreEntitySet="View_Project_Company">
+          <ScalarProperty Name="destination" ColumnName="destination" />
+          <ScalarProperty Name="idCompany" ColumnName="idCompany" />
+          <ScalarProperty Name="idProject" ColumnName="idProject" />
+          <ScalarProperty Name="paid" ColumnName="paid" />
+          <ScalarProperty Name="discriptions" ColumnName="discriptions" />
+          <ScalarProperty Name="priceType" ColumnName="priceType" />
+          <ScalarProperty Name="DateFinishProject" ColumnName="DateFinishProject" />
+          <ScalarProperty Name="DateStartProject" ColumnName="DateStartProject" />
+          <ScalarProperty Name="projectName" ColumnName="projectName" />
+          <ScalarProperty Name="companyName" ColumnName="companyName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysAudit">
+      <EntityTypeMapping TypeName="SystemCompanyModel.SysAudit">
+        <MappingFragment StoreEntitySet="SysAudit">
+          <ScalarProperty Name="FieldAction" ColumnName="FieldAction" />
+          <ScalarProperty Name="DateInserted" ColumnName="DateInserted" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="tableName" ColumnName="tableName" />
+          <ScalarProperty Name="key3" ColumnName="key3" />
+          <ScalarProperty Name="key2" ColumnName="key2" />
+          <ScalarProperty Name="key1" ColumnName="key1" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

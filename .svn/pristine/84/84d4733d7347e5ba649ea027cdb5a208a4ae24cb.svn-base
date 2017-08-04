@@ -1,0 +1,21 @@
+10/01/2013 21:19:19: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+10/01/2013 21:19:21: q logged in
+10/01/2013 21:50:16: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+10/01/2013 21:50:18: q logged in
+10/01/2013 21:51:30:  Add Calls Services
+10/01/2013 21:51:31:  Add Row Service Calls 
+10/01/2013 21:51:58:  Update Service Calls
+10/01/2013 21:51:59:  Edit Row Viewing All Customers: מפתח נתי
+10/01/2013 21:58:26: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+10/01/2013 21:58:29: q logged in
+10/01/2013 21:58:43: Open Form Add Row Service To Customer
+10/01/2013 21:58:50:  Exit From Manage Service To Customers
+10/01/2013 21:58:53: Open Form Add Row Service To Customer
+10/01/2013 21:59:14:  Error Manage Customer To Services the company and service exist: מורני שלי And בדיקת עדכון
+10/01/2013 22:00:50:  Manage Customer To Services: מורני שלי And פיתוח
+10/01/2013 22:01:23:  Exit Manage Project 
+10/01/2013 22:06:38: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+10/01/2013 22:06:42: q logged in
+10/01/2013 22:06:59:  Delete Row Viewing All Project: בדיקה
+10/01/2013 22:07:28: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+10/01/2013 22:07:30: q logged in

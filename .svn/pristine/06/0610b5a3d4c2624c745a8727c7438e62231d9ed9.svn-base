@@ -1,0 +1,13 @@
+18/09/2012 23:26:35: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+18/09/2012 23:26:42: q logged in
+18/09/2012 23:26:54: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+18/09/2012 23:27:06: d Try to logged in: 18/09/2012 23:27:06
+18/09/2012 23:29:27: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+18/09/2012 23:29:36: d Try to logged in: 18/09/2012 23:29:36
+18/09/2012 23:29:39: q logged in
+18/09/2012 23:29:46: d Try to logged in: 18/09/2012 23:29:46
+18/09/2012 23:29:48: Change User to: 
+18/09/2012 23:29:56: d Try to logged in: 18/09/2012 23:29:56
+18/09/2012 23:30:01: d Try to logged in: 18/09/2012 23:30:01
+18/09/2012 23:30:05: t Try to logged in: 18/09/2012 23:30:05
+18/09/2012 23:30:08: Change User to: 

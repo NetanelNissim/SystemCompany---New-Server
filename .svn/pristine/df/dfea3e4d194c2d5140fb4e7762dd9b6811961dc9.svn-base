@@ -1,0 +1,46 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Entities;
+using DataAccessLayer;
+
+namespace Services
+{
+    public class ServiceCallsServices
+    {
+        private static ServiceCallsServices instance;
+        public static ServiceCallsServices Instance
+        {
+            get { return instance ?? (instance = new ServiceCallsServices()); }
+        }
+
+        public void InsertServiceCalls(DateTime dateOpenCalls, string discriptions, int idCompany, int idPriority)
+        {
+            ServiceCallsPersister.Instance.InsertServiceCalls(dateOpenCalls, discriptions, idCompany, idPriority);
+        }
+
+        public void UpdateServiceCalls(string discriptions, int idServiceCalls)
+        {
+            ServiceCallsPersister.Instance.UpdateServiceCalls(discriptions, idServiceCalls);
+        }
+
+        public IEnumerable<Entities.ServiceCalls> GetAllServiceCalls()
+        {
+            return ServiceCallsPersister.Instance.GetAllServicesToCompanies();
+        }
+
+        public IEnumerable<ServiceCalls> GetServiceCallsBetweenDate(DateTime dateOpenCalls)
+        {
+            return ServiceCallsPersister.Instance.GetServiceCallsBetweenDate(dateOpenCalls);
+        }
+
+        public void DeleteServiceCalls(int idServiceCalls)
+        {
+            ServiceCallsPersister.Instance.DeleteServiceToCompanies(idServiceCalls);
+        }
+
+
+
+    }
+}

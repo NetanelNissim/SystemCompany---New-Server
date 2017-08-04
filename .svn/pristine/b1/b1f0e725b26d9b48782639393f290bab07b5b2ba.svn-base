@@ -1,0 +1,50 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Entities;
+using DataAccessLayer;
+using System.Data;
+
+namespace Services
+{
+    public class ProjectsServices
+    {
+        private static ProjectsServices instance;
+        public static ProjectsServices Instance
+        {
+            get { return instance ?? (instance = new ProjectsServices()); }
+        }
+
+        public void InsertProject(string projectName, string projectDescription)
+        {
+            ProjectsPersister.Instance.InsertProject(projectName, projectDescription);
+        }
+
+        public void UpdateProject(string projectName, string projectDescription)
+        {
+            ProjectsPersister.Instance.UpdateProject(projectName, projectDescription);
+        }
+
+        public DataTable GetAllProjects()
+        {
+            return DataTableCreator.Instance.ConvertListToDataTable(ProjectsPersister.Instance.GetAllProjects().ToList<Entities.Projects>());
+        }
+
+        public void DeleteService(int idProject)
+        {
+            ProjectsPersister.Instance.DeleteService(idProject);
+        }
+
+        public List<dynamic> GetAllProjectsToDropDown()
+        {
+            var project =  ProjectsPersister.Instance.GetAllProjects();
+            var list =new List<dynamic>();
+            foreach (var item in project)
+            {
+                list.Add(new {  ProjectName =item.ProjectName ,IdProject = item.IdProject });
+            }
+            return list;
+        }
+    }
+}

@@ -1,0 +1,82 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Entities;
+using EntityFrameworkDAL;
+using Server;
+using SystemCustomers.DBUtils;
+
+
+namespace DataAccessLayer
+{
+    public class ServicesToCompaniesPersister 
+    {
+        #region Singleton
+        private ServicesToCompaniesPersister()
+        {
+        }
+        private static ServicesToCompaniesPersister instance;
+        public static ServicesToCompaniesPersister Instance
+        {
+            get { return instance ?? (instance = new ServicesToCompaniesPersister()); }
+        }
+        #endregion Singleton
+
+        private static ServicesCompany ConvertServicesToCompanies(ServicesToCompanies serviceToCompanies)
+        {
+            return new ServicesCompany
+                       {
+                         
+                           idCompany = serviceToCompanies.idCompany,
+                           idService = serviceToCompanies.idService,
+                           startdate = serviceToCompanies.startdate,
+                           enddate = serviceToCompanies.enddate,
+                           paid = serviceToCompanies.paid,
+                           price = serviceToCompanies.price,
+                           priceCost = serviceToCompanies.priceCost
+                       };
+        }
+
+
+        private static ServicesCompany ConvertIdServiceToCompanies(ServicesToCompanies serviceToCompany)
+        {
+            return new ServicesCompany
+            {
+                idService = serviceToCompany.idService,
+                idCompany=serviceToCompany.idCompany
+            };
+        }
+
+
+        public void InsertServiceToCompanies(DateTime startdate, DateTime enddate, bool paid, string price,
+            string priceCost, int idCompany, int idService)
+        {
+            var serviceToCompanies = new ServicesToCompanies(startdate, enddate, paid, price, priceCost, idCompany, idService);
+            ServiceToCompanyDataServices.Instance.InsertServiceToCompany(ConvertServicesToCompanies(serviceToCompanies));
+        }
+
+        public IEnumerable<ServicesToCompanies> GetAllServicesToCompanies()
+        {
+            var serviceToCompanies = ServiceToCompanyDataServices.Instance.ViewingServicesToCompanys();
+            return serviceToCompanies.Select(serivceToCompanie => new ServicesToCompanies(
+                serivceToCompanie.Service.servicesName, serivceToCompanie.Company.companyName,
+                serivceToCompanie.startdate, serivceToCompanie.enddate, serivceToCompanie.paid,
+                serivceToCompanie.price, serivceToCompanie.priceCost, serivceToCompanie.idCustService,
+                serivceToCompanie.idCompany, serivceToCompanie.idService)).ToList();
+        }
+
+        public void UpdateServiceToCompanies(DateTime startdate, DateTime enddate, bool paid, 
+            string price, string priceCost, int idCompany, int idService)
+        {
+            var serviceToCompanies = new ServicesToCompanies(startdate, enddate, paid, price, priceCost, idCompany, idService);
+            ServiceToCompanyDataServices.Instance.UpdateServiceToCompany(ConvertServicesToCompanies(serviceToCompanies));
+        }
+
+        public void DeleteServiceToCompanies(int idService,int idCompany)
+        {
+            var serviceToCompanies = new ServicesToCompanies(idService, idCompany);
+            ServiceToCompanyDataServices.Instance.DeleteServiceToCompany(ConvertIdServiceToCompanies(serviceToCompanies));
+        }
+    }
+}

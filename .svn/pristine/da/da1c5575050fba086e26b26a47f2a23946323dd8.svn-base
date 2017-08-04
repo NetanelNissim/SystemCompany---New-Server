@@ -1,0 +1,80 @@
+08/09/2012 07:38:58: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 07:39:53: q logged in
+08/09/2012 07:44:39: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 07:44:45: q logged in
+08/09/2012 08:02:39: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 08:02:45: q logged in
+08/09/2012 08:04:46:  Add Customer: בדיקה מודל שכבות
+08/09/2012 08:04:50:  Add Row Viewing All Customers 
+08/09/2012 08:19:28: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 08:19:34: q logged in
+08/09/2012 08:30:44: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 08:30:50: q logged in
+08/09/2012 08:33:46: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 08:35:05: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 08:39:30: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 08:39:56: q logged in
+08/09/2012 08:41:26:   Update the Customer: בדיקה מודל שכבות
+08/09/2012 08:41:29:  Edit Row Viewing All Customers: בדיקה מודל שכבות
+08/09/2012 09:02:52: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 09:02:57: q logged in
+08/09/2012 09:03:21:  Delete Row Viewing All Customers: ביל בילון Bill
+08/09/2012 11:39:14: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 11:39:18: q logged in
+08/09/2012 11:39:38:  Add Service: מה אתה אומר יעבוד
+08/09/2012 11:39:39:  Add Row Viewing All Services 
+08/09/2012 11:39:50:  Delete Row Viewing All Services: מה אתה אומר יעבוד
+08/09/2012 11:39:56:  Edit Row Viewing All Services: בדיקה בדיקה
+08/09/2012 11:40:08:  Update Service: בדיקת עדכון
+08/09/2012 11:41:52: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 11:41:57: q logged in
+08/09/2012 11:54:16: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 11:54:20: q logged in
+08/09/2012 11:54:28: Open Form Add Row Service To Customer
+08/09/2012 11:54:37:  Exit From Manage Service To Customers
+08/09/2012 11:54:50: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 11:54:54: q logged in
+08/09/2012 11:55:18: Open Form Add Row Service To Customer
+08/09/2012 11:55:21:  Exit From Manage Service To Customers
+08/09/2012 14:05:00: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 14:05:06: q logged in
+08/09/2012 14:16:19: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 14:16:24: q logged in
+08/09/2012 14:16:45:  Update Manage Service To Customers
+08/09/2012 14:17:05: Open Form Add Row Service To Customer
+08/09/2012 14:17:41:  Manage Customer To Services: מורני שונה And Service_Name
+08/09/2012 14:17:51: Open Form Add Row Service To Customer
+08/09/2012 14:18:06:  Manage Customer To Services: חגית And בדיקת עדכון
+08/09/2012 14:21:51: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 14:21:56: q logged in
+08/09/2012 15:24:41: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 15:24:46: q logged in
+08/09/2012 15:25:15:  Add Calls Services
+08/09/2012 15:25:16:  Add Row Service Calls 
+08/09/2012 15:29:30: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 15:29:34: q logged in
+08/09/2012 15:31:33:  Update Service Calls
+08/09/2012 15:31:35:  Edit Row Viewing All Customers: מורן
+08/09/2012 15:36:00: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 15:36:04: q logged in
+08/09/2012 15:37:09: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 15:37:15: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 15:37:28: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 15:37:58: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 15:39:05: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 15:39:10: q logged in
+08/09/2012 15:40:40: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 15:40:46: q logged in
+08/09/2012 15:40:59:  Delete Row Service Calls: חגית
+08/09/2012 17:44:03: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 17:44:09: q logged in
+08/09/2012 17:44:17:  Exit Viewing Priority 
+08/09/2012 17:44:28:  Add Priority: בדיקה
+08/09/2012 17:44:39:  Delete Priority 
+08/09/2012 17:44:43:  Exit Viewing Priority 
+08/09/2012 18:35:43: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 18:35:48: q logged in
+08/09/2012 18:36:01: Open Form Add Row Project To Company
+08/09/2012 18:36:09:  Exit From Manage Company To Project
+08/09/2012 18:37:44: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+08/09/2012 18:37:48: q logged in

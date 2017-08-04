@@ -1,0 +1,24 @@
+25/01/2013 12:09:13: Data Base Connection Error
+25/01/2013 12:10:58: Data Base Connection Error
+25/01/2013 12:15:10: Data Base Connection Error
+25/01/2013 12:15:21: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+25/01/2013 12:15:24: q logged in
+25/01/2013 12:16:29: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+25/01/2013 12:16:54: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+25/01/2013 12:24:57: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+25/01/2013 12:25:00: q logged in
+25/01/2013 13:10:27: Data Source=VSERVERSQL-PC;Initial Catalog=SystemCompany;persist security info=True;User Id=sa;Password=12213443;
+25/01/2013 13:10:33: q logged in
+25/01/2013 13:11:51:  Add Customer: dfdsfds
+25/01/2013 13:11:52:  Add Row Viewing All Customers 
+25/01/2013 13:12:04:   Update the Customer: שילת
+25/01/2013 13:12:05:  Edit Row Viewing All Customers: dfdsfds
+25/01/2013 13:12:17:  Add Service: ענן
+25/01/2013 13:12:18:  Add Row Viewing All Services 
+25/01/2013 13:13:36: Open Form Add Row Service To Customer
+25/01/2013 13:13:56:  Manage Customer To Services: שילת And ענן
+25/01/2013 13:14:42:  Add Calls Services
+25/01/2013 13:14:42:  Add Row Service Calls 
+25/01/2013 13:15:37:  Export File Successful 
+25/01/2013 13:16:31: Open Form Add Row Project To Company
+25/01/2013 13:17:21:  Manage Company To Project: שילת And בדיקה הוספת פרויקט

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b7b5e650-9f3e-41d6-8d00-bebf34842b71" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:9292/WCF/ServiceManager/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="d0880bdb-ff78-4721-9d4d-5a6ddcab41f8" SourceId="1" SourceUrl="http://localhost:9292/WCF/ServiceManager/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="2ad447be-68f3-40dc-afa2-71cf818cb4a6" SourceId="1" SourceUrl="http://localhost:9292/WCF/ServiceManager/mex" />
+    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="38352892-b6ec-4d82-a336-009d38f49b27" SourceId="1" SourceUrl="http://localhost:9292/WCF/ServiceManager/mex" />
+    <MetadataFile FileName="WcfServiceLibrarySystemCompanies1.xsd" MetadataType="Schema" ID="7ed89d34-92f0-4082-b82e-f90079a53fac" SourceId="1" SourceUrl="http://localhost:9292/WCF/ServiceManager/mex" />
+    <MetadataFile FileName="System1.xsd" MetadataType="Schema" ID="9d76a652-924f-4283-b8e8-9a0e72bd9ce9" SourceId="1" SourceUrl="http://localhost:9292/WCF/ServiceManager/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="03764ecf-6d27-4fcb-98e9-afac70b99ee5" SourceId="1" SourceUrl="http://localhost:9292/WCF/ServiceManager/mex" />
+    <MetadataFile FileName="System.Data.xsd" MetadataType="Schema" ID="912f2f29-32bf-4871-9052-d77352b4ba69" SourceId="1" SourceUrl="http://localhost:9292/WCF/ServiceManager/mex" />
+    <MetadataFile FileName="WcfServiceLibrarySystemCompanies.DataContracts1.xsd" MetadataType="Schema" ID="daab98aa-16cf-435e-8339-9974cf89a878" SourceId="1" SourceUrl="http://localhost:9292/WCF/ServiceManager/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

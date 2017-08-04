@@ -1,0 +1,153 @@
+﻿namespace SystemCustomers.ManageServiceCalls
+{
+    partial class ServiceCalls1
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServiceCalls1));
+            this.combListCustomers1 = new System.Windows.Forms.ComboBox();
+            this.labelControl2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txtbDiscriptions1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.combPriority1 = new System.Windows.Forms.ComboBox();
+            this.btnAddCallsServices1 = new System.Windows.Forms.Button();
+            this.btnUpdate1 = new System.Windows.Forms.Button();
+            this.textbStatus = new System.Windows.Forms.TextBox();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // combListCustomers1
+            // 
+            this.combListCustomers1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combListCustomers1.FormattingEnabled = true;
+            resources.ApplyResources(this.combListCustomers1, "combListCustomers1");
+            this.combListCustomers1.Name = "combListCustomers1";
+            this.combListCustomers1.SelectedIndexChanged += new System.EventHandler(this.combListCustomers1_SelectedIndexChanged);
+            // 
+            // labelControl2
+            // 
+            resources.ApplyResources(this.labelControl2, "labelControl2");
+            this.labelControl2.Name = "labelControl2";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.txtbDiscriptions1);
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Name = "panel1";
+            // 
+            // txtbDiscriptions1
+            // 
+            resources.ApplyResources(this.txtbDiscriptions1, "txtbDiscriptions1");
+            this.txtbDiscriptions1.Name = "txtbDiscriptions1";
+            this.txtbDiscriptions1.TextChanged += new System.EventHandler(this.txtbDiscriptions1_TextChanged);
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // combPriority1
+            // 
+            this.combPriority1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combPriority1.FormattingEnabled = true;
+            resources.ApplyResources(this.combPriority1, "combPriority1");
+            this.combPriority1.Name = "combPriority1";
+            this.combPriority1.SelectedIndexChanged += new System.EventHandler(this.combPriority1_SelectedIndexChanged);
+            // 
+            // btnAddCallsServices1
+            // 
+            resources.ApplyResources(this.btnAddCallsServices1, "btnAddCallsServices1");
+            this.btnAddCallsServices1.Name = "btnAddCallsServices1";
+            this.btnAddCallsServices1.UseVisualStyleBackColor = true;
+            this.btnAddCallsServices1.Click += new System.EventHandler(this.btnAddCallsServices1_Click);
+            // 
+            // btnUpdate1
+            // 
+            resources.ApplyResources(this.btnUpdate1, "btnUpdate1");
+            this.btnUpdate1.Name = "btnUpdate1";
+            this.btnUpdate1.UseVisualStyleBackColor = true;
+            this.btnUpdate1.Click += new System.EventHandler(this.btnUpdate1_Click);
+            // 
+            // textbStatus
+            // 
+            resources.ApplyResources(this.textbStatus, "textbStatus");
+            this.textbStatus.Name = "textbStatus";
+            // 
+            // lblStatus
+            // 
+            resources.ApplyResources(this.lblStatus, "lblStatus");
+            this.lblStatus.Name = "lblStatus";
+            // 
+            // ServiceCalls1
+            // 
+            resources.ApplyResources(this, "$this");
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblStatus);
+            this.Controls.Add(this.textbStatus);
+            this.Controls.Add(this.btnUpdate1);
+            this.Controls.Add(this.btnAddCallsServices1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.combPriority1);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelControl2);
+            this.Controls.Add(this.combListCustomers1);
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "ServiceCalls1";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ServiceCalls1_KeyDown);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.ComboBox combListCustomers1;
+        private System.Windows.Forms.Label labelControl2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtbDiscriptions1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox combPriority1;
+        private System.Windows.Forms.Button btnAddCallsServices1;
+        private System.Windows.Forms.Button btnUpdate1;
+        private System.Windows.Forms.TextBox textbStatus;
+        private System.Windows.Forms.Label lblStatus;
+    }
+}

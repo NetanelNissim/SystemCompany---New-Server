@@ -1,0 +1,152 @@
+﻿using System;
+using System.ServiceModel;
+using System.Windows.Forms;
+using SystemCustomers.MessageUtils;
+
+namespace SystemCustomers.ManageProject
+{
+    public partial class AddProject : Form
+    {
+        public AddProject()
+        {
+            InitializeComponent();
+        }
+
+        public AddProject(string projectName, string projectDescription)
+            : this()
+        {
+            this.ProjectName = projectName;
+            this.ProjectDescription = projectDescription;
+        }
+
+        public AddProject(string projectName, string projectDescription, int idProject)
+            : this()
+        {
+            this.ProjectName = projectName;
+            this.ProjectDescription = projectDescription;
+            this.IdProject = idProject;
+        }
+        #region Properties
+
+        public int IdProject { get; set; }
+
+        public string ProjectName
+        {
+            get { return txtbProjectName.Text; }
+            set { txtbProjectName.Text = value; }
+        }
+
+        public string ProjectDescription
+        {
+            get { return txtProjectDiscriptions.Text; }
+            set { txtProjectDiscriptions.Text = value; }
+        }
+
+        private bool _canAdd = false;
+        #endregion Properties
+
+        #region Methud
+        private void EnableAdd()
+        {
+            btnAdd.Enabled = btnUpdate.Enabled = IsValid() && _canAdd;
+        }
+
+        private bool IsValid()
+        {
+            return (txtbProjectName.Text.Trim() != string.Empty);
+        }
+
+        #endregion Methud
+
+        #region Events
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            LogUtils.WriteToLog(" Exit Manage Project ");
+            LogUtils.SystemEventLogsInformation(" Exit Manage Project ");
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            using (var myClient = new ServiceManager.ServiceSystemCompaniesClient())
+            {
+                try
+                {
+                    var project = new ServiceManager.Project();
+                    project.projectName = txtbProjectName.Text;
+                    project.projectDescription = txtProjectDiscriptions.Text;
+                    project.Method = "Insert";
+                    myClient.ManageProject(project);
+                    LogUtils.WriteToLog(" Add Project: " + txtbProjectName.Text);
+                    LogUtils.SystemEventLogsInformation(" Add Project:" + txtbProjectName.Text);
+                    new MessageBoxText(string.Format(" פרויקט נוסף בהצלחה: {0}", txtbProjectName.Text)).OkMessaageBox();
+                    this.DialogResult = DialogResult.OK;
+                }
+                catch (FaultException ex)
+                {
+                    LogUtils.WriteToLog(string.Format(" Faild Add Project: {0} Exception: {1} ", txtbProjectName.Text, ex.Message));
+                    LogUtils.SystemEventLogsError(string.Format(" Faild Add Project: {0} Exception: {1} ", txtbProjectName.Text, ex.Message));
+                }
+                this.Close();
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            using (var myClient = new ServiceManager.ServiceSystemCompaniesClient())
+            {
+                try
+                {
+                    var project = new ServiceManager.Project();
+                    project.Method = "Update";
+                    project.projectName = txtbProjectName.Text;
+                    project.projectDescription = txtProjectDiscriptions.Text;
+                    project.idProject = this.IdProject;
+                    myClient.ManageProject(project);
+                    LogUtils.WriteToLog(" Update Project: " + txtbProjectName.Text);
+                    LogUtils.SystemEventLogsInformation(" Update Project: " + txtbProjectName.Text);
+                    new MessageBoxText(string.Format(" פרויקט עודכן בהצלחה: {0}", txtbProjectName.Text)).OkMessaageBox();
+                    this.DialogResult = DialogResult.OK;
+                }
+                catch (FaultException ex)
+                {
+                    LogUtils.WriteToLog(string.Format(" Faild Update Project: {0}. Exception: {1} ", txtbProjectName.Text, ex.Message));
+                    LogUtils.SystemEventLogsError(string.Format(" Faild Update Project: {0}. Exception: {1} ", txtbProjectName.Text, ex.Message));
+                }
+            }
+            this.Close();
+        }
+
+        private void txtbProjectName_TextChanged(object sender, EventArgs e)
+        {
+            if (!MyRegEx.Validate(txtbProjectName.Text, MyRegEx.OnlyCharsSpacesAndApostropheDigitsHebrew))
+            {
+                errorProject.SetError(txtbProjectName, "רק אותיות גרש ורווחים מותרים");
+                _canAdd = false;
+            }
+            else
+            {
+                errorProject.SetError(txtbProjectName, string.Empty);
+                _canAdd = true;
+            }
+            EnableAdd();
+        }
+  
+
+        private void txtProjectDiscriptions_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                FormatText("\\\\");
+            }
+        }
+
+        private string FormatText(string input)
+        {
+            input = input.Replace("\\\\", "\\\\");
+            return input;
+        }
+        #endregion Events
+    }
+}

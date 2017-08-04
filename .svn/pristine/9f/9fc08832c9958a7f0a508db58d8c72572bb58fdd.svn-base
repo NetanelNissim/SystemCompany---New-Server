@@ -1,0 +1,214 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.Text;
+using Services;
+using WcfServiceLibrarySystemCompanies.DataContracts;
+
+namespace WcfServiceLibrarySystemCompanies
+{
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
+    public class ServiceSystemCompanies : IServiceSystemCompanies
+    {
+        public Users ManageUsers(Users user)
+        {
+            var objUser = new ServiceUsers();
+            switch (user.Method)
+            {
+                case "Insert" :
+                    objUser.Insert(user);
+                    break;
+                case "Update":
+                    objUser.UpdateUser(user);
+                    break;
+                case "Delete":
+                    objUser.DeleteUser(user);
+                    break;
+                case "CheckUser":
+                  user.isBool =  objUser.CheckUser(user);
+                    break;
+                case "fillDropDown":
+                   user.list = objUser.GetAllToFillDropDown();
+                    break;
+                case "getPermission":
+                    user.Permission = objUser.GetPermission(user);
+                    break;
+                case "CheckConnection":
+                    user.isBool = objUser.CheckConnection();
+                    break;
+                case "CheckUserId":
+                    user.isBool = objUser.CheckUserId(user);
+                    break;
+            }
+            return user;
+        }
+
+        public Companies ManageCompanies(Companies comp)
+        {
+            var objCompany = new ServiceCompanies();
+            switch (comp.Method)
+            {
+                case "Insert":
+                    objCompany.Insert(comp);
+                    break;
+                case "Update":
+                    objCompany.Update(comp);
+                    break;
+                case "Delete":
+                    objCompany.Delete(comp);
+                    break;
+                case "CheckCompanyNumber":
+                    comp.isBool = objCompany.CheckCompanyNumber(comp);
+                    break;
+                case "GetCompanies":
+                    comp.stringData = objCompany.GetCompanies();
+                    break;
+                case "GetAllCustomersToDropDown":
+                    comp.list = objCompany.GetAllCustomersToDropDown();
+                    break;
+            }
+            return comp;
+        }
+
+        public Service MangeServices(Service service)
+        {
+            var objService = new ServiceService();
+            switch (service.Method)
+            {
+                case "Insert":
+                    objService.Insert(service);
+                    break;
+                case "Update":
+                    objService.UpdateService(service);
+                    break;
+                case "Delete":
+                    objService.DeleteService(service);
+                    break;
+                case "GetAllService":
+                    service.ServiceData = objService.GetAllService();
+                    break;
+                case "GetAllServiceToDropDown":
+                    service.list = objService.GetAllServiceToDropDown();
+                    break;
+                case "CheckServiceId":
+                    service.isBool = objService.CheckServiceId(service);
+                    break;
+            }
+            return service;
+        }
+
+        public Project ManageProject(Project project)
+        {
+            var objProject = new ServiceProject();
+            switch (project.Method)
+            {
+                case "Insert":
+                    objProject.Insert(project);
+                    break;
+
+                case "Update":
+                    objProject.Update(project);
+                    break;
+
+                case "Delete":
+                    objProject.Delete(project);
+                    break;
+
+                case "GetAllProjects":
+                    project.DataProject = objProject.GetAllProjects();
+                    break;
+
+                case "GetAllProjectsToDropDown":
+                    project.list = objProject.GetAllProjectsToDropDown();
+                    break;
+            }
+            return project;
+        }
+
+        public Priority ManagePriority(Priority priority)
+        {
+            var objPriority = new ServicePriority();
+            switch (priority.Method)
+            {
+                case "Insert":
+                    objPriority.InsertPriority(priority);
+                    break;
+                case "Delete":
+                    objPriority.DeletePriority(priority);
+                    break;
+                case "CheckPriorityId":
+                    priority.isBool = objPriority.CheckPriorityId(priority);
+                    break;
+
+                case "GetAllPriorities":
+                    priority.PriorityData = objPriority.GetAllPriorities();
+                    break;
+                case "GetAllPrioritiesToDropDown":
+                    priority.list = objPriority.GetAllPrioritiesToDropDown();
+                    break;
+            }
+            return priority;
+        }
+
+        public ServiceCalls ManageServiceCalls(ServiceCalls serviceCall)
+        {
+            var objServiceCall = new ServiceCallsServices();
+            switch(serviceCall.Method)
+            {
+                case "Insert":
+                    objServiceCall.InsertServiceCalls(serviceCall);
+                    break;
+                case "Delete":
+                    objServiceCall.DeleteServiceCalls(serviceCall);
+                    break;
+                case "Update":
+                    objServiceCall.UpdateServiceCalls(serviceCall);
+                    break;
+                case "GetAllServiceCalls":
+                    serviceCall.DataServiceCalls = objServiceCall.GetAllServiceCalls();
+                    break;
+                case "GetServiceCallsBetweenDate":
+                    serviceCall.DataServiceCallsBetweenDate = objServiceCall.GetServiceCallsBetweenDate(serviceCall);
+                    break;
+                case "ConvertDoubleToDateTime":
+                    serviceCall.dateOpenCalls = objServiceCall.ConvertDoubleToDateTime(serviceCall);
+                    break;
+                case "CheckServiceCall":
+                    serviceCall.isBool = objServiceCall.CheckServiceCall(serviceCall);
+                    break;
+            }
+            return serviceCall;
+        }
+
+        public ServiceToCompany ManageServiceToCompany(ServiceToCompany serviceToCompany)
+        {
+            var objServiceToCompany = new ServiceToCompanyService();
+            switch (serviceToCompany.Method)
+            {
+                case "Insert":
+                    objServiceToCompany.Insert(serviceToCompany);
+                    break;
+
+                case "Delete":
+                    objServiceToCompany.Delete(serviceToCompany);
+                    break;
+
+                case "Update":
+                    objServiceToCompany.Update(serviceToCompany);
+                    break;
+
+                case "GetAll":
+                    serviceToCompany.DataServiceToCompany = objServiceToCompany.GetAll();
+                    break;
+
+                case "CheckToAdd":
+                    serviceToCompany.isBool = objServiceToCompany.CheckToAdd(serviceToCompany);
+                    break;
+            }
+            return serviceToCompany;
+        }
+    }
+}

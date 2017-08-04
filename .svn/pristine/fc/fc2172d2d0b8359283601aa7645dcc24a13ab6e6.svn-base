@@ -1,0 +1,104 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using EntityFrameworkDAL;
+
+namespace Server
+{
+   public class UsersDataServices
+    {
+        #region Singelton
+
+        private static UsersDataServices _instance;
+
+        public static UsersDataServices Instance
+        {
+            get { return _instance ?? (_instance = new UsersDataServices()); }
+        }
+        
+        private UsersDataServices()
+        {
+            // this will happens only once
+            // Do your connection stuff in here
+        }
+
+        #endregion Singelton
+       
+       #region User Login
+
+
+        public void CheckConnection()
+        {
+            try
+            {
+                using (var ctx = new SystemCompanyEntities())
+                {
+                    ctx.Connection.Open();
+                    int resultNum = ctx.ExecuteStoreCommand("BACKUP DATABASE SystemCompany TO DISK = '//SystemCompany.bak' WITH FORMAT");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public IEnumerable<UserLogin> ViewingUsers()
+        {
+            using (var ctx = new SystemCompanyEntities())
+            {
+                return ctx.UserLogin.ToList();
+            }
+        }
+
+        public void InsertUser(UserLogin login)
+        {
+            using (var ctx = new SystemCompanyEntities())
+            {
+                ctx.AddToUserLogin(login);
+                ctx.SaveChanges();
+            }
+        }
+
+        public void DeleteUser(UserLogin user)
+        {
+            using (var ctx = new SystemCompanyEntities())
+            {
+                var userToDelete = ctx.UserLogin.First(e => e.idUserLogin == user.idUserLogin);
+
+                AuditDataServices.Instance.InsertAudit(userToDelete.idUserLogin, 0, 0, "UserLogin", userToDelete.Password, "Delte");
+                AuditDataServices.Instance.InsertAudit(userToDelete.idUserLogin, 0, 0, "UserLogin", userToDelete.FirstName, "Delte");
+                AuditDataServices.Instance.InsertAudit(userToDelete.idUserLogin, 0, 0, "UserLogin", userToDelete.UserName, "Delte");
+                AuditDataServices.Instance.InsertAudit(userToDelete.idUserLogin, 0, 0, "UserLogin", userToDelete.VPermission, "Delte");
+                
+                ctx.DeleteObject(userToDelete);
+                ctx.SaveChanges();
+            }
+        }
+
+        public void UpdateUser(UserLogin userLogin)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<UserLogin> CheckUserName(UserLogin userLogin)
+        {
+            using (var ctx = new SystemCompanyEntities())
+            {
+                return from c in ctx.UserLogin
+                       where c.UserName == userLogin.UserName
+                       select c;
+            }
+        }
+
+        public IEnumerable<UserLogin> Login(UserLogin userLogin)
+        {
+            using (var ctx = new SystemCompanyEntities())
+            {
+                return ctx.UserLogin.Where(u => u.UserName == userLogin.UserName && u.Password == userLogin.Password).ToList();
+            }
+        }
+       #endregion User Login
+    }
+}

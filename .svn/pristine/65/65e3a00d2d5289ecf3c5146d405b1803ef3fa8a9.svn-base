@@ -1,0 +1,172 @@
+﻿namespace SystemCustomers.ManageServiceCalls
+{
+    partial class ServiceCalls1
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServiceCalls1));
+            this.combListCustomers1 = new System.Windows.Forms.ComboBox();
+            this.labelControl2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txtbDiscriptions1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.combPriority1 = new System.Windows.Forms.ComboBox();
+            this.btnAddCallsServices1 = new System.Windows.Forms.Button();
+            this.btnUpdate1 = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // combListCustomers1
+            // 
+            this.combListCustomers1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combListCustomers1.FormattingEnabled = true;
+            this.combListCustomers1.Location = new System.Drawing.Point(106, 22);
+            this.combListCustomers1.Name = "combListCustomers1";
+            this.combListCustomers1.Size = new System.Drawing.Size(121, 21);
+            this.combListCustomers1.TabIndex = 0;
+            this.combListCustomers1.SelectedIndexChanged += new System.EventHandler(this.combListCustomers1_SelectedIndexChanged);
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.AutoSize = true;
+            this.labelControl2.Location = new System.Drawing.Point(12, 25);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(82, 13);
+            this.labelControl2.TabIndex = 1;
+            this.labelControl2.Text = "רשימת לקוחות";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 70);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = ":תאור התקלה";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.txtbDiscriptions1);
+            this.panel1.Location = new System.Drawing.Point(5, 86);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(297, 80);
+            this.panel1.TabIndex = 3;
+            // 
+            // txtbDiscriptions1
+            // 
+            this.txtbDiscriptions1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtbDiscriptions1.Location = new System.Drawing.Point(0, 0);
+            this.txtbDiscriptions1.Multiline = true;
+            this.txtbDiscriptions1.Name = "txtbDiscriptions1";
+            this.txtbDiscriptions1.Size = new System.Drawing.Size(297, 80);
+            this.txtbDiscriptions1.TabIndex = 0;
+            this.txtbDiscriptions1.TextChanged += new System.EventHandler(this.txtbDiscriptions1_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(55, 184);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "עדיפות";
+            // 
+            // combPriority1
+            // 
+            this.combPriority1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combPriority1.FormattingEnabled = true;
+            this.combPriority1.Location = new System.Drawing.Point(106, 181);
+            this.combPriority1.Name = "combPriority1";
+            this.combPriority1.Size = new System.Drawing.Size(121, 21);
+            this.combPriority1.TabIndex = 4;
+            this.combPriority1.SelectedIndexChanged += new System.EventHandler(this.combPriority1_SelectedIndexChanged);
+            // 
+            // btnAddCallsServices1
+            // 
+            this.btnAddCallsServices1.Location = new System.Drawing.Point(227, 224);
+            this.btnAddCallsServices1.Name = "btnAddCallsServices1";
+            this.btnAddCallsServices1.Size = new System.Drawing.Size(75, 23);
+            this.btnAddCallsServices1.TabIndex = 6;
+            this.btnAddCallsServices1.Text = "הוסף";
+            this.btnAddCallsServices1.UseVisualStyleBackColor = true;
+            this.btnAddCallsServices1.Click += new System.EventHandler(this.btnAddCallsServices1_Click);
+            // 
+            // btnUpdate1
+            // 
+            this.btnUpdate1.Location = new System.Drawing.Point(146, 224);
+            this.btnUpdate1.Name = "btnUpdate1";
+            this.btnUpdate1.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate1.TabIndex = 7;
+            this.btnUpdate1.Text = "עדכן";
+            this.btnUpdate1.UseVisualStyleBackColor = true;
+            this.btnUpdate1.Click += new System.EventHandler(this.btnUpdate1_Click);
+            // 
+            // ServiceCalls1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(306, 258);
+            this.Controls.Add(this.btnUpdate1);
+            this.Controls.Add(this.btnAddCallsServices1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.combPriority1);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelControl2);
+            this.Controls.Add(this.combListCustomers1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(322, 296);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(322, 296);
+            this.Name = "ServiceCalls1";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.RightToLeftLayout = true;
+            this.Text = "ניהול קריאות שרות";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ServiceCalls1_KeyDown);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.ComboBox combListCustomers1;
+        private System.Windows.Forms.Label labelControl2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtbDiscriptions1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox combPriority1;
+        private System.Windows.Forms.Button btnAddCallsServices1;
+        private System.Windows.Forms.Button btnUpdate1;
+    }
+}

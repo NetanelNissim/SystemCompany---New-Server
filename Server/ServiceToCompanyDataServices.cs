@@ -1,0 +1,114 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using EntityFrameworkDAL;
+
+namespace Server
+{
+  public class ServiceToCompanyDataServices
+    {
+
+       #region Singelton
+
+        private static ServiceToCompanyDataServices _instance;
+
+        public static ServiceToCompanyDataServices Instance
+        {
+            get { return _instance ?? (_instance = new ServiceToCompanyDataServices()); }
+        }
+
+        private ServiceToCompanyDataServices()
+        {
+            // this will happens only once
+            // Do your connection stuff in here
+        }
+
+        #endregion Singelton
+
+        #region Service To Company
+
+        public IEnumerable<View_Services_Company> ViewingServicesToCompanys()
+        {
+            using(var ctx = new SystemCompanyEntities() )
+            {
+               return ctx.View_Services_Company.ToList();
+              //  return ctx.ServicesCompanies.Include("Company").Include("Service").ToList();
+            }
+        }
+
+    /*    public List<ServicesCompany> GetIdServiceAndIdCompny()
+        {
+            var query = _mDb.ServicesCompanies.Select(s => new
+            {
+                s.idService,
+                s.idCompany,
+            }).ToList();
+
+            return query.Select(serviceCompany => new ServicesCompany
+            {
+                idService = serviceCompany.idService,
+                idCompany = serviceCompany.idCompany
+            }).ToList();
+        }*/
+
+        public void InsertServiceToCompany(ServicesCompany serviceToCompany)
+        {
+            using (var ctx = new SystemCompanyEntities())
+            {
+                ctx.AddToServicesCompanies(serviceToCompany);
+                ctx.SaveChanges();
+            }
+        }
+
+        public void UpdateServiceToCompany(ServicesCompany newServiceToCompany)
+        {
+            using (var ctx = new SystemCompanyEntities())
+            {
+                var serviceToCompany =
+                    ctx.ServicesCompanies.First(
+                        e => e.idService == newServiceToCompany.idService && e.idCompany == newServiceToCompany.idCompany);
+               if(serviceToCompany.startdate != newServiceToCompany.startdate ||
+                   serviceToCompany.enddate != newServiceToCompany.enddate ||
+                   serviceToCompany.price != newServiceToCompany.price ||
+                    serviceToCompany.priceCost != newServiceToCompany.priceCost ||
+                    serviceToCompany.paid != newServiceToCompany.paid)
+               {
+                
+                serviceToCompany.startdate = newServiceToCompany.startdate;
+                serviceToCompany.enddate = newServiceToCompany.enddate;
+                serviceToCompany.price = newServiceToCompany.price;
+                if (newServiceToCompany.priceCost == string.Empty) newServiceToCompany.priceCost = "0";
+                serviceToCompany.priceCost = newServiceToCompany.priceCost;
+                serviceToCompany.paid = newServiceToCompany.paid;
+                ctx.SaveChanges();
+               }
+            }
+        }
+
+        public void DeleteServiceToCompany(ServicesCompany idServiceToIdCompany)
+        {
+            using (var ctx = new SystemCompanyEntities())
+            {
+                var serviceToCompany =
+                    ctx.ServicesCompanies.First(
+                        e => e.idService == idServiceToIdCompany.idService && e.idCompany == idServiceToIdCompany.idCompany);
+
+                AuditDataServices.Instance.InsertAudit(serviceToCompany.idCompany , serviceToCompany.idService, 0, "ServicesCompanies", Convert.ToString(serviceToCompany.startdate), "Delete");
+                AuditDataServices.Instance.InsertAudit(serviceToCompany.idCompany, serviceToCompany.idService, 0, "ServicesCompanies", Convert.ToString(serviceToCompany.enddate), "Delete");
+                AuditDataServices.Instance.InsertAudit(serviceToCompany.idCompany, serviceToCompany.idService, 0, "ServicesCompanies", serviceToCompany.price, "Delete");
+                AuditDataServices.Instance.InsertAudit(serviceToCompany.idCompany, serviceToCompany.idService, 0, "ServicesCompanies", serviceToCompany.priceCost, "Delete");
+                AuditDataServices.Instance.InsertAudit(serviceToCompany.idCompany, serviceToCompany.idService, 0, "ServicesCompanies", Convert.ToString(serviceToCompany.paid), "Delete");
+
+                ctx.DeleteObject(serviceToCompany);
+                ctx.SaveChanges();
+            }
+        }
+
+        #endregion Service To Company
+
+
+
+
+    }
+}

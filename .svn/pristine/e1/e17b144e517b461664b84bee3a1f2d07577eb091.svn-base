@@ -1,0 +1,45 @@
+﻿using System.Windows.Forms;
+using SystemCustomers.MessageUtils;
+using System;
+using System.Collections.Generic;
+using Services;
+using System.Data;
+
+namespace SystemCustomers.ManageProject
+{
+    class ManageViewingAllProject
+    {
+        public static string Id { get; set;}
+
+        public DataTable InitializeProject()
+        {
+            return ProjectsServices.Instance.GetAllProjects();
+        }
+
+        public DialogResult EditProject(DataGridViewRow dr)
+        {
+            using (var project = new AddProject(dr.Cells["projectName"].Value.ToString(), dr.Cells["projectDescription"].Value.ToString(), Convert.ToInt16(dr.Cells["IdProject"].Value)))
+            {
+               // int id = Convert.ToInt16(dr.Cells["IdProject"].Value);
+                project.btnAdd.Visible = false;
+                var result = project.ShowDialog();
+                if (result == DialogResult.Cancel) return result;
+                else
+                {
+                    LogUtils.WriteToLog(" Edit Row Viewing All Project: " + dr.Cells["projectName"].Value.ToString());
+                    LogUtils.SystemEventLogsInformation(" Edit Row Viewing All Project: " + dr.Cells["projectName"].Value.ToString());
+                    return result;
+                }
+            }
+        }
+
+        public void DeleteProject(DataGridViewRow dr)
+        {
+            Id = dr.Cells["idProject"].Value.ToString();
+            ProjectsServices.Instance.DeleteService(Convert.ToInt32(Id));
+            LogUtils.WriteToLog(" Delete Row Viewing All Project: " + dr.Cells["projectName"].Value.ToString());
+            LogUtils.SystemEventLogsInformation(" Delete Row Viewing All Project: " + dr.Cells["projectName"].Value.ToString());
+        }
+    }
+         
+}

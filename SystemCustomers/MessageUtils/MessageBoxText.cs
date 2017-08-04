@@ -1,0 +1,50 @@
+﻿using System.Windows.Forms;
+
+namespace SystemCustomers.MessageUtils
+{
+   public class MessageBoxText
+    {
+       private string Message { get; set; }
+
+       private string Title { get; set; }
+
+       public MessageBoxText(string message,string title)
+       {
+           this.Message = message;
+           this.Title = title;
+       }
+
+       public MessageBoxText(string message)
+       {
+           this.Message = message;
+       }
+
+       public void ErrorMessageBox()
+       {
+           MessageBox.Show(this.Message, this.Title, MessageBoxButtons.OK,
+               MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+       }
+
+       public void WarningMessageBox()
+       {
+           MessageBox.Show(this.Message, this.Title, MessageBoxButtons.OK,
+               MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+       }
+
+       public void InformationMessageBox()
+       {
+           MessageBox.Show(this.Message, this.Title, MessageBoxButtons.OK,
+               MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+       }
+
+       public void OkMessaageBox()
+       {
+            MessageBox.Show(this.Message);
+       }
+
+       public DialogResult YesorNoMessageBox()
+       {
+           return MessageBox.Show(this.Message, this.Title, MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+       }
+    }
+}

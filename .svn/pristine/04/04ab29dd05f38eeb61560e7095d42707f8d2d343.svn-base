@@ -1,0 +1,56 @@
+﻿using System.Windows.Forms;
+using SystemCustomers.MessageUtils;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using Services;
+
+namespace SystemCustomers.ManageCustomers
+{
+   public class FromManageViewingAllCustomers
+    {
+         private static string id = string.Empty;
+
+        public static string Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        public DataTable GetAllCustomers()
+        {
+            return CompanyServices.Instance.GetAllCustomers();
+        }
+
+        public DialogResult editRowToolStripMenuItem(DataGridViewRow dr)
+        {
+            using (ManageCustomer cust = new ManageCustomer(dr.Cells["companyName"].Value.ToString(), dr.Cells["email"].Value.ToString(),
+                dr.Cells["FAX"].Value.ToString(), dr.Cells["mobilePhone"].Value.ToString(),
+                dr.Cells["Phone"].Value.ToString(), dr.Cells["PostalNum"].Value.ToString(),
+                dr.Cells["ZIP"].Value.ToString(), dr.Cells["city"].Value.ToString(),
+                dr.Cells["companynumber"].Value.ToString(), dr.Cells["contactName"].Value.ToString(),
+                dr.Cells["address"].Value.ToString(), dr.Cells["paymentTerms"].Value.ToString()))
+            {
+                Id = dr.Cells["idCompany_Company"].Value.ToString();
+                cust.btnAdd.Visible = false;
+                cust.txtbCompanyNumber.Enabled = false;
+                var result = cust.ShowDialog();
+                if (result == DialogResult.Cancel) return result;
+                else
+                {
+                    LogUtils.WriteToLog(" Edit Row Viewing All Customers: " + dr.Cells["companyName"].Value.ToString());
+                    LogUtils.SystemEventLogsInformation(" Edit Row Viewing All Customers: " + dr.Cells["companyName"].Value.ToString());
+                    return result;
+                }
+            }
+        }
+
+        public void deleteRowToolStripMenuItem(DataGridViewRow dr)
+        {
+            Id = dr.Cells["idCompany_Company"].Value.ToString();
+            CompanyServices.Instance.DeleteCompany(Convert.ToInt32(Id));
+            LogUtils.WriteToLog(" Delete Row Viewing All Customers: " + dr.Cells["companyName"].Value.ToString());
+            LogUtils.SystemEventLogsInformation(" Delete Row Viewing All Customers: " + dr.Cells["companyName"].Value.ToString());
+        }
+    }
+}

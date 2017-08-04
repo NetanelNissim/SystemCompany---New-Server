@@ -1,0 +1,750 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SystemCompanyModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="SystemCompanyModelStoreContainer">
+          <EntitySet Name="Companys" EntityType="SystemCompanyModel.Store.Companys" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DateProjectCompany" EntityType="SystemCompanyModel.Store.DateProjectCompany" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Priorities" EntityType="SystemCompanyModel.Store.Priorities" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="project" EntityType="SystemCompanyModel.Store.project" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProjectCompany" EntityType="SystemCompanyModel.Store.ProjectCompany" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ServiceCalls" EntityType="SystemCompanyModel.Store.ServiceCalls" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Services" EntityType="SystemCompanyModel.Store.Services" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ServicesCompany" EntityType="SystemCompanyModel.Store.ServicesCompany" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserLogin" EntityType="SystemCompanyModel.Store.UserLogin" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="View_Project_Company" EntityType="SystemCompanyModel.Store.View_Project_Company" store:Type="Views" store:Schema="dbo" store:Name="View_Project_Company">
+            <DefiningQuery>SELECT 
+      [View_Project_Company].[companyName] AS [companyName], 
+      [View_Project_Company].[projectName] AS [projectName], 
+      [View_Project_Company].[DateStartProject] AS [DateStartProject], 
+      [View_Project_Company].[DateFinishProject] AS [DateFinishProject], 
+      [View_Project_Company].[priceType] AS [priceType], 
+      [View_Project_Company].[discriptions] AS [discriptions], 
+      [View_Project_Company].[paid] AS [paid], 
+      [View_Project_Company].[idProject] AS [idProject], 
+      [View_Project_Company].[idCompany] AS [idCompany], 
+      [View_Project_Company].[destination] AS [destination]
+      FROM [dbo].[View_Project_Company] AS [View_Project_Company]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_DateProjectCompany_IdProject" Association="SystemCompanyModel.Store.FK_DateProjectCompany_IdProject">
+            <End Role="project" EntitySet="project" />
+            <End Role="DateProjectCompany" EntitySet="DateProjectCompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_project_Company_idProject" Association="SystemCompanyModel.Store.FK_project_Company_idProject">
+            <End Role="project" EntitySet="project" />
+            <End Role="ProjectCompany" EntitySet="ProjectCompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceCalls_IdCompany" Association="SystemCompanyModel.Store.FK_ServiceCalls_IdCompany">
+            <End Role="Companys" EntitySet="Companys" />
+            <End Role="ServiceCalls" EntitySet="ServiceCalls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceCalls_idPriority" Association="SystemCompanyModel.Store.FK_ServiceCalls_idPriority">
+            <End Role="Priorities" EntitySet="Priorities" />
+            <End Role="ServiceCalls" EntitySet="ServiceCalls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServicesCompany" Association="SystemCompanyModel.Store.FK_ServicesCompany">
+            <End Role="Services" EntitySet="Services" />
+            <End Role="ServicesCompany" EntitySet="ServicesCompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServicesCompany_Company" Association="SystemCompanyModel.Store.FK_ServicesCompany_Company">
+            <End Role="Companys" EntitySet="Companys" />
+            <End Role="ServicesCompany" EntitySet="ServicesCompany" />
+          </AssociationSet>
+          <AssociationSet Name="FKDateProjectCompany" Association="SystemCompanyModel.Store.FKDateProjectCompany">
+            <End Role="Companys" EntitySet="Companys" />
+            <End Role="DateProjectCompany" EntitySet="DateProjectCompany" />
+          </AssociationSet>
+          <AssociationSet Name="FKProjectCompany" Association="SystemCompanyModel.Store.FKProjectCompany">
+            <End Role="Companys" EntitySet="Companys" />
+            <End Role="ProjectCompany" EntitySet="ProjectCompany" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Companys">
+          <Key>
+            <PropertyRef Name="idCompany" />
+          </Key>
+          <Property Name="companyName" Type="nvarchar" MaxLength="300" />
+          <Property Name="contactName" Type="nvarchar" MaxLength="300" />
+          <Property Name="mobilePhone" Type="nvarchar" MaxLength="100" />
+          <Property Name="email" Type="nvarchar" MaxLength="300" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="100" />
+          <Property Name="FAX" Type="nvarchar" MaxLength="300" />
+          <Property Name="companynumber" Type="nvarchar" MaxLength="300" />
+          <Property Name="address" Type="nvarchar" MaxLength="300" />
+          <Property Name="city" Type="nvarchar" MaxLength="300" />
+          <Property Name="ZIP" Type="nvarchar" MaxLength="300" />
+          <Property Name="PostalNum" Type="nvarchar" MaxLength="300" />
+          <Property Name="idCompany" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="paymentTerms" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="DateProjectCompany">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="DateStartProject" Type="date" />
+          <Property Name="DateFinishProject" Type="date" />
+          <Property Name="idCompany" Type="int" Nullable="false" />
+          <Property Name="idProject" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Priorities">
+          <Key>
+            <PropertyRef Name="idPriority" />
+          </Key>
+          <Property Name="idPriority" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TypePriority" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="project">
+          <Key>
+            <PropertyRef Name="idProject" />
+          </Key>
+          <Property Name="idProject" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="projectName" Type="nvarchar" MaxLength="300" />
+          <Property Name="projectDescription" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="ProjectCompany">
+          <Key>
+            <PropertyRef Name="idCustomerProject" />
+          </Key>
+          <Property Name="idCustomerProject" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idProject" Type="int" Nullable="false" />
+          <Property Name="idCompany" Type="int" Nullable="false" />
+          <Property Name="priceType" Type="nvarchar" MaxLength="50" />
+          <Property Name="discriptions" Type="nvarchar" MaxLength="500" />
+          <Property Name="paid" Type="varchar" MaxLength="50" />
+          <Property Name="destination" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="ServiceCalls">
+          <Key>
+            <PropertyRef Name="idCallsServices" />
+          </Key>
+          <Property Name="idCallsServices" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idCompany" Type="int" Nullable="false" />
+          <Property Name="dateOpenCalls" Type="date" />
+          <Property Name="discriptions" Type="nvarchar" MaxLength="350" />
+          <Property Name="idPriority" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Services">
+          <Key>
+            <PropertyRef Name="idService" />
+          </Key>
+          <Property Name="idService" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="servicesName" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="ServicesCompany">
+          <Key>
+            <PropertyRef Name="idCustService" />
+          </Key>
+          <Property Name="idCustService" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idCompany" Type="int" Nullable="false" />
+          <Property Name="idService" Type="int" Nullable="false" />
+          <Property Name="startdate" Type="date" />
+          <Property Name="enddate" Type="date" />
+          <Property Name="price" Type="nvarchar" MaxLength="50" />
+          <Property Name="priceCost" Type="nvarchar" MaxLength="50" />
+          <Property Name="paid" Type="bit" />
+        </EntityType>
+        <EntityType Name="UserLogin">
+          <Key>
+            <PropertyRef Name="idUserLogin" />
+          </Key>
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="VPermission" Type="varchar" MaxLength="50" />
+          <Property Name="idUserLogin" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'SystemCompany.dbo.View_Project_Company' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="View_Project_Company">
+          <Key>
+            <PropertyRef Name="idProject" />
+            <PropertyRef Name="idCompany" />
+          </Key>
+          <Property Name="companyName" Type="nvarchar" MaxLength="300" />
+          <Property Name="projectName" Type="nvarchar" MaxLength="300" />
+          <Property Name="DateStartProject" Type="date" />
+          <Property Name="DateFinishProject" Type="date" />
+          <Property Name="priceType" Type="nvarchar" MaxLength="50" />
+          <Property Name="discriptions" Type="nvarchar" MaxLength="500" />
+          <Property Name="paid" Type="varchar" MaxLength="50" />
+          <Property Name="idProject" Type="int" Nullable="false" />
+          <Property Name="idCompany" Type="int" Nullable="false" />
+          <Property Name="destination" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <Association Name="FK_DateProjectCompany_IdProject">
+          <End Role="project" Type="SystemCompanyModel.Store.project" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DateProjectCompany" Type="SystemCompanyModel.Store.DateProjectCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project">
+              <PropertyRef Name="idProject" />
+            </Principal>
+            <Dependent Role="DateProjectCompany">
+              <PropertyRef Name="idProject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_project_Company_idProject">
+          <End Role="project" Type="SystemCompanyModel.Store.project" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProjectCompany" Type="SystemCompanyModel.Store.ProjectCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project">
+              <PropertyRef Name="idProject" />
+            </Principal>
+            <Dependent Role="ProjectCompany">
+              <PropertyRef Name="idProject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceCalls_IdCompany">
+          <End Role="Companys" Type="SystemCompanyModel.Store.Companys" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ServiceCalls" Type="SystemCompanyModel.Store.ServiceCalls" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companys">
+              <PropertyRef Name="idCompany" />
+            </Principal>
+            <Dependent Role="ServiceCalls">
+              <PropertyRef Name="idCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceCalls_idPriority">
+          <End Role="Priorities" Type="SystemCompanyModel.Store.Priorities" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ServiceCalls" Type="SystemCompanyModel.Store.ServiceCalls" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Priorities">
+              <PropertyRef Name="idPriority" />
+            </Principal>
+            <Dependent Role="ServiceCalls">
+              <PropertyRef Name="idPriority" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServicesCompany">
+          <End Role="Services" Type="SystemCompanyModel.Store.Services" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ServicesCompany" Type="SystemCompanyModel.Store.ServicesCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Services">
+              <PropertyRef Name="idService" />
+            </Principal>
+            <Dependent Role="ServicesCompany">
+              <PropertyRef Name="idService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServicesCompany_Company">
+          <End Role="Companys" Type="SystemCompanyModel.Store.Companys" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ServicesCompany" Type="SystemCompanyModel.Store.ServicesCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companys">
+              <PropertyRef Name="idCompany" />
+            </Principal>
+            <Dependent Role="ServicesCompany">
+              <PropertyRef Name="idCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKDateProjectCompany">
+          <End Role="Companys" Type="SystemCompanyModel.Store.Companys" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DateProjectCompany" Type="SystemCompanyModel.Store.DateProjectCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companys">
+              <PropertyRef Name="idCompany" />
+            </Principal>
+            <Dependent Role="DateProjectCompany">
+              <PropertyRef Name="idCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKProjectCompany">
+          <End Role="Companys" Type="SystemCompanyModel.Store.Companys" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProjectCompany" Type="SystemCompanyModel.Store.ProjectCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companys">
+              <PropertyRef Name="idCompany" />
+            </Principal>
+            <Dependent Role="ProjectCompany">
+              <PropertyRef Name="idCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SystemCompanyModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="SystemCompanyEntities" annotation:LazyLoadingEnabled="false">
+          <EntitySet Name="Companys" EntityType="SystemCompanyModel.Company" />
+          <EntitySet Name="Priorities" EntityType="SystemCompanyModel.Priority" />
+          <EntitySet Name="projects" EntityType="SystemCompanyModel.project" />
+          <EntitySet Name="ProjectCompanies" EntityType="SystemCompanyModel.ProjectCompany" />
+          <EntitySet Name="ServiceCalls" EntityType="SystemCompanyModel.ServiceCall" />
+          <EntitySet Name="Services" EntityType="SystemCompanyModel.Service" />
+          <EntitySet Name="ServicesCompanies" EntityType="SystemCompanyModel.ServicesCompany" />
+          <AssociationSet Name="FK_ServiceCalls_IdCompany" Association="SystemCompanyModel.FK_ServiceCalls_IdCompany">
+            <End Role="Companys" EntitySet="Companys" />
+            <End Role="ServiceCalls" EntitySet="ServiceCalls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServicesCompany_Company" Association="SystemCompanyModel.FK_ServicesCompany_Company">
+            <End Role="Companys" EntitySet="Companys" />
+            <End Role="ServicesCompany" EntitySet="ServicesCompanies" />
+          </AssociationSet>
+          <AssociationSet Name="FKProjectCompany" Association="SystemCompanyModel.FKProjectCompany">
+            <End Role="Companys" EntitySet="Companys" />
+            <End Role="ProjectCompany" EntitySet="ProjectCompanies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceCalls_idPriority" Association="SystemCompanyModel.FK_ServiceCalls_idPriority">
+            <End Role="Priorities" EntitySet="Priorities" />
+            <End Role="ServiceCalls" EntitySet="ServiceCalls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_project_Company_idProject" Association="SystemCompanyModel.FK_project_Company_idProject">
+            <End Role="project" EntitySet="projects" />
+            <End Role="ProjectCompany" EntitySet="ProjectCompanies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServicesCompany" Association="SystemCompanyModel.FK_ServicesCompany">
+            <End Role="Services" EntitySet="Services" />
+            <End Role="ServicesCompany" EntitySet="ServicesCompanies" />
+          </AssociationSet>
+          <EntitySet Name="DateProjectCompany" EntityType="SystemCompanyModel.DateProjectCompany" />
+          <AssociationSet Name="FKDateProjectCompany" Association="SystemCompanyModel.FKDateProjectCompany">
+            <End Role="Company" EntitySet="Companys" />
+            <End Role="DateProjectCompany" EntitySet="DateProjectCompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DateProjectCompany_IdProject" Association="SystemCompanyModel.FK_DateProjectCompany_IdProject">
+            <End Role="project" EntitySet="projects" />
+            <End Role="DateProjectCompany" EntitySet="DateProjectCompany" />
+          </AssociationSet>
+          <EntitySet Name="UserLogin" EntityType="SystemCompanyModel.UserLogin" />
+          <EntitySet Name="View_Project_Company" EntityType="SystemCompanyModel.View_Project_Company" />
+        </EntityContainer>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="idCompany" />
+          </Key>
+          <Property Name="companyName" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="contactName" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="mobilePhone" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="Phone" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="FAX" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="companynumber" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="address" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="city" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="ZIP" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="PostalNum" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="idCompany" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="paymentTerms" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ServiceCalls" Relationship="SystemCompanyModel.FK_ServiceCalls_IdCompany" FromRole="Companys" ToRole="ServiceCalls" />
+          <NavigationProperty Name="ServicesCompanies" Relationship="SystemCompanyModel.FK_ServicesCompany_Company" FromRole="Companys" ToRole="ServicesCompany" />
+          <NavigationProperty Name="ProjectCompanies" Relationship="SystemCompanyModel.FKProjectCompany" FromRole="Companys" ToRole="ProjectCompany" />
+          <NavigationProperty Name="DateProjectCompany" Relationship="SystemCompanyModel.FKDateProjectCompany" FromRole="Company" ToRole="DateProjectCompany" />
+        </EntityType>
+        <EntityType Name="Priority">
+          <Key>
+            <PropertyRef Name="idPriority" />
+          </Key>
+          <Property Name="idPriority" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypePriority" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ServiceCalls" Relationship="SystemCompanyModel.FK_ServiceCalls_idPriority" FromRole="Priorities" ToRole="ServiceCalls" />
+        </EntityType>
+        <EntityType Name="project">
+          <Key>
+            <PropertyRef Name="idProject" />
+          </Key>
+          <Property Name="idProject" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="projectName" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="projectDescription" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ProjectCompanies" Relationship="SystemCompanyModel.FK_project_Company_idProject" FromRole="project" ToRole="ProjectCompany" />
+          <NavigationProperty Name="DateProjectCompany" Relationship="SystemCompanyModel.FK_DateProjectCompany_IdProject" FromRole="project" ToRole="DateProjectCompany" />
+        </EntityType>
+        <EntityType Name="ProjectCompany">
+          <Key>
+            <PropertyRef Name="idCustomerProject" />
+          </Key>
+          <Property Name="idCustomerProject" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idProject" Type="Int32" Nullable="false" />
+          <Property Name="idCompany" Type="Int32" Nullable="false" />
+          <Property Name="priceType" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="discriptions" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="paid" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="destination" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Company" Relationship="SystemCompanyModel.FKProjectCompany" FromRole="ProjectCompany" ToRole="Companys" />
+          <NavigationProperty Name="project" Relationship="SystemCompanyModel.FK_project_Company_idProject" FromRole="ProjectCompany" ToRole="project" />
+        </EntityType>
+        <EntityType Name="ServiceCall">
+          <Key>
+            <PropertyRef Name="idCallsServices" />
+          </Key>
+          <Property Name="idCallsServices" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCompany" Type="Int32" Nullable="false" />
+          <Property Name="dateOpenCalls" Type="DateTime" Precision="0" />
+          <Property Name="discriptions" Type="String" MaxLength="350" Unicode="true" FixedLength="false" />
+          <Property Name="idPriority" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="SystemCompanyModel.FK_ServiceCalls_IdCompany" FromRole="ServiceCalls" ToRole="Companys" />
+          <NavigationProperty Name="Priority" Relationship="SystemCompanyModel.FK_ServiceCalls_idPriority" FromRole="ServiceCalls" ToRole="Priorities" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="idService" />
+          </Key>
+          <Property Name="idService" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="servicesName" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ServicesCompanies" Relationship="SystemCompanyModel.FK_ServicesCompany" FromRole="Services" ToRole="ServicesCompany" />
+        </EntityType>
+        <EntityType Name="ServicesCompany">
+          <Key>
+            <PropertyRef Name="idCustService" />
+          </Key>
+          <Property Name="idCustService" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCompany" Type="Int32" Nullable="false" />
+          <Property Name="idService" Type="Int32" Nullable="false" />
+          <Property Name="startdate" Type="DateTime" Precision="0" />
+          <Property Name="enddate" Type="DateTime" Precision="0" />
+          <Property Name="price" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="priceCost" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="paid" Type="Boolean" />
+          <NavigationProperty Name="Company" Relationship="SystemCompanyModel.FK_ServicesCompany_Company" FromRole="ServicesCompany" ToRole="Companys" />
+          <NavigationProperty Name="Service" Relationship="SystemCompanyModel.FK_ServicesCompany" FromRole="ServicesCompany" ToRole="Services" />
+        </EntityType>
+        <Association Name="FK_ServiceCalls_IdCompany">
+          <End Role="Companys" Type="SystemCompanyModel.Company" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ServiceCalls" Type="SystemCompanyModel.ServiceCall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companys">
+              <PropertyRef Name="idCompany" />
+            </Principal>
+            <Dependent Role="ServiceCalls">
+              <PropertyRef Name="idCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServicesCompany_Company">
+          <End Role="Companys" Type="SystemCompanyModel.Company" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ServicesCompany" Type="SystemCompanyModel.ServicesCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companys">
+              <PropertyRef Name="idCompany" />
+            </Principal>
+            <Dependent Role="ServicesCompany">
+              <PropertyRef Name="idCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKProjectCompany">
+          <End Role="Companys" Type="SystemCompanyModel.Company" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProjectCompany" Type="SystemCompanyModel.ProjectCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companys">
+              <PropertyRef Name="idCompany" />
+            </Principal>
+            <Dependent Role="ProjectCompany">
+              <PropertyRef Name="idCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceCalls_idPriority">
+          <End Role="Priorities" Type="SystemCompanyModel.Priority" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ServiceCalls" Type="SystemCompanyModel.ServiceCall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Priorities">
+              <PropertyRef Name="idPriority" />
+            </Principal>
+            <Dependent Role="ServiceCalls">
+              <PropertyRef Name="idPriority" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_project_Company_idProject">
+          <End Role="project" Type="SystemCompanyModel.project" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProjectCompany" Type="SystemCompanyModel.ProjectCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project">
+              <PropertyRef Name="idProject" />
+            </Principal>
+            <Dependent Role="ProjectCompany">
+              <PropertyRef Name="idProject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServicesCompany">
+          <End Role="Services" Type="SystemCompanyModel.Service" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ServicesCompany" Type="SystemCompanyModel.ServicesCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Services">
+              <PropertyRef Name="idService" />
+            </Principal>
+            <Dependent Role="ServicesCompany">
+              <PropertyRef Name="idService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DateProjectCompany">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="DateTime" Name="DateStartProject" Precision="0" />
+          <Property Type="DateTime" Name="DateFinishProject" Precision="0" />
+          <Property Type="Int32" Name="idCompany" Nullable="false" />
+          <Property Type="Int32" Name="idProject" Nullable="false" />
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Companys" Relationship="SystemCompanyModel.FKDateProjectCompany" FromRole="DateProjectCompany" ToRole="Company" />
+          <NavigationProperty Name="project" Relationship="SystemCompanyModel.FK_DateProjectCompany_IdProject" FromRole="DateProjectCompany" ToRole="project" />
+        </EntityType>
+        <Association Name="FKDateProjectCompany">
+          <End Type="SystemCompanyModel.Company" Role="Company" Multiplicity="1" />
+          <End Type="SystemCompanyModel.DateProjectCompany" Role="DateProjectCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="idCompany" />
+            </Principal>
+            <Dependent Role="DateProjectCompany">
+              <PropertyRef Name="idCompany" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DateProjectCompany_IdProject">
+          <End Type="SystemCompanyModel.project" Role="project" Multiplicity="1" />
+          <End Type="SystemCompanyModel.DateProjectCompany" Role="DateProjectCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="project">
+              <PropertyRef Name="idProject" />
+            </Principal>
+            <Dependent Role="DateProjectCompany">
+              <PropertyRef Name="idProject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserLogin">
+          <Key>
+            <PropertyRef Name="idUserLogin" />
+          </Key>
+          <Property Type="String" Name="UserName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Password" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FirstName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="VPermission" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="idUserLogin" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="View_Project_Company">
+          <Key>
+            <PropertyRef Name="idProject" />
+            <PropertyRef Name="idCompany" />
+          </Key>
+          <Property Type="String" Name="companyName" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="projectName" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateStartProject" Precision="0" />
+          <Property Type="DateTime" Name="DateFinishProject" Precision="0" />
+          <Property Type="String" Name="priceType" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="discriptions" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="paid" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="idProject" Nullable="false" />
+          <Property Type="Int32" Name="idCompany" Nullable="false" />
+          <Property Type="String" Name="destination" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SystemCompanyModelStoreContainer" CdmEntityContainer="SystemCompanyEntities">
+          <EntitySetMapping Name="Companys"><EntityTypeMapping TypeName="SystemCompanyModel.Company"><MappingFragment StoreEntitySet="Companys">
+            <ScalarProperty Name="companyName" ColumnName="companyName" />
+            <ScalarProperty Name="contactName" ColumnName="contactName" />
+            <ScalarProperty Name="mobilePhone" ColumnName="mobilePhone" />
+            <ScalarProperty Name="email" ColumnName="email" />
+            <ScalarProperty Name="Phone" ColumnName="Phone" />
+            <ScalarProperty Name="FAX" ColumnName="FAX" />
+            <ScalarProperty Name="companynumber" ColumnName="companynumber" />
+            <ScalarProperty Name="address" ColumnName="address" />
+            <ScalarProperty Name="city" ColumnName="city" />
+            <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+            <ScalarProperty Name="PostalNum" ColumnName="PostalNum" />
+            <ScalarProperty Name="idCompany" ColumnName="idCompany" />
+            <ScalarProperty Name="paymentTerms" ColumnName="paymentTerms" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Priorities"><EntityTypeMapping TypeName="SystemCompanyModel.Priority"><MappingFragment StoreEntitySet="Priorities">
+            <ScalarProperty Name="idPriority" ColumnName="idPriority" />
+            <ScalarProperty Name="TypePriority" ColumnName="TypePriority" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="projects"><EntityTypeMapping TypeName="SystemCompanyModel.project"><MappingFragment StoreEntitySet="project">
+            <ScalarProperty Name="idProject" ColumnName="idProject" />
+            <ScalarProperty Name="projectName" ColumnName="projectName" />
+            <ScalarProperty Name="projectDescription" ColumnName="projectDescription" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ProjectCompanies"><EntityTypeMapping TypeName="SystemCompanyModel.ProjectCompany"><MappingFragment StoreEntitySet="ProjectCompany">
+            <ScalarProperty Name="idCustomerProject" ColumnName="idCustomerProject" />
+            <ScalarProperty Name="idProject" ColumnName="idProject" />
+            <ScalarProperty Name="idCompany" ColumnName="idCompany" />
+            <ScalarProperty Name="priceType" ColumnName="priceType" />
+            <ScalarProperty Name="discriptions" ColumnName="discriptions" />
+            <ScalarProperty Name="paid" ColumnName="paid" />
+            <ScalarProperty Name="destination" ColumnName="destination" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ServiceCalls"><EntityTypeMapping TypeName="SystemCompanyModel.ServiceCall"><MappingFragment StoreEntitySet="ServiceCalls">
+            <ScalarProperty Name="idCallsServices" ColumnName="idCallsServices" />
+            <ScalarProperty Name="idCompany" ColumnName="idCompany" />
+            <ScalarProperty Name="dateOpenCalls" ColumnName="dateOpenCalls" />
+            <ScalarProperty Name="discriptions" ColumnName="discriptions" />
+            <ScalarProperty Name="idPriority" ColumnName="idPriority" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Services"><EntityTypeMapping TypeName="SystemCompanyModel.Service"><MappingFragment StoreEntitySet="Services">
+            <ScalarProperty Name="idService" ColumnName="idService" />
+            <ScalarProperty Name="servicesName" ColumnName="servicesName" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ServicesCompanies"><EntityTypeMapping TypeName="SystemCompanyModel.ServicesCompany"><MappingFragment StoreEntitySet="ServicesCompany">
+            <ScalarProperty Name="idCustService" ColumnName="idCustService" />
+            <ScalarProperty Name="idCompany" ColumnName="idCompany" />
+            <ScalarProperty Name="idService" ColumnName="idService" />
+            <ScalarProperty Name="startdate" ColumnName="startdate" />
+            <ScalarProperty Name="enddate" ColumnName="enddate" />
+            <ScalarProperty Name="price" ColumnName="price" />
+            <ScalarProperty Name="priceCost" ColumnName="priceCost" />
+            <ScalarProperty Name="paid" ColumnName="paid" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="DateProjectCompany">
+            <EntityTypeMapping TypeName="SystemCompanyModel.DateProjectCompany">
+              <MappingFragment StoreEntitySet="DateProjectCompany">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idProject" ColumnName="idProject" />
+                <ScalarProperty Name="idCompany" ColumnName="idCompany" />
+                <ScalarProperty Name="DateFinishProject" ColumnName="DateFinishProject" />
+                <ScalarProperty Name="DateStartProject" ColumnName="DateStartProject" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLogin">
+            <EntityTypeMapping TypeName="SystemCompanyModel.UserLogin">
+              <MappingFragment StoreEntitySet="UserLogin">
+                <ScalarProperty Name="idUserLogin" ColumnName="idUserLogin" />
+                <ScalarProperty Name="VPermission" ColumnName="VPermission" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Project_Company">
+            <EntityTypeMapping TypeName="SystemCompanyModel.View_Project_Company">
+              <MappingFragment StoreEntitySet="View_Project_Company">
+                <ScalarProperty Name="destination" ColumnName="destination" />
+                <ScalarProperty Name="idCompany" ColumnName="idCompany" />
+                <ScalarProperty Name="idProject" ColumnName="idProject" />
+                <ScalarProperty Name="paid" ColumnName="paid" />
+                <ScalarProperty Name="discriptions" ColumnName="discriptions" />
+                <ScalarProperty Name="priceType" ColumnName="priceType" />
+                <ScalarProperty Name="DateFinishProject" ColumnName="DateFinishProject" />
+                <ScalarProperty Name="DateStartProject" ColumnName="DateStartProject" />
+                <ScalarProperty Name="projectName" ColumnName="projectName" />
+                <ScalarProperty Name="companyName" ColumnName="companyName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1" ZoomLevel="100">
+        <EntityTypeShape EntityType="SystemCompanyModel.Company" Width="1.875" PointX="0.5" PointY="5" Height="4.2879036458333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemCompanyModel.Priority" Width="1.5" PointX="0.75" PointY="2.875" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemCompanyModel.project" Width="1.5" PointX="0.75" PointY="10.75" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemCompanyModel.ProjectCompany" Width="1.5" PointX="6" PointY="6.5" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemCompanyModel.ServiceCall" Width="1.5" PointX="3" PointY="3.5" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemCompanyModel.Service" Width="1.5" PointX="0.75" PointY="13.875" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SystemCompanyModel.ServicesCompany" Width="1.5" PointX="4" PointY="10.125" Height="2.9417936197916674" IsExpanded="true" />
+        <AssociationConnector Association="SystemCompanyModel.FK_ServiceCalls_IdCompany" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.375" PointY="5.4324446614583337" />
+          <ConnectorPoint PointX="3" PointY="5.4324446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="SystemCompanyModel.FK_ServicesCompany_Company" ManuallyRouted="false">
+          <ConnectorPoint PointX="0.59375" PointY="9.2879036458333317" />
+          <ConnectorPoint PointX="0.59375" PointY="10.358810560480302" />
+          <ConnectorPoint PointX="2.5843935677248271" PointY="10.358810560480302" />
+          <ConnectorPoint PointX="2.7510602343914941" PointY="10.358810560480302" />
+          <ConnectorPoint PointX="4" PointY="10.358810560480302" />
+        </AssociationConnector>
+        <AssociationConnector Association="SystemCompanyModel.FKProjectCompany" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.375" PointY="9.1509407552083335" />
+          <ConnectorPoint PointX="3.0428195128205124" PointY="9.1509407552083335" />
+          <ConnectorPoint PointX="3.2094861794871794" PointY="9.1509407552083335" />
+          <ConnectorPoint PointX="6" PointY="9.1509407552083335" />
+        </AssociationConnector>
+        <AssociationConnector Association="SystemCompanyModel.FK_ServiceCalls_idPriority" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="3.985341796875" />
+          <ConnectorPoint PointX="3" PointY="3.985341796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="SystemCompanyModel.FK_project_Company_idProject" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.2257692307692305" PointY="10.75" />
+          <ConnectorPoint PointX="2.625" PointY="10.350769230769231" />
+          <ConnectorPoint PointX="2.625" PointY="9.6244921875" />
+          <ConnectorPoint PointX="3.0428195128205124" PointY="9.6244921875" />
+          <ConnectorPoint PointX="3.2094861794871794" PointY="9.6244921875" />
+          <ConnectorPoint PointX="5.6261528461538468" PointY="9.6244921875" />
+          <ConnectorPoint PointX="6.0011528461538459" PointY="9.2494921875" />
+        </AssociationConnector>
+        <AssociationConnector Association="SystemCompanyModel.FK_ServicesCompany" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="14.672841796875" />
+          <ConnectorPoint PointX="4.75" PointY="14.672841796875" />
+          <ConnectorPoint PointX="4.75" PointY="13.066793619791667" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="SystemCompanyModel.DateProjectCompany" Width="1.5" PointX="3.125" PointY="6.625" Height="2.3648893229166674" />
+        <AssociationConnector Association="SystemCompanyModel.FKDateProjectCompany" >
+          <ConnectorPoint PointX="2.375" PointY="7.8074446614583337" />
+          <ConnectorPoint PointX="3.125" PointY="7.8074446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="SystemCompanyModel.FK_DateProjectCompany_IdProject" >
+          <ConnectorPoint PointX="2.25" PointY="10.776537461538462" />
+          <ConnectorPoint PointX="3.1261528461538459" PointY="9.9003846153846169" />
+          <ConnectorPoint PointX="3.1261528461538459" PointY="8.9898893229166674" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="SystemCompanyModel.UserLogin" Width="1.5" PointX="3.375" PointY="0.75" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="SystemCompanyModel.View_Project_Company" Width="1.5" PointX="5.875" PointY="0.625" Height="2.9417936197916665" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

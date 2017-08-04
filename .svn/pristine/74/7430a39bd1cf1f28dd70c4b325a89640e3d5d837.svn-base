@@ -1,0 +1,17 @@
+29/06/2012 21:03:19: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+29/06/2012 21:03:25: q logged in
+29/06/2012 21:08:18: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+29/06/2012 21:08:23: q logged in
+29/06/2012 21:08:46: administrator Try to logged in29/06/2012 21:08:46
+29/06/2012 21:08:55: Change User to: administrator
+29/06/2012 21:12:10: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+29/06/2012 21:12:16: w logged in
+29/06/2012 21:12:29: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+29/06/2012 21:12:34: q logged in
+29/06/2012 21:12:43: Change User to: w
+29/06/2012 21:13:21: workstation id=SystemCompany.mssql.somee.com;packet size=4096;user id=natisql;pwd=12213443;data source=SystemCompany.mssql.somee.com;persist security info=False;initial catalog=SystemCompany
+29/06/2012 21:13:34: qw Try to logged in: 29/06/2012 21:13:34
+29/06/2012 21:13:41: q Try to logged in: 29/06/2012 21:13:41
+29/06/2012 21:13:43: q logged in
+29/06/2012 21:13:54: adb Try to logged in: 29/06/2012 21:13:54
+29/06/2012 21:14:04: Change User to: administrator

@@ -1,0 +1,109 @@
+﻿using System;
+using System.Data;
+using System.Windows.Forms;
+using System.Collections.Generic;
+using Services;
+
+
+namespace SystemCustomers.ManageServiceCalls
+{
+   public class ManageViewingServiceCalls
+    {
+
+        public string IdCallsServices { get; set;}
+
+        public DataTable InitializeServiceCallsDatagrid()
+        {
+            return ServiceCallsServices.Instance.GetAllServiceCalls();
+            //var listQuery = ServiceCallsServices.Instance.GetAllServiceCalls();
+            //var list = new List<Entities.ServiceCalls>();
+            //foreach (var item in listQuery)
+            //{
+            //    list.Add(new Entities.ServiceCalls 
+            //    {
+            //        companyName = item.companyName,
+            //        dateOpenCalls=item.dateOpenCalls.Value,
+            //        discriptions = item.discriptions,
+            //        TypePriority = item.TypePriority,
+            //        idCallsServices = item.idCallsServices,
+            //        idCompany = item.idCompany,
+            //        idPriority = item.idPriority
+            //     });
+
+            //}
+            //return list;
+        }
+
+        public DataTable DayView(double daysToShow)
+        {
+            return ServiceCallsServices.Instance.GetServiceCallsBetweenDate(daysToShow);
+            //var startDay = DateTime.Now.AddDays(daysToShow);
+            //var listQuery = ServiceCallsServices.Instance.GetServiceCallsBetweenDate(startDay);
+            //var list = new List<Entities.ServiceCalls>();
+            //foreach (var item in listQuery)
+            //{
+            //    list.Add(new Entities.ServiceCalls
+            //    {
+            //        companyName = item.companyName,
+            //        dateOpenCalls = item.dateOpenCalls.Value,
+            //        discriptions = item.discriptions,
+            //        TypePriority = item.TypePriority,
+            //        idCallsServices = item.idCallsServices,
+            //        idCompany = item.idCompany,
+            //        idPriority = item.idPriority
+            //    });
+
+            //}
+            //return list;
+        }
+
+        public void DeleteRoWServiceCall(DataGridViewRow dr)
+        {
+            IdCallsServices = dr.Cells["idCallsServices"].Value.ToString();
+            ServiceCallsServices.Instance.DeleteServiceCalls(Convert.ToInt32(IdCallsServices));
+            MessageUtils.LogUtils.WriteToLog(" Delete Row Service Calls: " + dr.Cells["companyName_Service_Call"].Value.ToString());
+            MessageUtils.LogUtils.SystemEventLogsInformation(" Delete Row Service Calls: " +
+                                                dr.Cells["companyName_Service_Call"].Value.ToString());
+        }
+
+       public DialogResult AddServiceCall()
+        {
+            const bool isAddServiceCall = false;
+            using (ServiceCalls1 serviceCalls = new ServiceCalls1(isAddServiceCall))
+            {
+               var result = serviceCalls.ShowDialog();
+               if (result == DialogResult.Cancel) return result;
+               MessageUtils.LogUtils.WriteToLog(" Add Row Service Calls ");
+               MessageUtils.LogUtils.SystemEventLogsInformation(" Add Row Service Calls ");
+               return result;
+            }
+        }
+
+
+       public DialogResult EditServiceCall(DataGridViewRow dr)
+       {
+           using (var serivceCalls = new ServiceCalls1(dr.Cells["idCallsServices"].Value.ToString(),
+                                                       dr.Cells["idCompany_Service_Call"].Value.ToString(),
+                                                       dr.Cells["companyName_Service_Call"].Value.ToString(),
+                                                       dr.Cells["discriptions"].Value.ToString(),
+                                                       dr.Cells["TypePriority"].Value.ToString(),
+                                                       dr.Cells["idPriority"].Value.ToString()))
+           {
+               IdCallsServices = dr.Cells["idCallsServices"].Value.ToString();
+               // serivceCalls.btnAdd.Visible = false;
+               // serivceCalls.txtbCompanyNumber.Enabled = false;
+               var result = serivceCalls.ShowDialog();
+               if (result == DialogResult.Cancel) return result;
+               else
+               {
+                   MessageUtils.LogUtils.WriteToLog(" Edit Row Viewing All Customers: " +
+                                         dr.Cells["companyName_Service_Call"].Value.ToString());
+                   MessageUtils.LogUtils.SystemEventLogsInformation(" Edit Row Viewing All Customers: " +
+                                                       dr.Cells["companyName_Service_Call"].Value.ToString());
+                   return result;
+
+               }
+           }
+       }
+    }
+}

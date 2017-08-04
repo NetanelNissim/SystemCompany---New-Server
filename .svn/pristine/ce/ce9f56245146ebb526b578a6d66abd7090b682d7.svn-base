@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Entities
+{
+    public class Projects
+    {
+        public Projects(string projectName,string projectDescription, int idProject)
+        {
+            this.ProjectName = projectName;
+            this.ProjectDescription = projectDescription;
+            this.IdProject = idProject;
+        }
+
+        public Projects(string projectName, string projectDescription)
+        {
+            this.ProjectName = projectName;
+            this.ProjectDescription = projectDescription;
+        }
+
+        public Projects()
+        { 
+        
+        }
+
+        public Projects(int IdProject)
+        {
+            this.IdProject = IdProject;
+        }
+
+        public string ProjectName { get; set; }
+        public int IdProject { get; set; }
+        public string ProjectDescription { get; set; }
+    }
+}

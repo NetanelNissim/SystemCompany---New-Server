@@ -1,0 +1,418 @@
+﻿using System;
+using System.Windows.Forms;
+using SystemCustomers.TablesUtils;
+using System.Collections.Generic;
+
+namespace SystemCustomers.ManageCustomers
+{
+    public partial class ManageCustomer : Form
+    {
+        public ManageCustomer()
+        {
+            InitializeComponent();
+        }
+
+        public ManageCustomer(string company, string mail, string fax, string mobile, string phone,
+            string postalnum, string zip, string city, string companynumber,
+            string privatename, string adress, string paymentTerms)
+            : this()
+        {
+            this.PaymentTerms = paymentTerms;
+            this.CompanyName = company;
+            this.Email = mail;
+            this.Fax = fax;
+            this.Mobile = mobile;
+            this.Phone = phone;
+            this.PostalNum = postalnum;
+            this.ZipNum = zip;
+            this.City = city;
+            this.CompanyNumber = companynumber;
+            this.PrivateName = privatename;
+            this.Address = adress;
+        }
+
+        #region Properties
+
+        private bool canAdd = false;
+
+        public string PaymentTerms
+        {
+            get { return this.txtbPaymentTerms.Text; }
+            set { this.txtbPaymentTerms.Text = value; }
+        }
+        public new string CompanyName
+        {
+            get { return this.txtbcompanyName.Text; }
+            set { this.txtbcompanyName.Text = value; }
+        }
+
+        public string Email
+        {
+            get { return this.txtbEmail.Text; }
+            set { this.txtbEmail.Text = value; }
+        }
+
+        public string Fax
+        {
+            get { return this.txtbFAX.Text; }
+            set { this.txtbFAX.Text = value; }
+        }
+
+        public string Mobile
+        {
+            get { return this.txtbMobile.Text; }
+            set { this.txtbMobile.Text = value; }
+        }
+
+        public string Phone
+        {
+            get { return this.txtbPhone.Text; }
+            set { this.txtbPhone.Text = value; }
+        }
+
+        public string PostalNum
+        {
+            get { return this.txtbPostalNum.Text; }
+            set { this.txtbPostalNum.Text = value; }
+        }
+
+        public string ZipNum
+        {
+            get { return this.txtbZipNum.Text; }
+            set { this.txtbZipNum.Text = value; }
+        }
+
+        public string Address
+        {
+            get { return this.txtbAddress.Text; }
+            set { this.txtbAddress.Text = value; }
+        }
+
+        public string City
+        {
+            get { return this.txtbCity.Text; }
+            set { this.txtbCity.Text = value; }
+        }
+
+        public string CompanyNumber
+        {
+            get { return this.txtbCompanyNumber.Text; }
+            set { this.txtbCompanyNumber.Text = value; }
+        }
+
+        public string PrivateName
+        {
+            get { return this.txtbPrivateName.Text; }
+            set { this.txtbPrivateName.Text = value; }
+        }
+        #endregion End Properties Class ManageCustomer
+
+        #region Methud
+        private void EnableAdd()
+        {
+            btnAdd.Enabled = btnupdate.Enabled = IsValid() && canAdd;
+        }
+
+        private bool IsValid()
+        {
+            return (txtbcompanyName.Text.Trim() != string.Empty
+                && txtbCompanyNumber.Text.Trim() != string.Empty);
+        }
+
+        #endregion
+
+        #region Events
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            MessageUtils.LogUtils.WriteToLog(" Exit From Manage Customer ");
+            MessageUtils.LogUtils.SystemEventLogsInformation(" Exit From Manage Customer ");
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            using (var myComp = new ServiceManager.ServiceSystemCompaniesClient())
+            {
+                var comp = new ServiceManager.Companies();
+                comp.Method = "CheckCompanyNumber";
+                comp = myComp.ManageCompanies(comp);
+                //CompanyServices.Instance.CheckCompanyNumber(this.CompanyNumber);
+                if (comp.isBool)
+                {
+                    comp.companyName = CompanyName;
+                    comp.contactName = PrivateName;
+                    comp.mobilePhone = Mobile;
+                    comp.email = Email;
+                    comp.Phone = Phone;
+                    comp.FAX = Fax;
+                    comp.companynumber = CompanyNumber;
+                    comp.address = Address;
+                    comp.city = City;
+                    comp.ZIP = ZipNum;
+                    comp.PostalNum = PostalNum;
+                    comp.paymentTerms = PaymentTerms;
+                    comp.Method = "Insert";
+                    myComp.ManageCompanies(comp);
+                   /* CompanyServices.Instance.InsertCompany(CompanyName, PrivateName, Mobile, Email, Phone,
+                        Fax, CompanyNumber, Address, City,
+                        ZipNum, PostalNum, PaymentTerms);*/
+                    MessageUtils.LogUtils.WriteToLog(" Add Customer: " + CompanyName + " PostalNum:  " + PostalNum);
+                    MessageUtils.LogUtils.SystemEventLogsInformation(" Add Customer: " + CompanyName + " PostalNum:  " + PostalNum);
+                    new MessageUtils.MessageBoxText(string.Format(" לקוח נוסף בהצלחה: {0}", CompanyName)).OkMessaageBox();
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    MessageUtils.LogUtils.WriteToLog(" Customer exist: " + CompanyName);
+                    MessageUtils.LogUtils.SystemEventLogsInformation(" Customer exist: " + CompanyName);
+                    new MessageUtils.MessageBoxText(string.Format(" לקוח קיים במערכת: {0}", CompanyName)).OkMessaageBox();
+                }
+            }
+        }
+
+        private void btnupdate_Click(object sender, EventArgs e)
+        {
+            using (var myComp = new ServiceManager.ServiceSystemCompaniesClient())
+            {
+                var comp = new ServiceManager.Companies();
+                comp.companyName = CompanyName;
+                comp.contactName = PrivateName;
+                comp.mobilePhone = Mobile;
+                comp.email = Email;
+                comp.Phone = Phone;
+                comp.FAX = Fax;
+                comp.companynumber = CompanyNumber;
+                comp.address = Address;
+                comp.city = City;
+                comp.ZIP = ZipNum;
+                comp.PostalNum = PostalNum;
+                comp.paymentTerms = PaymentTerms;
+                comp.idCompany = Convert.ToInt32(FromManageViewingAllCustomers.Id);
+                comp.Method = "Update";
+                myComp.ManageCompanies(comp);
+            }
+          //  CompanyServices.Instance.UpdateCompany(CompanyName, PrivateName, Mobile, Email, Phone, Fax, CompanyNumber, Address,
+           //     City, ZipNum, PostalNum, PaymentTerms, Convert.ToInt32(FromManageViewingAllCustomers.Id));
+            MessageUtils.LogUtils.WriteToLog("  Update the Customer: " + CompanyName);
+            MessageUtils.LogUtils.SystemEventLogsInformation(" Update the Customer: " + CompanyName);
+            new MessageUtils.MessageBoxText(string.Format(" לקוח עודכן בהצלחה: {0}", CompanyName)).OkMessaageBox();
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void txtbcompanyName_TextChanged(object sender, EventArgs e)
+        {
+
+            if (!MyRegEx.Validate(txtbcompanyName.Text, MyRegEx.OnlyCharsSpacesAndApostropheDigitsHebrew))
+            {
+                errorPCustomer.SetError(txtbcompanyName, "רק אותיות גרש ורווחים מותרים");
+                canAdd = false;
+            }
+            else
+            {
+                errorPCustomer.SetError(txtbcompanyName, string.Empty);
+                canAdd = true;
+            }
+            EnableAdd();
+        }
+
+        private void txtbCompanyNumber_TextChanged(object sender, EventArgs e)
+        {
+            if (!MyRegEx.Validate(txtbCompanyNumber.Text, MyRegEx.OnlyFiveDigits))
+            {
+                errorPCustomer.SetError(txtbCompanyNumber, "רק ספרות");
+                canAdd = false;
+            }
+            else
+            {
+                errorPCustomer.SetError(txtbCompanyNumber, string.Empty);
+                canAdd = true;
+            }
+            EnableAdd();
+        }
+
+        private void txtbMobile_TextChanged(object sender, EventArgs e)
+        {
+            if (!MyRegEx.Validate(txtbMobile.Text, MyRegEx.OnlyDigits) && txtbMobile.Text != string.Empty)
+            {
+                errorPCustomer.SetError(txtbMobile, "רק ספרות");
+            }
+            else
+            {
+                errorPCustomer.SetError(txtbMobile, string.Empty);
+            }
+
+        }
+
+        private void txtbEmail_TextChanged(object sender, EventArgs e)
+        {
+            if (!MyRegEx.Validate(txtbEmail.Text, MyRegEx.OnlyFormatEmail) && txtbEmail.Text != string.Empty)
+            {
+                errorPCustomer.SetError(txtbEmail, "חייב להיות מבנה של מייל");
+            }
+            else
+            {
+                errorPCustomer.SetError(txtbEmail, string.Empty);
+            }
+        }
+
+        private void txtbcompanyName_MouseHover(object sender, EventArgs e)
+        {
+            tooltCustomer.SetToolTip(txtbcompanyName, "שדה חובה");
+        }
+
+        private void txtbCompanyNumber_MouseHover(object sender, EventArgs e)
+        {
+            tooltCustomer.SetToolTip(txtbCompanyNumber, "שדה חובה");
+        }
+
+        private void txtbMobile_MouseHover(object sender, EventArgs e)
+        {
+            tooltCustomer.SetToolTip(txtbMobile, "שדה חובה");
+        }
+
+        private void txtbPrivateName_TextChanged(object sender, EventArgs e)
+        {
+            if (!MyRegEx.Validate(txtbPrivateName.Text, MyRegEx.OnlyCharsSpacesAndApostropheDigitsHebrew) && txtbPrivateName.Text != string.Empty)
+            {
+                errorPCustomer.SetError(txtbPrivateName, "רק אותיות גרש ורווחים מותרים");
+            }
+            else
+            {
+                errorPCustomer.SetError(txtbPrivateName, string.Empty);
+            }
+        }
+
+        private void txtbCity_TextChanged(object sender, EventArgs e)
+        {
+            if (!MyRegEx.Validate(txtbCity.Text, MyRegEx.OnlyCharsSpacesAndApostropheDigitsHebrew) && txtbCity.Text != string.Empty)
+            {
+                errorPCustomer.SetError(txtbCity, "רק אותיות גרש ורווחים מותרים");
+            }
+            else
+            {
+                errorPCustomer.SetError(txtbCity, string.Empty);
+            }
+
+        }
+
+        private void txtbAddress_TextChanged(object sender, EventArgs e)
+        {
+            if (!MyRegEx.Validate(txtbAddress.Text, MyRegEx.OnlyCharsSpacesAndApostropheDigitsHebrew) && txtbAddress.Text != string.Empty)
+            {
+                errorPCustomer.SetError(txtbAddress, "רק אותיות גרש ורווחים מותרים");
+            }
+            else
+            {
+                errorPCustomer.SetError(txtbAddress, string.Empty);
+            }
+        }
+
+        private void txtbZipNum_TextChanged(object sender, EventArgs e)
+        {
+            if (!MyRegEx.Validate(txtbZipNum.Text, MyRegEx.OnlyDigits) && txtbZipNum.Text != string.Empty)
+            {
+                errorPCustomer.SetError(txtbZipNum, "רק ספרות");
+            }
+            else
+            {
+                errorPCustomer.SetError(txtbZipNum, string.Empty);
+            }
+
+        }
+
+        private void txtbPostalNum_TextChanged(object sender, EventArgs e)
+        {
+
+            if (!MyRegEx.Validate(txtbPostalNum.Text, MyRegEx.OnlyDigits) && txtbPostalNum.Text != string.Empty)
+            {
+                errorPCustomer.SetError(txtbPostalNum, "רק ספרות");
+            }
+            else
+            {
+                errorPCustomer.SetError(txtbPostalNum, string.Empty);
+            }
+        }
+
+        private void txtbPhone_TextChanged(object sender, EventArgs e)
+        {
+            if (!MyRegEx.Validate(txtbPhone.Text, MyRegEx.OnlyDigits) && txtbPhone.Text != string.Empty)
+            {
+                errorPCustomer.SetError(txtbPhone, "רק ספרות");
+            }
+            else
+            {
+                errorPCustomer.SetError(txtbPhone, string.Empty);
+            }
+        }
+
+        private void txtbFAX_TextChanged(object sender, EventArgs e)
+        {
+            if (!MyRegEx.Validate(txtbFAX.Text, MyRegEx.OnlyDigits) && txtbFAX.Text != string.Empty)
+            {
+                errorPCustomer.SetError(txtbFAX, "רק ספרות");
+            }
+            else
+            {
+                errorPCustomer.SetError(txtbFAX, string.Empty);
+            }
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            const int WM_KEYDOWN = 0x100;
+            // Only Process Key Down events for the Escape Key
+            if (msg.Msg == WM_KEYDOWN)
+            {
+                if (keyData == Keys.Escape)
+                {
+                    this.Close();
+                    // DialogResult = DialogResult.Cancel;
+                    // Could call cancel click handler here
+                    // Return true to indicate that Escape key was handled
+                    return true;
+                }
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void txtbMobile_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtbPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtbPostalNum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtbFAX_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtbZipNum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtbCompanyNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+        #endregion Events
+    }
+}

@@ -1,0 +1,176 @@
+﻿using System;
+using System.Windows.Forms;
+using SystemCustomers.MessageUtils;
+using SystemCustomers.TablesUtils;
+using System.Collections.Generic;
+using Services;
+
+namespace SystemCustomers.ManageServiceCalls
+{
+    public partial class ServiceCalls1 : Form
+    {
+        public ServiceCalls1(bool isAddSeviceCall)
+        {
+            InitializeComponent();
+            btnUpdate1.Enabled = isAddSeviceCall;
+            this.IsForSpecificServiceCalls = false;
+            InitializeListCustomers();
+            InitializeListPriority();
+            btnAddCallsServices1.Enabled = false;
+        }
+
+           public ServiceCalls1(string idCallsServices, string idCustomers, string customerName,
+             string discriptions, string priority, string idPriority)
+        {
+            InitializeComponent();
+            this.btnAddCallsServices1.Visible = false;
+            this.btnUpdate1.Visible = true;
+            this.IsForSpecificServiceCalls = true;
+            this.IdCallsServices = idCallsServices;
+            this.IdCompany = idCustomers;
+            this.CompanyName = customerName;
+            this.Discription = discriptions;
+            this.Priority = priority;
+            this.IdPriority = idPriority;
+            InitializeListCustomers();
+            InitializeListPriority();
+        }
+
+        #region property
+
+        public bool IsForSpecificServiceCalls { get; set;}
+        
+        public string IdCallsServices { get; set; }
+
+        public new string CompanyName { get; set;}
+
+        public string IdCompany { get; set;}
+
+        public string Priority { get; set; }
+
+        public string IdPriority { get; set; }
+
+        public string Discription
+        {
+            get { return txtbDiscriptions1.Text; }
+            set { txtbDiscriptions1.Text = value; }
+        }
+
+        private DateTime _dateOpenCalls = DateTime.Now;
+
+        public DateTime DateOpenCalls
+        {
+            get { return _dateOpenCalls; }
+            set { _dateOpenCalls = value; }
+        }
+
+        #endregion property
+
+        #region Method
+
+        private void InitializeListPriority()
+        {
+            if (IsForSpecificServiceCalls)
+            {
+                combPriority1.Items.Clear();
+                IDToName calls = new IDToName(this.Priority, this.IdPriority);
+                combPriority1.Items.Add(calls);
+                btnUpdate1.Enabled = true;
+            }
+            else
+            {
+               // PriorityServices.Instance.GetAllPriorities();
+                foreach (var listPriority in PriorityServices.Instance.GetAllPrioritiesToDropDown())
+                {
+                    this.Priority = listPriority.TypePriority;
+                    this.IdPriority = Convert.ToString(listPriority.IdPriority);
+                    IDToName priority = new IDToName(this.Priority, this.IdPriority);
+                    combPriority1.Items.Add(priority);
+                }
+            }
+            if (combPriority1.Items.Count > 0) combPriority1.SelectedIndex = 0;
+
+        }
+
+        private void InitializeListCustomers()
+        {
+            if (IsForSpecificServiceCalls)
+            {
+                combListCustomers1.Items.Clear();
+                IDToName customers = new IDToName(this.CompanyName, this.IdCompany);
+                combListCustomers1.Items.Add(customers);
+            }
+            else
+            {
+                foreach (var item in CompanyServices.Instance.GetAllCustomersToDropDown())
+                {
+                    CompanyName = item.companyName;
+                    this.IdCompany = item.idCompany.ToString();
+                    IDToName company = new IDToName(this.CompanyName, this.IdCompany);
+                    combListCustomers1.Items.Add(company);
+                }
+            }
+            if (combListCustomers1.Items.Count > 0) combListCustomers1.SelectedIndex = 0;
+
+        }
+
+        private void combListCustomers1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            IDToName customers = (IDToName)this.combListCustomers1.SelectedItem;
+            if (customers == null) return;
+            this.IdCompany = customers.ID;
+            this.CompanyName = customers.Name;
+        }
+
+        private void combPriority1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            IDToName priority = (IDToName)this.combPriority1.SelectedItem;
+            if (priority == null) return;
+            this.IdPriority = priority.ID;
+            this.Priority = priority.Name;
+        }
+
+        private void txtbDiscriptions1_TextChanged(object sender, EventArgs e)
+        {
+            if (txtbDiscriptions1.Text.Trim() != string.Empty)
+            {
+                btnAddCallsServices1.Enabled = true;
+            }
+            else
+            {
+                btnAddCallsServices1.Enabled = false;
+            }
+        }
+
+        private void btnAddCallsServices1_Click(object sender, EventArgs e)
+        {
+            ServiceCallsServices.Instance.InsertServiceCalls(DateOpenCalls, Discription, Convert.ToInt32(IdCompany), Convert.ToInt32(IdPriority));
+            LogUtils.WriteToLog(" Add Calls Services");
+            LogUtils.SystemEventLogsInformation(" Add Calls Services");
+            new MessageBoxText("נוסף בהצלחה").OkMessaageBox();
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void btnUpdate1_Click(object sender, EventArgs e)
+        {
+            ServiceCallsServices.Instance.UpdateServiceCalls(Discription, Convert.ToInt32(IdCallsServices));
+            LogUtils.WriteToLog(" Update Service Calls");
+            LogUtils.SystemEventLogsInformation(" Update Service Calls");
+            new MessageBoxText("עודכן בהצלחה").OkMessaageBox();
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void ServiceCalls1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.DialogResult = DialogResult.Cancel;
+                this.Close();
+            }
+        }
+
+        #endregion Method
+    }
+}

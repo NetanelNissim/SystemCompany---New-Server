@@ -1,0 +1,71 @@
+﻿using System.Windows.Forms;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.IO;
+using System.ServiceModel;
+
+namespace SystemCustomers.ManageServices
+{
+    public class FormViewingServices
+    {
+        public static string Id { get; set; }
+
+        public DataTable InitServicedatagrid()
+        {
+            using (var ds = new DataSet())
+            {
+                using (var serviceService = new ServiceManager.ServiceSystemCompaniesClient())
+                {
+                    var service = new ServiceManager.Service();
+                    service.Method = "GetAllService";
+                    service = serviceService.MangeServices(service);
+                    StringReader reader = new StringReader(service.ServiceData);
+                    ds.ReadXml(reader);
+                }
+                return ds.Tables["Service"];
+            }
+        }
+
+        public DialogResult EditService(DataGridViewRow dr)
+        {
+            using (var service = new ManageServiceType(dr.Cells["servicesName"].Value.ToString()))
+            {
+                Id = dr.Cells["idService_Services"].Value.ToString();
+                service.btnAdd.Visible = false;
+                MessageUtils.LogUtils.WriteToLog(string.Format(" Edit Row Viewing All Services: {0}", dr.Cells["servicesName"].Value));
+                MessageUtils.LogUtils.SystemEventLogsInformation(string.Format(" Edit Row Viewing All Services: {0}", dr.Cells["servicesName"].Value));
+                return service.ShowDialog();
+            }
+        }
+
+        public void DeleteService(DataGridViewRow dr)
+        {
+            Id = dr.Cells["idService_Services"].Value.ToString();
+            try
+            {
+                using (var serviceService = new ServiceManager.ServiceSystemCompaniesClient())
+                {
+                    var service = new ServiceManager.Service();
+                    service.Method = "Delete";
+                    service.IdService = Convert.ToInt32(Id);
+                    serviceService.MangeServices(service);
+                }
+            }
+            catch (FaultException e)
+            {
+                if (e.Code.Name == "Data Access Error")
+                {
+                    MessageUtils.LogUtils.WriteToLog(string.Format("Handling data access exception {0}", e.Reason));
+                    Console.WriteLine("Handling data access exception {0}", e.Reason);
+                }
+            }
+
+
+            // ServiceServices.Instance.DeleteService(Convert.ToInt32(Id));
+            MessageUtils.LogUtils.WriteToLog(" Delete Row Viewing All Services: " +
+                                           dr.Cells["servicesName"].Value);
+            MessageUtils.LogUtils.SystemEventLogsInformation(string.Format(" Delete Row Viewing All Services: {0}", dr.Cells["servicesName"].Value));
+        }
+    }
+}

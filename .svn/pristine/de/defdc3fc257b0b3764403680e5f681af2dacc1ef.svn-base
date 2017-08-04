@@ -1,0 +1,82 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Entities;
+using EntityFrameworkDAL;
+using Server;
+using SystemCustomers.DBUtils;
+
+
+namespace DataAccessLayer
+{
+    public class ServicesPersister 
+    {
+        #region Singleton
+        private ServicesPersister()
+        {
+        }
+        private static ServicesPersister instance;
+        public static ServicesPersister Instance
+        {
+            get { return instance ?? (instance = new ServicesPersister()); }
+        }
+        #endregion Singleton
+
+        private static Service ConvertServices(Services service)
+        {
+            return new Service
+                       {
+                           servicesName = service.servicesName,
+                           idService = service.IdService                         
+                       };
+        }
+
+
+        private static Service ConvertIdService(Services service)
+        {
+            return new Service
+            {
+                idService = service.IdService
+            };
+        }
+
+
+        public void InsertService(string serviceName)
+        {
+            var service = new Services(serviceName);
+            ServicesDataServices.Instance.InsertService(ConvertServices(service));
+        }
+
+        public IEnumerable<Services> GetAllServices()
+        {
+            var service = ServicesDataServices.Instance.ViewingServices();
+            return service.Select(serivce => new Services(serivce.servicesName, serivce.idService)).ToList();
+        }
+
+        public void UpdateService(string  serviceName, int idService)
+        {
+            var service = new Services(serviceName, idService);
+            ServicesDataServices.Instance.UpdateService(ConvertServices(service));
+        }
+
+        public void DeleteService(int idService)
+        {
+            try
+            {
+                var service = new Services(idService);
+                ServicesDataServices.Instance.DeleteService(ConvertIdService(service));
+            }
+            catch (ExecutionEngineException)
+            {
+                throw;
+            }
+        }
+
+        public IEnumerable<Services> CheckServiceId()
+        {
+            var service = ServicesDataServices.Instance.ViewingServices();
+            return service.Select(serivce => new Services(serivce.idService)).ToList();
+        }
+    }
+}

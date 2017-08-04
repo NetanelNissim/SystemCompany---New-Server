@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Entities;
+using DataAccessLayer;
+
+namespace Services
+{
+    public class ProjectsServices
+    {
+        private static ProjectsServices instance;
+        public static ProjectsServices Instance
+        {
+            get { return instance ?? (instance = new ProjectsServices()); }
+        }
+
+        public void InsertProject(string projectName, string projectDescription)
+        {
+            ProjectsPersister.Instance.InsertProject(projectName, projectDescription);
+        }
+
+        public void UpdateProject(string projectName, string projectDescription)
+        {
+            ProjectsPersister.Instance.UpdateProject(projectName, projectDescription);
+        }
+
+        public IEnumerable<Entities.Projects> GetAllProjects()
+        {
+            return ProjectsPersister.Instance.GetAllProjects();
+        }
+
+        public void DeleteService(int idProject)
+        {
+            ProjectsPersister.Instance.DeleteService(idProject);
+        }
+    }
+}

@@ -1,0 +1,93 @@
+﻿using System;
+using System.IO;
+using System.Windows.Forms;
+using System.Collections.Generic;
+using System.Linq;
+using Services;
+using Entities;
+using Layers;
+
+
+namespace SystemCustomers.ManageProjectToCustomers
+{
+    class ManageViewingProjectToCompany
+    {
+        public List<ProjectCompanies> InitializeListProjectCompany()
+        {
+            return new ManageProjectToCompanyLayers().InitializeListProjectCompany();
+        }
+
+ /*       private string SaveAttachment(byte[] objData, string strFileToSave)
+        {     var objSfd = new SaveFileDialog();
+              objSfd.FileName = strFileToSave;
+              string[] getfiledate = strFileToSave.Split(new[] { '.' });
+              string fileType = getfiledate[1];
+         
+              switch (fileType)
+              {
+                  case "docx":
+                      objSfd.Filter = string.Format("Word Doc (*.{0})|*.{0}", fileType);
+                      break;
+                  case "doc":
+                      objSfd.Filter = string.Format("Word Doc (*.{0})|*.{0}", fileType);
+                      break;
+                  case "mp3":
+                      objSfd.Filter = string.Format("MP3 (*.{0})|*.{0}", fileType);
+                      break;
+                  case "pdf":
+                      objSfd.Filter = string.Format("PDF (*.{0})|*.{0}", fileType);
+                      break;
+              }
+
+              if (objSfd.ShowDialog() != DialogResult.Cancel)
+              {
+                 string  strFileToSave1 = objSfd.FileName;
+                  var objFileStream = new FileStream(strFileToSave1, FileMode.Create, FileAccess.Write);
+                  objFileStream.Write(objData, 0, objData.Length);
+                  objFileStream.Close();
+                  return strFileToSave1;
+              }
+            return null;
+        }*/
+
+        public List<ProjectCompanies> GetDestination()
+        {
+            return new ManageProjectToCompanyLayers().GetDestination();
+        }
+
+        public DialogResult EditProjectCompany(DataGridViewRow dr)
+        {
+           
+            var companyId = dr.Cells["idCompany"].Value.ToString();
+            var projectId = dr.Cells["ProjectId"].Value.ToString();
+            var destination = dr.Cells["destination"].Value.ToString();
+            var companyName = dr.Cells["NameCompany"].Value.ToString();
+            var projectName = dr.Cells["NameProject"].Value.ToString();
+            var priceType = dr.Cells["priceType"].Value.ToString();
+            var discription = dr.Cells["Discription"].Value.ToString();
+            var paid = dr.Cells["paid"].Value.ToString();
+            using (
+                var editData = new AddProjectCustomers(companyName, projectName, companyId, projectId,
+                                                       priceType,
+                                                       discription,
+                                                       paid,
+                                                       destination,
+                                                       DateTime.Parse(dr.Cells["DateStartProject"].Value.ToString()),
+                                                       DateTime.Parse(dr.Cells["DateFinishProject"].Value.ToString())))
+            {
+                editData.btnAdd.Visible = false;
+                return editData.ShowDialog();
+            }
+        }
+
+        public void DeleteProjectCompany(DataGridViewRow dr)
+        {
+            int companyId = Convert.ToInt16(dr.Cells["idCompany"].Value.ToString());
+            int projectId = Convert.ToInt16(dr.Cells["ProjectId"].Value.ToString());
+            var objProjectToCompany = new ManageProjectToCompanyLayers();
+            objProjectToCompany.IdProject = projectId;
+            objProjectToCompany.CompanyId = companyId;
+            objProjectToCompany.DeleteProjectToCompany();
+        }
+    }
+}
