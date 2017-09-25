@@ -11,21 +11,21 @@ namespace WindowsServiceSystemCompany
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        static void Main()
+        static void Main(string[] args)
         {
          ServiceBase[] ServicesToRun;
               ServicesToRun = new ServiceBase[] 
             { 
-                new ServiceSystemCompany() 
+                new wsRestSystemCompany() 
             };
             ServiceBase.Run(ServicesToRun);  
-                                
-          /*  #if DEBUG
+                                   
+           /* #if DEBUG
                       var ser = new ServiceSystemCompany();
-                      ser.OnDebug();
+                      ser.OnDebug(args);
           #else 
 
-          #endif      */   
+          #endif  */    
             
 
         }

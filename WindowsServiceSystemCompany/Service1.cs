@@ -11,23 +11,24 @@ using System.Threading;
 
 namespace WindowsServiceSystemCompany
 {
-    public partial class ServiceSystemCompany : ServiceBase
+    public partial class wsRestSystemCompany : ServiceBase
     {
         private ServiceHost _wcfManageSystemCompany;
 
-        public ServiceSystemCompany()
+        public wsRestSystemCompany()
         {
             InitializeComponent();
         }
 
-        public void OnDebug()
+        public void OnDebug(string[] args)
         {
-            OnStart(null);
+            OnStart(args);
         }
 
         protected override void OnStart(string[] args)
         {
-           // Thread.Sleep(1000);
+            // Thread.Sleep(1000);
+           
             _wcfManageSystemCompany = new ServiceHost(typeof(WcfServiceLibrarySystemCompanies.ServiceSystemCompanies));
             _wcfManageSystemCompany.Open();
         }

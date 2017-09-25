@@ -39,5 +39,26 @@ namespace WcfServiceLibrarySystemCompanies
 
         [OperationContract]
         ServiceToCompany ManageServiceToCompany(ServiceToCompany serviceToCompany);
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/CheckConnection", ResponseFormat = WebMessageFormat.Json)]
+        bool CheckConnection();
+
+       /* [OperationContract]
+        [WebInvoke(UriTemplate = "/CheckConnection",
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json, Method = "POST")]                   
+        bool CheckConnection();*/
+
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "/TestCheck",
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json, Method = "POST")]
+        string TestCheck();
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/GetCompanies", ResponseFormat = WebMessageFormat.Json)]
+        string GetCompanies();
     }
 }

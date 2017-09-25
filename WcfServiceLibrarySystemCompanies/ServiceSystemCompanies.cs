@@ -8,6 +8,7 @@ using System.Text;
 using Services;
 using WcfServiceLibrarySystemCompanies.DataContracts;
 using System.Diagnostics;
+using Newtonsoft.Json;
 
 namespace WcfServiceLibrarySystemCompanies
 {
@@ -18,6 +19,8 @@ namespace WcfServiceLibrarySystemCompanies
         {
             var objUser = new ServiceUsers();
             //WriteToLog("Method Name: " + user.Method);
+            //WriteToLog("TestGit: " + user.Method);
+
             switch (user.Method)
             {
                 case "Insert":
@@ -46,6 +49,26 @@ namespace WcfServiceLibrarySystemCompanies
                     break;
             }
             return user;
+        }
+
+        public bool CheckConnection()
+        {
+            var objUser = new ServiceUsers();
+           // WriteToLog("CheckConnection!!!! ");
+            return objUser.CheckConnection();
+        }
+
+        public string GetCompanies()
+        { 
+            var objCompany = new ServiceCompanies();
+            string JSONresult;
+            JSONresult = JsonConvert.SerializeObject(objCompany.GetCompaniesDataTable());
+            return JSONresult;
+        }
+
+        public string TestCheck()
+        {
+            return "TestNetanel";
         }
 
         private void WriteToLog(string v)

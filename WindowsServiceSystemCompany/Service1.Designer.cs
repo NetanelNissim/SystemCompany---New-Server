@@ -1,6 +1,6 @@
 ﻿namespace WindowsServiceSystemCompany
 {
-    partial class ServiceSystemCompany
+    partial class wsRestSystemCompany
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             // 
-            // ServiceSystemCompany
+            // wsRestSystemCompany
             // 
-            this.ServiceName = "ServiceSystemCompany";
+            this.ServiceName = "wsRestSystemCompany";
 
         }
 
