@@ -58,7 +58,7 @@ namespace WcfServiceLibrarySystemCompanies
         string TestCheck();
 
         [OperationContract]
-        [WebGet(UriTemplate = "/GetCompanies", ResponseFormat = WebMessageFormat.Json)]
+        [WebInvoke(Method = "GET", UriTemplate = "/GetAllCustomer", ResponseFormat = WebMessageFormat.Json)]
         string GetCompanies();
     }
 }

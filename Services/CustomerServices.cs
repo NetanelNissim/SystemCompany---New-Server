@@ -42,6 +42,10 @@ namespace Services
             CompanyPersister.Instance.DeleteCompany(idCompany);
         }
 
+        public Companies GetCompanyById(int idCompany)
+        {
+            return CompanyPersister.Instance.GetCompanyById(idCompany); 
+        }
 
         public bool CheckCompanyNumber(string companyNumber)
         {

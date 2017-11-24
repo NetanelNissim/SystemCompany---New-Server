@@ -107,6 +107,15 @@ namespace SystemCustomers.DBUtils
             }
         }
 
+        public Company GetCompanyById(Company company)
+        {
+            using (var ctx = new SystemCompanyEntities())
+            {
+                var companyToDelete = ctx.Companys.First(e => e.idCompany == company.idCompany);
+                return companyToDelete;
+            }
+        }
+
 /*
         public List<Company> GetCompanyNameAndId()
         {

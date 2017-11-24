@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Services;
 using System.Data;
+using Newtonsoft.Json;
 
 namespace WcfServiceLibrarySystemCompanies
 {
@@ -13,6 +14,12 @@ namespace WcfServiceLibrarySystemCompanies
         {
             CompanyServices.Instance.DeleteCompany(comp.idCompany);
         }
+
+       /* public string GetCompanyById(Companies comp)
+        {
+           return JsonConvert.SerializeObject(CompanyServices.Instance.GetCompanyById(comp.idCompany), Formatting.Indented);
+           // return CompanyServices.Instance.GetCompanyById(comp.idCompany);
+        }*/
 
         public void Insert(Companies comp)
         {

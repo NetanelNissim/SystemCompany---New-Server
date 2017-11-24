@@ -62,7 +62,7 @@ namespace WcfServiceLibrarySystemCompanies
         { 
             var objCompany = new ServiceCompanies();
             string JSONresult;
-            JSONresult = JsonConvert.SerializeObject(objCompany.GetCompaniesDataTable());
+            JSONresult = JsonConvert.SerializeObject(objCompany.GetCompaniesDataTable(), Formatting.Indented);
             return JSONresult;
         }
 

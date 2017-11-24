@@ -117,6 +117,12 @@ namespace DataAccessLayer
             CustomersDataServices.Instance.DeleteCompany(company.MapTo(new Company()));
         }
 
+        public Companies GetCompanyById(int idCompany)
+        {
+            var company = new Companies(idCompany);
+            return CustomersDataServices.Instance.GetCompanyById(company.MapTo(new Company())).MapTo(new Companies());
+        }
+
         public IEnumerable<Companies> CheckCompanyNumber()
         {
             var customers = CustomersDataServices.Instance.ViewingCompanys();
