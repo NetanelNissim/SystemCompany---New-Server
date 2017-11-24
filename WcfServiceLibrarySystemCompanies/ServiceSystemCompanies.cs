@@ -20,7 +20,7 @@ namespace WcfServiceLibrarySystemCompanies
             var objUser = new ServiceUsers();
             //WriteToLog("Method Name: " + user.Method);
             //WriteToLog("TestGit: " + user.Method);
-
+ 
             switch (user.Method)
             {
                 case "Insert":
